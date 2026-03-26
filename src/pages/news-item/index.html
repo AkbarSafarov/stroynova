@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Название новости — Строй Нова" %}
+{% set description = "Описание новости от строительной компании Строй Нова." %}
+{% set canonical = "https://stroynova.ru/news-item/" %}
+
+{% block content %}
+<article class="section" aria-labelledby="news-item-heading" itemscope itemtype="https://schema.org/Article">
+  <div class="container container--narrow">
+    <h1 id="news-item-heading" class="section__title" itemprop="headline">Название новости</h1>
+    <div class="article__meta">
+      <time datetime="2025-03-01" itemprop="datePublished">1 марта 2025</time>
+    </div>
+    <div class="article__content" itemprop="articleBody">
+      <!-- Контент новости -->
+    </div>
+  </div>
+</article>
+{% endblock %}

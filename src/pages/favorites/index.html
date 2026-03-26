@@ -1,0 +1,16 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Избранное — Строй Нова" %}
+{% set description = "Сохранённые квартиры и проекты. Сравнивайте и выбирайте лучший вариант." %}
+{% set robots = "noindex, nofollow" %}
+{% set canonical = "https://stroynova.ru/favorites/" %}
+
+{% block content %}
+<section class="section" aria-labelledby="favorites-heading">
+  <div class="container">
+    <div class="section__header">
+      <h1 id="favorites-heading" class="section__title">Избранное</h1>
+    </div>
+    <!-- Контент избранного (рендерится через JS) -->
+  </div>
+</section>
+{% endblock %}

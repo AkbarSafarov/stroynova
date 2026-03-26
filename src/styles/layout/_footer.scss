@@ -1,0 +1,71 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Footer
+// ========================================
+
+.footer {
+  background-color: $color-bg-alt;
+  border-top: 1px solid $color-border;
+  padding-block: $spacing-12;
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: $spacing-8;
+    grid-template-columns: 1fr;
+
+    @include respond-to('md') {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__brand {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-3;
+  }
+
+  &__description {
+    color: $color-text-light;
+    font-size: $font-size-sm;
+    max-width: 300px;
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-4;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: $color-text-light;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__bottom {
+    margin-top: $spacing-12;
+    padding-top: $spacing-6;
+    border-top: 1px solid $color-border;
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+    font-size: $font-size-sm;
+    color: $color-text-light;
+  }
+}

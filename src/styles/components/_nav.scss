@@ -1,0 +1,62 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Navigation
+// ========================================
+
+.nav {
+  &__list { display: flex; align-items: center; gap: $spacing-6; }
+  &__item { position: relative; }
+
+  &__link {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-text;
+    text-decoration: none;
+    padding-block: $spacing-2;
+    @include transition(color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background-color: $color-primary;
+      transition: width $transition-base;
+    }
+
+    &:hover, &[aria-current='page'] {
+      color: $color-primary;
+      &::after { width: 100%; }
+    }
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 64px 0 0 0;
+  background-color: $color-bg;
+  padding: $spacing-6;
+  transform: translateX(-100%);
+  transition: transform $transition-base;
+  z-index: $z-overlay;
+  overflow-y: auto;
+
+  &.is-open { transform: translateX(0); }
+
+  &__list { display: flex; flex-direction: column; gap: $spacing-2; }
+
+  &__link {
+    display: block;
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-lg;
+    color: $color-text;
+    text-decoration: none;
+    border-radius: $radius-md;
+    @include transition(background-color, color);
+
+    &:hover, &[aria-current='page'] {
+      background-color: $color-bg-alt;
+      color: $color-primary;
+    }
+  }
+}

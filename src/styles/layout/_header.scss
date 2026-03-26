@@ -1,0 +1,76 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Header
+// ========================================
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background-color: $color-bg;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+
+  &__inner {
+    @include container;
+    @include flex-between;
+    height: 64px;
+    gap: $spacing-6;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+    color: $color-text;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include respond-to('md') {
+      display: flex;
+      align-items: center;
+      gap: $spacing-8;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+  }
+
+  &__burger {
+    @include button-reset;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: $spacing-2;
+
+    @include respond-to('md') {
+      display: none;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $color-text;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+
+    &[aria-expanded='true'] {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+}

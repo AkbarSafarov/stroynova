@@ -1,0 +1,74 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Контакты — Строй Нова" %}
+{% set description = "Контакты строительной компании Строй Нова: адрес, телефон, email и форма обратной связи." %}
+{% set canonical = "https://stroynova.ru/contacts/" %}
+
+{% block content %}
+<section class="section" aria-labelledby="contacts-heading">
+  <div class="container">
+    <div class="section__header">
+      <h1 id="contacts-heading" class="section__title">Контакты</h1>
+    </div>
+
+    <div class="contacts">
+      <div class="contacts__info">
+        <!-- Контактная информация -->
+        <address class="contacts__address" itemscope itemtype="https://schema.org/PostalAddress">
+          <!-- Адрес, телефон, email -->
+        </address>
+      </div>
+
+      <div class="contacts__form">
+        <h2 class="contacts__form-title">Написать нам</h2>
+        <form class="form" action="/api/contact" method="POST" novalidate aria-labelledby="contacts-heading">
+          <div class="form__group">
+            <label class="form__label" for="name">
+              Имя <span class="form__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Иван Иванов"
+              autocomplete="name"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="phone">
+              Телефон <span class="form__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+7 000 000-00-00"
+              autocomplete="tel"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="message">Сообщение</label>
+            <textarea
+              class="form__textarea"
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Ваш вопрос..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg">
+            Отправить
+            <svg width="20" height="20" aria-hidden="true"><use href="/assets/svg/sprite.svg#icon-arrow-right" /></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

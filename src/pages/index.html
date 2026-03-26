@@ -1,0 +1,223 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Строй Нова — Строительная компания" %}
+{% set description = "Строй Нова — надёжный застройщик. Современные жилые комплексы, удобные квартиры и прозрачные условия покупки." %}
+{% set canonical = "https://stroynova.ru/" %}
+
+{% block content %}
+
+  <!-- HERO -->
+  <section class="section section--hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero">
+        <div class="hero__content">
+          <p class="hero__label">Добро пожаловать</p>
+          <h1 id="hero-heading" class="hero__title">
+            Строим дома,<br />
+            <span class="hero__title-accent">в которых хочется жить</span>
+          </h1>
+          <p class="hero__description">
+            Надёжный застройщик с многолетним опытом. Современные жилые комплексы,
+            прозрачные условия и забота о каждом покупателе.
+          </p>
+          <div class="hero__actions">
+            <a href="/catalog/" class="btn btn--primary btn--lg">Каталог проектов</a>
+            <a href="/apartments/" class="btn btn--secondary btn--lg">Выбрать квартиру</a>
+          </div>
+        </div>
+        <div class="hero__image" aria-hidden="true">
+          <picture>
+            <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+            <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+            <img
+              src="/assets/images/main-image.jpg"
+              alt="Современный жилой комплекс от Строй Нова"
+              width="600"
+              height="500"
+              loading="eager"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section class="section" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section__header">
+        <h2 id="features-heading" class="section__title">Почему выбирают нас</h2>
+        <p class="section__subtitle">Строим с заботой о людях и качестве</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
+          </div>
+          <h3 class="feature-card__title">Надёжность</h3>
+          <p class="feature-card__text">Сдаём объекты в срок. Все проекты застрахованы и соответствуют строительным нормам.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
+          </div>
+          <h3 class="feature-card__title">Современные планировки</h3>
+          <p class="feature-card__text">Продуманные квартиры с европланировками, панорамными окнами и удобной инфраструктурой.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
+          </div>
+          <h3 class="feature-card__title">Прозрачные условия</h3>
+          <p class="feature-card__text">Ипотека, рассрочка, материнский капитал — помогаем выбрать удобный способ покупки.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- НОВОСТИ -->
+  <section class="section section--alt" aria-labelledby="news-heading">
+    <div class="container">
+      <div class="section__header">
+        <h2 id="news-heading" class="section__title">Последние новости</h2>
+        <a href="/news/" class="section__link">Все новости</a>
+      </div>
+      <div class="grid grid--3">
+
+        <article class="card" itemscope itemtype="https://schema.org/Article">
+          <div class="card__image">
+            <img
+              src="/assets/images/placeholder.webp"
+              alt="Открытие нового жилого комплекса"
+              width="400"
+              height="225"
+              loading="lazy"
+              itemprop="image"
+            />
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Новости</span>
+            <h3 class="card__title" itemprop="headline">
+              <a href="/news-item/" itemprop="url">Открытие продаж в ЖК «Солнечный»</a>
+            </h3>
+            <p class="card__text" itemprop="description">
+              Рады объявить о старте продаж в новом жилом комплексе комфорт-класса.
+            </p>
+          </div>
+          <footer class="card__footer">
+            <time datetime="2025-03-01" itemprop="datePublished">1 марта 2025</time>
+          </footer>
+        </article>
+
+        <article class="card" itemscope itemtype="https://schema.org/Article">
+          <div class="card__image">
+            <img
+              src="/assets/images/placeholder.webp"
+              alt="Специальные условия по ипотеке"
+              width="400"
+              height="225"
+              loading="lazy"
+              itemprop="image"
+            />
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Акции</span>
+            <h3 class="card__title" itemprop="headline">
+              <a href="/promotions/" itemprop="url">Ипотека от 5,9% на готовые квартиры</a>
+            </h3>
+            <p class="card__text" itemprop="description">
+              Специальные условия совместно с ведущими банками до конца месяца.
+            </p>
+          </div>
+          <footer class="card__footer">
+            <time datetime="2025-02-15" itemprop="datePublished">15 февраля 2025</time>
+          </footer>
+        </article>
+
+        <article class="card" itemscope itemtype="https://schema.org/Article">
+          <div class="card__image">
+            <img
+              src="/assets/images/placeholder.webp"
+              alt="Сдача объекта"
+              width="400"
+              height="225"
+              loading="lazy"
+              itemprop="image"
+            />
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Завершено</span>
+            <h3 class="card__title" itemprop="headline">
+              <a href="/news-item/" itemprop="url">ЖК «Парковый» сдан в эксплуатацию</a>
+            </h3>
+            <p class="card__text" itemprop="description">
+              Все 240 квартир переданы владельцам. Поздравляем новосёлов!
+            </p>
+          </div>
+          <footer class="card__footer">
+            <time datetime="2025-01-20" itemprop="datePublished">20 января 2025</time>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <div class="section__header">
+        <h2 id="faq-heading" class="section__title">Часто задаваемые вопросы</h2>
+        <a href="/faq/" class="section__link">Все вопросы</a>
+      </div>
+
+      <div itemscope itemtype="https://schema.org/FAQPage">
+        <div class="accordion">
+
+          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details class="accordion__details">
+              <summary class="accordion__summary">
+                <span itemprop="name">Как купить квартиру в ипотеку?</span>
+                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Оставьте заявку на сайте или свяжитесь с нашим менеджером. Мы работаем с ведущими банками и поможем выбрать выгодную программу ипотеки.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details class="accordion__details">
+              <summary class="accordion__summary">
+                <span itemprop="name">Можно ли использовать материнский капитал?</span>
+                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">Да, принимаем материнский капитал как первоначальный взнос или для частичного погашения ипотеки.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details class="accordion__details">
+              <summary class="accordion__summary">
+                <span itemprop="name">Когда будут сданы объекты в 2025 году?</span>
+                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">В 2025 году планируется сдача трёх объектов: ЖК «Солнечный» (II квартал), ЖК «Берёзовый» (III квартал), ЖК «Центральный» (IV квартал).</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

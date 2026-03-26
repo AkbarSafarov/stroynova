@@ -1,0 +1,20 @@
+{% extends "layouts/base.njk" %}
+{% set title = "Часто задаваемые вопросы — Строй Нова" %}
+{% set description = "Ответы на популярные вопросы о покупке квартиры, ипотеке, ходе строительства и условиях сделки." %}
+{% set canonical = "https://stroynova.ru/faq/" %}
+
+{% block content %}
+<section class="section" aria-labelledby="faq-heading">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <h1 id="faq-heading" class="section__title">Часто задаваемые вопросы</h1>
+    </div>
+
+    <div itemscope itemtype="https://schema.org/FAQPage">
+      <div class="accordion">
+        <!-- FAQ items -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

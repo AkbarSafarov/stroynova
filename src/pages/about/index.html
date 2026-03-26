@@ -1,0 +1,35 @@
+{% extends "layouts/base.njk" %}
+{% set title = "О компании — Строй Нова" %}
+{% set description = "Строй Нова — надёжный застройщик с многолетним опытом. История компании, ценности и команда." %}
+{% set canonical = "https://stroynova.ru/about/" %}
+
+{% block content %}
+
+  <!-- О компании -->
+  <section class="section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section__header">
+        <h1 id="about-heading" class="section__title">О компании</h1>
+        <p class="section__subtitle">Строим качественное жильё с 2005 года</p>
+      </div>
+      <!-- Контент о компании -->
+    </div>
+  </section>
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Строй Нова",
+    "url": "https://stroynova.ru",
+    "logo": "https://stroynova.ru/favicon.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+7-000-000-00-00",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+
+{% endblock %}

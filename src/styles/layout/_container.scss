@@ -1,0 +1,16 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Layout — Container
+// ========================================
+
+.container {
+  @include container;
+}
+
+.container--narrow {
+  max-width: 768px;
+}
+
+.container--wide {
+  max-width: 1536px;
+}
