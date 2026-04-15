@@ -53,6 +53,7 @@ export default defineConfig({
     removeCrossOriginPlugin(),
   ],
   css: {
+    devSourcemap: true,
     preprocessorOptions: {
       scss: {
         silenceDeprecations: ['legacy-js-api'],

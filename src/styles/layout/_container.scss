@@ -4,7 +4,11 @@
 // ========================================
 
 .container {
-  @include container;
+    @include container;
+
+    @include respond-below('md') {
+        padding-inline: $container-padding-mobile;
+    }
 }
 
 .container--narrow {

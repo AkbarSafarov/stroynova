@@ -3,6 +3,23 @@
 // Reset / Normalize
 // ========================================
 
+
+
+:root {
+    --stroinova-hover-color: #638e39;
+    --stroinova-black: #000;
+    --stroinova-white: #fff;
+    --stroinova-backgroung: #f3f1f0;
+    --stroinova-primary-1: #e18411;
+    --stroinova-primary-2: #8aad69;
+    --stroinova-gray-1: #454545;
+    --stroinova-gray-2: #d9d9d9;
+    --stroinova-gray-gray-3: #818181;
+    --font-family: "Noto Sans", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --third-family: "Roboto", sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -20,7 +37,7 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: $font-family-base;
+  font-family: var(--font-family);
   font-size: $font-size-base;
   font-weight: $font-weight-regular;
   line-height: $line-height-normal;

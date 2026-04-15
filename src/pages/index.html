@@ -5,219 +5,678 @@
 
 {% block content %}
 
-  <!-- HERO -->
-  <section class="section section--hero" aria-labelledby="hero-heading">
+<!-- HERO -->
+<section class="section section--hero" aria-labelledby="hero-heading">
     <div class="container">
-      <div class="hero">
-        <div class="hero__content">
-          <p class="hero__label">Добро пожаловать</p>
-          <h1 id="hero-heading" class="hero__title">
-            Строим дома,<br />
-            <span class="hero__title-accent">в которых хочется жить</span>
-          </h1>
-          <p class="hero__description">
-            Надёжный застройщик с многолетним опытом. Современные жилые комплексы,
-            прозрачные условия и забота о каждом покупателе.
-          </p>
-          <div class="hero__actions">
-            <a href="/catalog/" class="btn btn--primary btn--lg">Каталог проектов</a>
-            <a href="/apartments/" class="btn btn--secondary btn--lg">Выбрать квартиру</a>
-          </div>
+        <div class="arrow-swiper">
+            <div class="arrow-btn arrow--prev">
+                <svg width="17" height="17" aria-hidden="true" focusable="false">
+                    <use href="#arrow-w-left" />
+                </svg>
+            </div>
+            <div class="arrow-btn arrow--next">
+                <svg width="17" height="17" aria-hidden="true" focusable="false">
+                    <use href="#arrow-w-right" />
+                </svg>
+            </div>
         </div>
-        <div class="hero__image" aria-hidden="true">
-          <picture>
-            <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-            <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-            <img
-              src="/assets/images/main-image.jpg"
-              alt="Современный жилой комплекс от Строй Нова"
-              width="600"
-              height="500"
-              loading="eager"
-            />
-          </picture>
+        <div class="swiper hero-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <picture>
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <img
+                            src="/assets/images/main-image.jpg"
+                            alt="Современный жилой комплекс от Строй Нова"
+                            width="1417"
+                            height="712"
+                            loading="eager"
+                        />
+                    </picture>
+                    <div class="inner">
+                        <div class="badge">СТАРТ ПРОДАЖ</div>
+                        <div class="name">Скидки до 200 000₽ <br>на квартиры месяца</div>
+                        <div class="text">С гордостью представляем компанию, которая уже три года подряд – с 2022  по 2024 год – удостаивается почетного звания «Надежный застройщик  России»</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <picture>
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <img
+                            src="/assets/images/main-image.jpg"
+                            alt="Современный жилой комплекс от Строй Нова"
+                            width="1417"
+                            height="712"
+                            loading="eager"
+                        />
+                    </picture>
+                    <div class="inner">
+                        <div class="badge">Test</div>
+                        <div class="name">Title</div>
+                        <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque aut blanditiis cum ea enim eum eveniet illo nobis, non officiis placeat porro quo recusandae sequi suscipit unde vel, voluptates!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination-custom"></div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ПРЕИМУЩЕСТВА -->
-  <section class="section" aria-labelledby="features-heading">
+    </div>
+</section>
+
+<!-- ФИЛЬТР КВАРТИР -->
+<section class="section section--apt-filter" aria-label="Подобрать квартиру">
     <div class="container">
-      <div class="section__header">
-        <h2 id="features-heading" class="section__title">Почему выбирают нас</h2>
-        <p class="section__subtitle">Строим с заботой о людях и качестве</p>
-      </div>
-      <div class="grid grid--3">
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
-          </div>
-          <h3 class="feature-card__title">Надёжность</h3>
-          <p class="feature-card__text">Сдаём объекты в срок. Все проекты застрахованы и соответствуют строительным нормам.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
-          </div>
-          <h3 class="feature-card__title">Современные планировки</h3>
-          <p class="feature-card__text">Продуманные квартиры с европланировками, панорамными окнами и удобной инфраструктурой.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">
-            <svg width="32" height="32"><use href="/assets/svg/sprite.svg#icon-check" /></svg>
-          </div>
-          <h3 class="feature-card__title">Прозрачные условия</h3>
-          <p class="feature-card__text">Ипотека, рассрочка, материнский капитал — помогаем выбрать удобный способ покупки.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div class="apt-filter">
+            <div class="apt-filter__header">
+                <h2 class="apt-filter__title">Подобрать квартиру</h2>
+                <button class="apt-filter__reset" type="button" aria-label="Очистить фильтры">
+                    <svg width="12" height="12" aria-hidden="true" focusable="false">
+                        <use href="#close" />
+                    </svg>
+                    Очистить
+                </button>
+            </div>
+            <div class="apt-filter__row">
 
-  <!-- НОВОСТИ -->
-  <section class="section section--alt" aria-labelledby="news-heading">
+                <div class="apt-filter__field apt-filter__field--select">
+                    <label class="apt-filter__label" for="filter-project">Проект</label>
+                    <div class="apt-filter__select-wrap">
+                        <select class="apt-filter__select" id="filter-project" name="project">
+                            <option value="">Все</option>
+                            <option value="1">ЖК «Солнечный»</option>
+                            <option value="2">ЖК «Парковый»</option>
+                            <option value="3">ЖК «Берёзовый»</option>
+                        </select>
+                        <svg width="12" height="12" aria-hidden="true" focusable="false">
+                            <use href="#arrow-down-icon" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="apt-filter__field apt-filter__field--floors">
+                    <span class="apt-filter__label">Этажи</span>
+                    <div class="apt-filter__range-row">
+                        <span class="apt-filter__range-edge">от <output id="floors-min-val">0</output></span>
+                        <span class="apt-filter__range-edge">от 16</span>
+                        <input
+                            class="apt-filter__range"
+                            type="range"
+                            id="filter-floors"
+                            name="floors"
+                            min="0"
+                            max="16"
+                            value="0"
+                            aria-label="Минимальный этаж"
+                        />
+                    </div>
+                </div>
+
+                <div class="apt-filter__field apt-filter__field--rooms">
+                    <div class="rooms-picker" role="group" aria-label="Количество комнат">
+                        <button class="rooms-picker__btn" type="button">Студия</button>
+                        <button class="rooms-picker__btn" type="button">1</button>
+                        <button class="rooms-picker__btn" type="button">2</button>
+                        <button class="rooms-picker__btn rooms-picker__btn--active" type="button" aria-pressed="true">3</button>
+                        <button class="rooms-picker__btn" type="button">4+</button>
+                    </div>
+                </div>
+
+                <div class="apt-filter__field apt-filter__field--price">
+                    <label class="apt-filter__label" for="filter-price">Задайте стоимость, ₽</label>
+                    <div class="apt-filter__range-row">
+                        <span class="apt-filter__range-edge"><output id="price-output">12</output></span>
+                        <input
+                            class="apt-filter__range"
+                            type="range"
+                            id="filter-price"
+                            name="price"
+                            min="50000"
+                            max="30000000"
+                            value="100000"
+                            step="1000"
+                            aria-label="Максимальная стоимость"
+                        />
+                    </div>
+                </div>
+
+                <div class="apt-filter__action">
+                    <button class="btn__button btn_orange apt-filter__submit" type="button">Показать 120 вариантов</button>
+                    <button class="apt-filter__reset apt-filter__reset--mobile" type="button" aria-label="Очистить фильтры">Очистить</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- НАШИ ПРОЕКТЫ + КАРТА -->
+<section class="section section--projects-map" aria-labelledby="projects-map-heading">
     <div class="container">
-      <div class="section__header">
-        <h2 id="news-heading" class="section__title">Последние новости</h2>
-        <a href="/news/" class="section__link">Все новости</a>
-      </div>
-      <div class="grid grid--3">
+        <h2 id="projects-map-heading" class="projects-map__title">Наши проекты</h2>
+        <div class="projects-map__layout">
 
-        <article class="card" itemscope itemtype="https://schema.org/Article">
-          <div class="card__image">
-            <img
-              src="/assets/images/placeholder.webp"
-              alt="Открытие нового жилого комплекса"
-              width="400"
-              height="225"
-              loading="lazy"
-              itemprop="image"
-            />
-          </div>
-          <div class="card__body">
-            <span class="card__tag">Новости</span>
-            <h3 class="card__title" itemprop="headline">
-              <a href="/news-item/" itemprop="url">Открытие продаж в ЖК «Солнечный»</a>
-            </h3>
-            <p class="card__text" itemprop="description">
-              Рады объявить о старте продаж в новом жилом комплексе комфорт-класса.
-            </p>
-          </div>
-          <footer class="card__footer">
-            <time datetime="2025-03-01" itemprop="datePublished">1 марта 2025</time>
-          </footer>
-        </article>
+            <div class="projects-map__map">
+                <div class="map-plug" role="img" aria-label="Карта расположения объектов Строй Нова в Кирове">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae6952f87005d8347187e7bc78b52ba2eab5935e084a4f95e4ee0f48ff6296bc3&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+            </div>
 
-        <article class="card" itemscope itemtype="https://schema.org/Article">
-          <div class="card__image">
-            <img
-              src="/assets/images/placeholder.webp"
-              alt="Специальные условия по ипотеке"
-              width="400"
-              height="225"
-              loading="lazy"
-              itemprop="image"
-            />
-          </div>
-          <div class="card__body">
-            <span class="card__tag">Акции</span>
-            <h3 class="card__title" itemprop="headline">
-              <a href="/promotions/" itemprop="url">Ипотека от 5,9% на готовые квартиры</a>
-            </h3>
-            <p class="card__text" itemprop="description">
-              Специальные условия совместно с ведущими банками до конца месяца.
-            </p>
-          </div>
-          <footer class="card__footer">
-            <time datetime="2025-02-15" itemprop="datePublished">15 февраля 2025</time>
-          </footer>
-        </article>
+            <div class="projects-map__right">
+                <div class="swiper projects-slider">
+                    <div class="swiper-pagination-custom"></div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="projects-grid">
+                                <article class="project-card">
+                                    <img class="project-card__img" src="/assets/images/pro1.jpg" alt="Жилой дом на ул. Юрия Смирнова, 15а" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-        <article class="card" itemscope itemtype="https://schema.org/Article">
-          <div class="card__image">
-            <img
-              src="/assets/images/placeholder.webp"
-              alt="Сдача объекта"
-              width="400"
-              height="225"
-              loading="lazy"
-              itemprop="image"
-            />
-          </div>
-          <div class="card__body">
-            <span class="card__tag">Завершено</span>
-            <h3 class="card__title" itemprop="headline">
-              <a href="/news-item/" itemprop="url">ЖК «Парковый» сдан в эксплуатацию</a>
-            </h3>
-            <p class="card__text" itemprop="description">
-              Все 240 квартир переданы владельцам. Поздравляем новосёлов!
-            </p>
-          </div>
-          <footer class="card__footer">
-            <time datetime="2025-01-20" itemprop="datePublished">20 января 2025</time>
-          </footer>
-        </article>
+                                <article class="project-card">
+                                    <img class="project-card__img" src="/assets/images/pro2.jpg" alt="Жилой дом на ул. Юрия Смирнова, 15а" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-      </div>
-    </div>
-  </section>
+                                <article class="project-card">
+                                    <span class="project-card__badge">АКЦИЯ -10%</span>
+                                    <img class="project-card__img" src="/assets/images/pro3.jpg" alt="Жилой многоквартирный дом на ул. Войкова 22" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-  <!-- FAQ -->
-  <section class="section" aria-labelledby="faq-heading">
-    <div class="container container--narrow">
-      <div class="section__header">
-        <h2 id="faq-heading" class="section__title">Часто задаваемые вопросы</h2>
-        <a href="/faq/" class="section__link">Все вопросы</a>
-      </div>
+                                <article class="project-card">
+                                <img class="project-card__img" src="/assets/images/pro4.jpg" alt="Жилой дом на ул. Голубкова, 6" loading="lazy" />
+                                <div class="project-card__overlay">
+                                    <a href="/projects/" class="btn__button btn_green">
+                                        Смотреть проект
+                                        <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                            <use href="#arrow-w-right" />
+                                        </svg>
+                                    </a>
+                                    <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                </div>
+                            </article>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="projects-grid">
+                                <article class="project-card">
+                                    <img class="project-card__img" src="/assets/images/pro1.jpg" alt="Жилой дом на ул. Юрия Смирнова, 15а" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-      <div itemscope itemtype="https://schema.org/FAQPage">
-        <div class="accordion">
+                                <article class="project-card">
+                                    <img class="project-card__img" src="/assets/images/pro2.jpg" alt="Жилой дом на ул. Юрия Смирнова, 15а" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <details class="accordion__details">
-              <summary class="accordion__summary">
-                <span itemprop="name">Как купить квартиру в ипотеку?</span>
-                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Оставьте заявку на сайте или свяжитесь с нашим менеджером. Мы работаем с ведущими банками и поможем выбрать выгодную программу ипотеки.</p>
-              </div>
-            </details>
-          </div>
+                                <article class="project-card">
+                                    <span class="project-card__badge">АКЦИЯ -10%</span>
+                                    <img class="project-card__img" src="/assets/images/pro3.jpg" alt="Жилой многоквартирный дом на ул. Войкова 22" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
 
-          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <details class="accordion__details">
-              <summary class="accordion__summary">
-                <span itemprop="name">Можно ли использовать материнский капитал?</span>
-                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">Да, принимаем материнский капитал как первоначальный взнос или для частичного погашения ипотеки.</p>
-              </div>
-            </details>
-          </div>
-
-          <div class="accordion__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <details class="accordion__details">
-              <summary class="accordion__summary">
-                <span itemprop="name">Когда будут сданы объекты в 2025 году?</span>
-                <svg class="accordion__icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="accordion__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                <p itemprop="text">В 2025 году планируется сдача трёх объектов: ЖК «Солнечный» (II квартал), ЖК «Берёзовый» (III квартал), ЖК «Центральный» (IV квартал).</p>
-              </div>
-            </details>
-          </div>
+                                <article class="project-card">
+                                    <img class="project-card__img" src="/assets/images/pro4.jpg" alt="Жилой дом на ул. Голубкова, 6" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-map__footer">
+                    <div class="arrow-swiper">
+                        <div class="arrow-btn arrow--prev">
+                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                <use href="#arrow-w-left" />
+                            </svg>
+                        </div>
+                        <div class="arrow-btn arrow--next">
+                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                <use href="#arrow-w-right" />
+                            </svg>
+                        </div>
+                    </div>
+                    <a href="/projects/" class="btn__button btn_green">Все завершённые проекты</a>
+                </div>
+            </div>
 
         </div>
-      </div>
     </div>
-  </section>
+</section>
+
+<!-- СПОСОБЫ ПОКУПКИ -->
+<section class="section section--purchase" aria-labelledby="purchase-heading">
+    <div class="container">
+        <h2 id="purchase-heading" class="purchase__title">Способы покупки</h2>
+        <div class="purchase__layout">
+            <div class="purchase__layout-inner">
+                <!-- Левый сайдбар: навигация -->
+                <nav class="purchase__nav" aria-label="Программы покупки">
+                    <p class="purchase__nav-label">Программы</p>
+                    <ul class="purchase__nav-list" role="list">
+                        <li>
+                            <button class="purchase__nav-btn purchase__nav-btn--active" type="button"
+                                    data-tab="standard" aria-selected="true">Стандартная ипотека</button>
+                        </li>
+                        <li>
+                            <button class="purchase__nav-btn" type="button"
+                                    data-tab="family" aria-selected="false">Семейная ипотека</button>
+                        </li>
+                        <li>
+                            <button class="purchase__nav-btn" type="button"
+                                    data-tab="cert" aria-selected="false">Сертификаты</button>
+                        </li>
+                        <li>
+                            <button class="purchase__nav-btn" type="button"
+                                    data-tab="it" aria-selected="false">IT ипотека</button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Центр: контент вкладок -->
+                <div class="purchase__content">
+
+                <div class="purchase__tab purchase__tab--active" id="tab-standard" role="tabpanel">
+                    <h3 class="purchase__tab-title">Стандартная ипотека.</h3>
+                    <p class="purchase__tab-text">Возможность приобретения квартиры здесь и сейчас. Без ожидания покупки из-за отсутствия наличных средств или наличии минимального первоначального взноса.</p>
+                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
+                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
+                </div>
+
+                <div class="purchase__tab" id="tab-family" role="tabpanel" hidden>
+                    <h3 class="purchase__tab-title">Семейная ипотека<sup>*</sup></h3>
+                    <p class="purchase__tab-text">Застройщики, где российские семьи с детьми могут получить кредит на жильё по ставке 6%. Действует до конца 2030 года.</p>
+                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
+                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
+                </div>
+
+                <div class="purchase__tab" id="tab-cert" role="tabpanel" hidden>
+                    <h3 class="purchase__tab-title">Сертификаты</h3>
+                    <p class="purchase__tab-text">ЖК СтройНова работает с различными видами сертификатов: «Материнский капитал», «Жилищный сертификат». Для военнослужащих предусмотрена специальная льготная программа.</p>
+                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
+                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
+                </div>
+
+                <div class="purchase__tab" id="tab-it" role="tabpanel" hidden>
+                    <h3 class="purchase__tab-title">IT ипотека</h3>
+                    <p class="purchase__tab-text">Воспользоваться могут сотрудники IT-организаций — граждане РФ в возрасте до 50 лет, оформив ипотечный кредит по ставке до 6% годовых.</p>
+                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
+                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
+                </div>
+
+            </div>
+            </div>
+            <!-- Правая карточка: Рассрочка -->
+            <div class="purchase__promo">
+                <h3 class="purchase__promo-title">РАССРОЧКА</h3>
+                <p class="purchase__promo-text">В ГК “Стройнова” индивидуальные условия рассрочки для каждого покупателя</p>
+                <a href="/promotions/" class="btn__button btn_border border_white">Подробнее о рассрочке</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ИПОТЕЧНЫЙ КАЛЬКУЛЯТОР -->
+<section class="section section--mortgage" aria-labelledby="mortgage-heading">
+
+    <div class="container">
+        <div class="container__inner">
+            <div class="mortgage__bg" aria-hidden="true">
+                <img src="/assets/images/bg.jpg" alt="" />
+            </div>
+            <div class="mortgage__top">
+                <h2 id="mortgage-heading" class="mortgage__title">Ипотечный калькулятор</h2>
+
+                <div class="mortgage__row">
+
+                <!-- Левая карточка: слайдеры -->
+                <div class="mortgage__inputs">
+                    <div class="mort-slider">
+                        <div class="mort-slider__top">
+                            <label class="mort-slider__label" for="mort-price">Стоимость жилья ₽</label>
+                        </div>
+                        <output class="mort-slider__val" id="mort-price-val">12 000 000</output>
+                        <input class="mort-slider__range" type="range" id="mort-price" min="1000000" max="50000000" value="12000000" step="100000" />
+                    </div>
+                    <div class="mort-slider">
+                        <label class="mort-slider__label" for="mort-term">Срок, лет</label>
+                        <output class="mort-slider__val" id="mort-term-val">15</output>
+                        <input class="mort-slider__range" type="range" id="mort-term" min="1" max="30" value="15" step="1" />
+                    </div>
+                    <div class="mort-slider">
+                        <div class="mort-slider__top">
+                            <label class="mort-slider__label" for="mort-down">Первоначальный взнос ₽</label>
+                            <output class="mort-slider__pct" id="mort-down-pct">25%</output>
+                        </div>
+                        <output class="mort-slider__val" id="mort-down-val">3 000 000</output>
+                        <input class="mort-slider__range" type="range" id="mort-down" min="10" max="90" value="25" step="1" />
+                    </div>
+                    <div class="mort-slider">
+                        <label class="mort-slider__label" for="mort-rate">Ставка %</label>
+                        <output class="mort-slider__val" id="mort-rate-val">15</output>
+                        <input class="mort-slider__range" type="range" id="mort-rate" min="1" max="30" value="15" step="0.5" />
+                    </div>
+                </div>
+
+                <!-- Правая карточка: диаграмма + результаты -->
+                <div class="mortgage__result-card">
+
+                    <div class="mortgage__donut-wrap">
+                        <div class="mortgage__donut">
+                            <svg class="donut-svg" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                                <circle class="donut-svg__track" cx="70" cy="70" r="52" />
+                                <circle class="donut-svg__credit" id="donut-credit-arc" cx="70" cy="70" r="52" transform="rotate(-90 70 70)" />
+                            </svg>
+                            <div class="donut-center" aria-hidden="true">₽</div>
+                        </div>
+                        <div class="donut-legend">
+                            <div class="donut-legend__item">
+                                <span class="donut-legend__dot donut-legend__dot--credit"></span>
+                                <div>
+                                    <p class="donut-legend__name">Кредит</p>
+                                    <p class="donut-legend__val" id="legend-credit">—</p>
+                                </div>
+                            </div>
+                            <div class="donut-legend__item">
+                                <span class="donut-legend__dot donut-legend__dot--interest"></span>
+                                <div>
+                                    <p class="donut-legend__name">Проценты</p>
+                                    <p class="donut-legend__val" id="legend-interest">—</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mortgage__summary">
+                        <div class="mortgage__payment">
+                            <p class="mortgage__payment-label">Ежемесячный платёж</p>
+                            <p class="mortgage__payment-val" id="mort-monthly">—</p>
+                        </div>
+                        <div class="mortgage__income">
+                            <p class="mortgage__income-label">Необходимый доход</p>
+                            <p class="mortgage__income-val" id="mort-income">—</p>
+                        </div>
+                        <div class="mortgage__banks">
+                            <p class="mortgage__banks-label">Банки партнёры:</p>
+                            <div class="mortgage__banks-logos">
+                                <span class="bank-name bank-name--sovkom">СовкомБанк</span>
+                                <span class="bank-name bank-name--vtb">ВТБ</span>
+                                <span class="bank-name bank-name--sber">Сбер</span>
+                                <span class="bank-name bank-name--gazprom">ГазпромБанк</span>
+                                <span class="bank-name bank-name--rshb">Россельхоз</span>
+                            </div>
+                        </div>
+                        <div class="mortgage__programs" role="group" aria-label="Программы ипотеки">
+                            <button class="mort-tab mort-tab--active" type="button" data-rate="15">Базовая <span>от 26%</span></button>
+                            <button class="mort-tab" type="button" data-rate="6">Семейная <span>от 6%</span></button>
+                            <button class="mort-tab" type="button" data-rate="6">Ипотека для IT <span>от 6%</span></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+            <!-- Низ: текст + форма -->
+            <div class="mortgage__bottom">
+            <div class="mortgage__bottom-left">
+                <p class="mortgage__bottom-text">Вы можете подать заявку на одобрение ипотеки сразу во все банки-партнёры</p>
+                <p class="mortgage__bottom-big" aria-hidden="true">ИПОТЕКА</p>
+            </div>
+            <div class="mortgage__form">
+                <label class="mortgage__phone-label" for="mortgage-phone">Ваш телефон</label>
+                <input class="mortgage__phone" type="tel" id="mortgage-phone" placeholder="+7(___)-___-__-__" autocomplete="tel" />
+                <button class="mortgage__submit" type="button">Получить предложение</button>
+                <p class="mortgage__disclaimer">
+                    Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии «Заказать звонок»
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- О КОМПАНИИ (табы) -->
+<section class="section section--about-tabs" aria-label="О компании">
+
+    <nav class="about-tabs__nav" aria-label="Разделы о компании">
+        <div class="container">
+            <div class="about-tabs__nav-inner">
+                <button class="about-tabs__nav-btn about-tabs__nav-btn--active" type="button" data-tab="company" aria-selected="true">О компании</button>
+                <button class="about-tabs__nav-btn" type="button" data-tab="history" aria-selected="false">История</button>
+                <button class="about-tabs__nav-btn" type="button" data-tab="awards" aria-selected="false">Награды</button>
+                <button class="about-tabs__nav-btn" type="button" data-tab="ratings" aria-selected="false">Рейтинги</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="about-tabs__panels">
+
+        <!-- О компании -->
+        <div class="about-tabs__panel about-tabs__panel--active" id="about-tab-company" role="tabpanel">
+            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <div class="container">
+                <div class="about-tabs__content">
+                    <h2 class="about-tabs__title">О компании</h2>
+                    <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
+                    <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
+                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- История -->
+        <div class="about-tabs__panel" id="about-tab-history" role="tabpanel" hidden>
+            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <div class="container">
+                <div class="about-tabs__content">
+                    <h2 class="about-tabs__title">История</h2>
+                    <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
+                    <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
+                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Награды -->
+        <div class="about-tabs__panel" id="about-tab-awards" role="tabpanel" hidden>
+            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <div class="container">
+                <div class="about-tabs__content">
+                    <h2 class="about-tabs__title">Награды</h2>
+                    <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
+                    <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
+                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Рейтинги -->
+        <div class="about-tabs__panel" id="about-tab-ratings" role="tabpanel" hidden>
+            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <div class="container">
+                <div class="about-tabs__content">
+                    <h2 class="about-tabs__title">Рейтинги</h2>
+                    <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
+                    <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
+                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                    <div class="about-tabs__stats">
+                        <div class="about-stat">
+                            <span class="about-stat__num">3</span>
+                            <span class="about-stat__label">года успешной работы</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat__num">1 200+</span>
+                            <span class="about-stat__label">клиентов обслужено</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat__num">850</span>
+                            <span class="about-stat__label">договоров заключено</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat__num">5</span>
+                            <span class="about-stat__label">объектов сдано</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- АКЦИИ / СКИДКИ -->
+<!--<section class="section section&#45;&#45;promos" aria-labelledby="promos-heading">-->
+<!--    <div class="container">-->
+
+<!--        <div class="promos__header">-->
+<!--            <div class="promos__header-left">-->
+<!--                <h2 id="promos-heading" class="promos__title">Акции<span>/</span>Скидки</h2>-->
+<!--                <a href="/promotions/" class="promos__more">Смотреть еще</a>-->
+<!--            </div>-->
+<!--            <div class="swiper-pagination-promos" aria-hidden="true"></div>-->
+<!--        </div>-->
+
+<!--        <div class="swiper promos-slider">-->
+<!--            <div class="swiper-wrapper">-->
+
+<!--                <div class="swiper-slide">-->
+<!--                    <article class="promo-card">-->
+<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
+<!--                             alt="Стройнова дарит пространство для жизни" loading="lazy" />-->
+<!--                        <div class="promo-card__body">-->
+<!--								<span class="promo-card__badge">-->
+<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
+<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
+<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
+<!--									</svg>-->
+<!--									до 31.12.2025-->
+<!--								</span>-->
+<!--                            <div class="promo-card__bottom">-->
+<!--                                <h3 class="promo-card__title">Стройнова дарит пространство для жизни</h3>-->
+<!--                                <p class="promo-card__text">Квадратный метр в подарок при покупке квартиры&nbsp;...</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </article>-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                    <article class="promo-card promo-card&#45;&#45;center">-->
+<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
+<!--                             alt="Цена зафиксирована. Спокойствие гарантировано" loading="lazy" />-->
+<!--                        <div class="promo-card__body promo-card__body&#45;&#45;center">-->
+<!--                            <div class="promo-card__middle">-->
+<!--                                <h3 class="promo-card__title">Цена зафиксирована. Спокойствие гарантировано</h3>-->
+<!--                                <p class="promo-card__text">Фиксация цены до конца строительства&nbsp;...</p>-->
+<!--                                <a href="/promotions/" class="promo-card__btn">Подробнее</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </article>-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                    <article class="promo-card">-->
+<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
+<!--                             alt="Ремонт в подарок" loading="lazy" />-->
+<!--                        <div class="promo-card__body">-->
+<!--								<span class="promo-card__badge">-->
+<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
+<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
+<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
+<!--									</svg>-->
+<!--									до 31.12.2025-->
+<!--								</span>-->
+<!--                            <div class="promo-card__bottom">-->
+<!--                                <h3 class="promo-card__title">Вы получаете не стены — вы получаете готовый дом</h3>-->
+<!--                                <p class="promo-card__text">Ремонт под ключ — в подарок&nbsp;...</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </article>-->
+<!--                </div>-->
+
+<!--                <div class="swiper-slide">-->
+<!--                    <article class="promo-card">-->
+<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
+<!--                             alt="Специальные условия по ипотеке" loading="lazy" />-->
+<!--                        <div class="promo-card__body">-->
+<!--								<span class="promo-card__badge">-->
+<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
+<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
+<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
+<!--									</svg>-->
+<!--									до 28.02.2026-->
+<!--								</span>-->
+<!--                            <div class="promo-card__bottom">-->
+<!--                                <h3 class="promo-card__title">Ипотека от 5,9% — специальные условия для наших покупателей</h3>-->
+<!--                                <p class="promo-card__text">Совместная программа с ведущими банками&nbsp;...</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </article>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</section>-->
 
 {% endblock %}

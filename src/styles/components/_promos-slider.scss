@@ -1,0 +1,228 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Promos Slider (Акции/Скидки)
+// ========================================
+
+.section--promos {
+    padding-block: 60px;
+
+    @media all and (max-width: 767px) {
+        padding-block: 40px;
+    }
+}
+
+// ---- Header ----
+.promos {
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        gap: 16px;
+    }
+
+    &__header-left {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(24px, 3vw, 36px);
+        color: $color-text;
+        line-height: 1.2;
+
+        span {
+            color: var(--stroinova-primary-2);
+        }
+    }
+
+    &__more {
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--stroinova-primary-2);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity 0.25s;
+
+        &:hover {
+            opacity: 0.75;
+            color: var(--stroinova-primary-2);
+        }
+    }
+}
+
+// ---- Pagination ----
+.swiper-pagination-promos {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--stroinova-gray-2);
+        border-radius: 50px;
+        opacity: 1;
+        margin: 0 !important;
+        transition: width 0.3s, background 0.3s;
+        cursor: pointer;
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 28px;
+        background: var(--stroinova-primary-2);
+    }
+}
+
+// ---- Slider ----
+.promos-slider {
+    overflow: visible;
+
+    @media all and (max-width: 767px) {
+        overflow: hidden;
+    }
+}
+
+// ---- Promo Card ----
+.promo-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 480px;
+    background: var(--stroinova-gray-2);
+    display: block;
+
+    @media all and (max-width: 1280px) {
+        height: 420px;
+    }
+
+    @media all and (max-width: 767px) {
+        height: 380px;
+    }
+
+    &__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s;
+    }
+
+    &:hover &__img {
+        transform: scale(1.04);
+    }
+
+    // Градиент снизу (обычный вариант)
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.72) 0%,
+            rgba(0, 0, 0, 0.3) 45%,
+            rgba(0, 0, 0, 0) 70%
+        );
+        border-radius: inherit;
+    }
+
+    // Центрированный вариант — другой оверлей
+    &--center::after {
+        background: rgba(0, 0, 0, 0.42);
+    }
+
+    &__body {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    &__body--center {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    // Бейдж с датой
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--stroinova-primary-1);
+        color: #fff;
+        border-radius: 20px;
+        font-family: var(--font-family);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 5px 14px;
+        align-self: flex-start;
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+
+    // Нижний блок (обычный)
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    // Центральный блок
+    &__middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        max-width: 320px;
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(16px, 2vw, 22px);
+        color: #fff;
+        line-height: 1.3;
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        border: 2px solid var(--stroinova-primary-1);
+        border-radius: 50px;
+        padding: 10px 28px;
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        background: transparent;
+        margin-top: 4px;
+        transition: background 0.25s;
+
+        &:hover {
+            background: var(--stroinova-primary-1);
+            color: #fff;
+        }
+    }
+}
