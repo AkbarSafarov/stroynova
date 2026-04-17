@@ -25,6 +25,7 @@
     "vite-plugin-nunjucks": "^0.2.0"
   },
   "dependencies": {
+    "photoswipe": "^5.4.4",
     "swiper": "^12.1.3"
   }
 }

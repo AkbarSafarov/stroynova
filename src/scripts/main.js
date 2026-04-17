@@ -13,6 +13,13 @@ import { initPurchaseTabs } from './modules/purchaseTabs.js';
 import { initPromosSlider } from './modules/promosSlider.js';
 import { initAboutTabs } from './modules/aboutTabs.js';
 import {initProjectMainSlider} from "@/scripts/modules/projectMapSlider.js";
+import {initAnchorMenu} from "@/scripts/modules/anchorMenu.js";
+import {initAboutProjectSlider} from "@/scripts/modules/aboutProjectSlider.js";
+import {initGenPlan} from "@/scripts/modules/genPlan.js";
+import {initProjectAdvSlider} from "@/scripts/modules/projectAdvantages.js";
+import {projectPlansTabs} from "@/scripts/modules/projectPlans.js";
+import {initStepsSlider} from "@/scripts/modules/projectSteps.js";
+import {projectDocs} from "@/scripts/modules/projectDocuments.js";
 import spriteUrl from '../assets/svg/sprite.svg?url';
 
 const init = () => {
@@ -27,6 +34,13 @@ const init = () => {
     initPromosSlider();
     initAboutTabs();
     initProjectMainSlider();
+    initAnchorMenu();
+    initAboutProjectSlider();
+    initGenPlan();
+    initProjectAdvSlider();
+    projectPlansTabs();
+    initStepsSlider();
+    projectDocs();
 };
 
 if (document.readyState === 'loading') {
