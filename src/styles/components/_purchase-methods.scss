@@ -4,7 +4,7 @@
 // ========================================
 
 .section--purchase {
-    padding-bottom: 96px;
+    padding-bottom: 76px;
 
     @media all and (max-width: 1280px) {
         padding-bottom: 55px;
@@ -73,7 +73,7 @@
     // ---- Левый сайдбар ----
     &__nav {
         flex: 0 0 300px;
-        padding-left: 35px;
+        padding-left: 0;
         border-right: 1px solid var(--stroinova-gray-2);
 
         @media all and (max-width: 1280px) {

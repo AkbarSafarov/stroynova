@@ -1,6 +1,6 @@
 @use "@/styles/abstracts/tokens" as *;
 // ========================================
-// Component — Project advantages 
+// Component — Project advantages
 // ========================================
 
 .section--project-advantages {
@@ -35,7 +35,7 @@
             @include respond-below('sm') {
                 margin-top: -3px;
             }
-            
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;
@@ -72,7 +72,7 @@
                 gap: 8px;
                 margin-bottom: 8px;
             }
-            
+
             &::-webkit-scrollbar {
                 height: 4px;
             }
@@ -87,7 +87,7 @@
                 border-radius: 10px;       /* округлось бегунка */
             }
         }
-        
+
         &-title {
 
             a {
@@ -200,7 +200,7 @@
             }
 
             &::-webkit-scrollbar-thumb {
-                background-color: var(--stroinova-primary-1);;    /* цвет бегунка */
+                background-color: var(--stroinova-primary-1);   /* цвет бегунка */
                 border-radius: 10px;       /* округлось бегунка */
             }
 

@@ -20,6 +20,13 @@ import {initProjectAdvSlider} from "@/scripts/modules/projectAdvantages.js";
 import {projectPlansTabs} from "@/scripts/modules/projectPlans.js";
 import {initStepsSlider} from "@/scripts/modules/projectSteps.js";
 import {projectDocs} from "@/scripts/modules/projectDocuments.js";
+import { initUiHelpers } from './modules/uiHelpers.js';
+import { initContactForm } from './modules/validateForm.js';
+import { initCatalogMap } from './modules/catalogMap.js';
+import { initCatalogSort } from './modules/catalogSort.js';
+import { initApartmentsFilter } from './modules/apartmentsFilter.js';
+import { initAptDetail } from './modules/aptDetail.js';
+import { initPurchasePage } from './modules/purchasePage.js';
 import spriteUrl from '../assets/svg/sprite.svg?url';
 
 const init = () => {
@@ -41,6 +48,13 @@ const init = () => {
     projectPlansTabs();
     initStepsSlider();
     projectDocs();
+    initUiHelpers();
+    initContactForm();
+    initCatalogMap();
+    initCatalogSort();
+    initApartmentsFilter();
+    initAptDetail();
+    initPurchasePage();
 };
 
 if (document.readyState === 'loading') {

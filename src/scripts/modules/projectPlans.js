@@ -7,10 +7,12 @@ import PhotoSwipe from 'photoswipe';
 
 export const projectPlansTabs = () => {
     const section = document.querySelector('.project-plans');
+    if(!section) return;
+
     const tabsTitles = section.querySelectorAll('.project-plans__tabs-title a');
     const tabsBodys = section.querySelectorAll('.project-plans__tabs-body');
 
-    if(!section) return;
+
 
     section.querySelectorAll('a[data-pswp-width]').forEach(link => {
         const img = new Image();
@@ -50,7 +52,7 @@ export const projectPlansTabs = () => {
         const index = [...tabsTitles].indexOf(clickedTab);
         tabsBodys[index].classList.add("active");
     }
-    
+
     tabsTitles.forEach((title) => {
         title.addEventListener('click', myTabClicks)
     })

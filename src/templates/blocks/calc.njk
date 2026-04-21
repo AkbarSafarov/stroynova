@@ -1,0 +1,107 @@
+<section class="section section--mortgage" aria-labelledby="apt-mortgage-heading">
+    <div class="container">
+        <div class="container__inner">
+            <div class="mortgage__bg" aria-hidden="true">
+                <img src="/assets/images/bg.jpg" alt="" />
+            </div>
+            <div class="mortgage__top">
+                <h2 id="apt-mortgage-heading" class="mortgage__title">Ипотечный калькулятор</h2>
+                <div class="mortgage__row">
+                    <div class="mortgage__inputs">
+                        <div class="mort-slider">
+                            <div class="mort-slider__top">
+                                <label class="mort-slider__label" for="apt-mort-price">Стоимость жилья ₽</label>
+                            </div>
+                            <output class="mort-slider__val" id="apt-mort-price-val">9 200 400</output>
+                            <input class="mort-slider__range" type="range" id="apt-mort-price" min="1000000" max="50000000" value="9200400" step="100000" />
+                        </div>
+                        <div class="mort-slider">
+                            <label class="mort-slider__label" for="apt-mort-term">Срок, лет</label>
+                            <output class="mort-slider__val" id="apt-mort-term-val">15</output>
+                            <input class="mort-slider__range" type="range" id="apt-mort-term" min="1" max="30" value="15" step="1" />
+                        </div>
+                        <div class="mort-slider">
+                            <div class="mort-slider__top">
+                                <label class="mort-slider__label" for="apt-mort-down">Первоначальный взнос ₽</label>
+                                <output class="mort-slider__pct" id="apt-mort-down-pct">25%</output>
+                            </div>
+                            <output class="mort-slider__val" id="apt-mort-down-val">2 300 100</output>
+                            <input class="mort-slider__range" type="range" id="apt-mort-down" min="10" max="90" value="25" step="1" />
+                        </div>
+                        <div class="mort-slider">
+                            <label class="mort-slider__label" for="apt-mort-rate">Ставка %</label>
+                            <output class="mort-slider__val" id="apt-mort-rate-val">15</output>
+                            <input class="mort-slider__range" type="range" id="apt-mort-rate" min="1" max="30" value="15" step="0.5" />
+                        </div>
+                    </div>
+                    <div class="mortgage__result-card">
+                        <div class="mortgage__donut-wrap">
+                            <div class="mortgage__donut">
+                                <svg class="donut-svg" viewBox="0 0 140 140" fill="none" aria-hidden="true">
+                                    <circle class="donut-svg__track" cx="70" cy="70" r="52" />
+                                    <circle class="donut-svg__credit" id="apt-donut-credit-arc" cx="70" cy="70" r="52" transform="rotate(-90 70 70)" />
+                                </svg>
+                                <div class="donut-center" aria-hidden="true">₽</div>
+                            </div>
+                            <div class="donut-legend">
+                                <div class="donut-legend__item">
+                                    <span class="donut-legend__dot donut-legend__dot--credit"></span>
+                                    <div>
+                                        <p class="donut-legend__name">Кредит</p>
+                                        <p class="donut-legend__val" id="apt-legend-credit">—</p>
+                                    </div>
+                                </div>
+                                <div class="donut-legend__item">
+                                    <span class="donut-legend__dot donut-legend__dot--interest"></span>
+                                    <div>
+                                        <p class="donut-legend__name">Проценты</p>
+                                        <p class="donut-legend__val" id="apt-legend-interest">—</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mortgage__summary">
+                            <div class="mortgage__payment">
+                                <p class="mortgage__payment-label">Ежемесячный платёж</p>
+                                <p class="mortgage__payment-val" id="apt-mort-monthly">—</p>
+                            </div>
+                            <div class="mortgage__income">
+                                <p class="mortgage__income-label">Необходимый доход</p>
+                                <p class="mortgage__income-val" id="apt-mort-income">—</p>
+                            </div>
+                            <div class="mortgage__banks">
+                                <p class="mortgage__banks-label">Банки партнёры:</p>
+                                <div class="mortgage__banks-logos">
+                                    <span class="bank-name bank-name--sovkom">СовкомБанк</span>
+                                    <span class="bank-name bank-name--vtb">ВТБ</span>
+                                    <span class="bank-name bank-name--sber">Сбер</span>
+                                    <span class="bank-name bank-name--gazprom">ГазпромБанк</span>
+                                    <span class="bank-name bank-name--rshb">Россельхоз</span>
+                                </div>
+                            </div>
+                            <div class="mortgage__programs" role="group" aria-label="Программы ипотеки">
+                                <button class="mort-tab mort-tab--active" type="button" data-rate="15">Базовая <span>от 26%</span></button>
+                                <button class="mort-tab" type="button" data-rate="6">Семейная <span>от 6%</span></button>
+                                <button class="mort-tab" type="button" data-rate="6">Ипотека для IT <span>от 6%</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mortgage__bottom">
+                <div class="mortgage__bottom-left">
+                    <p class="mortgage__bottom-text">Вы можете подать заявку на одобрение ипотеки сразу во все банки-партнёры</p>
+                    <p class="mortgage__bottom-big" aria-hidden="true">ИПОТЕКА</p>
+                </div>
+                <div class="mortgage__form">
+                    <label class="mortgage__phone-label" for="apt-mortgage-phone">Ваш телефон</label>
+                    <input class="mortgage__phone" type="tel" id="apt-mortgage-phone" placeholder="+7(___)-___-__-__" autocomplete="tel" />
+                    <button class="mortgage__submit" type="button">Получить предложение</button>
+                    <p class="mortgage__disclaimer">
+                        Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии «Заказать звонок»
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

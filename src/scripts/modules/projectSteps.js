@@ -9,13 +9,16 @@ import 'swiper/css/pagination';
 
 export const initStepsSlider = () => {
     const section = document.querySelector('.project-steps');
+
+    if (!section) return;
+
     const sliders = section.querySelectorAll('.project-steps__slider');
     const customSelect = section.querySelector('.custom-select');
     const tabsTitles = section.querySelectorAll('.project-steps__tabs-title');
     const tabsBodys = section.querySelectorAll('.project-steps__tabs-body');
 
     if (sliders) {
-        const sliderData = new Map(); 
+        const sliderData = new Map();
         // храним данные для каждого слайдера: { swiper, originalHTML }
 
         function initSwiper(el, data) {
@@ -130,7 +133,7 @@ export const initStepsSlider = () => {
 
                 selectItems.forEach((el) => el.querySelector('a').classList.remove('selected'));
                 item.querySelector('a').classList.add('selected');
-                
+
                 select.classList.remove('active');
                 selectDropdown.classList.remove('active');
 
@@ -142,7 +145,7 @@ export const initStepsSlider = () => {
                     }
                 })
 
-                
+
                 const firstVisibleTab = [...tabsTitles].find((title) =>
                     title.classList.contains('visible')
                 );

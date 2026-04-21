@@ -1,0 +1,441 @@
+@use "@/styles/abstracts/tokens" as *;
+// ========================================
+// Component — Purchase page (full page)
+// ========================================
+
+.purchase-page__heading {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 44px);
+    color: var(--stroinova-dark, #1d222f);
+    padding: 24px 0 20px;
+}
+
+// ---- Main tabs ----
+.pp-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 32px;
+
+    &__btn {
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        padding: 12px 28px;
+        font-family: var(--font-family);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--stroinova-gray-gray-2, #6b7280);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: color 0.2s, border-color 0.2s;
+
+        &:hover { color: var(--stroinova-dark, #1d222f); }
+
+        &--active {
+            color: var(--stroinova-green, #4a7c59);
+            border-bottom-color: var(--stroinova-green, #4a7c59);
+            font-weight: 700;
+        }
+
+        @media (max-width: 560px) {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+    }
+}
+
+// ---- Main panels ----
+.pp-panel {
+    display: none;
+    padding-bottom: 60px;
+
+    &--active { display: block; }
+}
+
+// ---- Section title ----
+.pp-section-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--stroinova-dark, #1d222f);
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 4px solid var(--stroinova-green, #4a7c59);
+}
+
+// ---- Sub tabs ----
+.pp-sub-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+
+    &__btn {
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 1.5px solid #e5e7eb;
+        background: #fff;
+        font-family: var(--font-family);
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--stroinova-dark, #1d222f);
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+        white-space: nowrap;
+
+        &:hover {
+            border-color: var(--stroinova-green, #4a7c59);
+            color: var(--stroinova-green, #4a7c59);
+        }
+
+        &--active {
+            background: var(--stroinova-green, #4a7c59);
+            border-color: var(--stroinova-green, #4a7c59);
+            color: #fff;
+        }
+    }
+}
+
+// ---- Sub panels ----
+.pp-sub-panel {
+    display: none;
+
+    &--active { display: block; }
+}
+
+// ---- Text helpers ----
+.pp-text {
+    font-family: var(--font-family);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--stroinova-dark, #1d222f);
+
+    &--muted { color: var(--stroinova-gray-gray-2, #6b7280); }
+    &--sm    { font-size: 13px; }
+}
+
+// ---- CTA button ----
+.pp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--stroinova-primary-2, #e18411);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 28px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 0.9; }
+}
+
+// ---- Ипотека layout ----
+.pp-ipoteka-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 32px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.pp-ipoteka-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+// ---- Stats grid ----
+.pp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+
+    &--2col { grid-template-columns: repeat(2, 1fr); }
+
+    @media (max-width: 1100px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 560px)  { grid-template-columns: 1fr; }
+}
+
+.pp-stat {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background: #f5f5f5;
+        margin-bottom: 4px;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+
+        &--rate   { background: linear-gradient(135deg, #e18411 0%, #f5a623 100%); }
+        &--down   { background: linear-gradient(135deg, #4a7c59 0%, #6aaa7a 100%); }
+        &--term   { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); }
+        &--max    { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 25%;
+            border: 2.5px solid rgba(255,255,255,0.7);
+            border-radius: 50%;
+        }
+    }
+
+    &__label {
+        font-family: var(--font-family);
+        font-size: 12px;
+        color: var(--stroinova-gray-gray-2, #6b7280);
+        line-height: 1.4;
+    }
+
+    &__val {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(16px, 2vw, 20px);
+        color: var(--stroinova-primary-2, #e18411);
+        line-height: 1.2;
+    }
+}
+
+// ---- Steps ----
+.pp-steps-section {
+    margin-top: 8px;
+}
+
+.pp-steps-label {
+    font-family: var(--font-family);
+    font-size: 13px;
+    color: var(--stroinova-gray-gray-2, #6b7280);
+    margin-bottom: 14px;
+}
+
+.pp-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
+}
+
+.pp-step {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__num {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--stroinova-primary-2, #e18411);
+        line-height: 1;
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--stroinova-dark, #1d222f);
+        line-height: 1.45;
+    }
+}
+
+// ---- Рассрочка layout ----
+.pp-rassrochka-layout {
+    max-width: 480px;
+    margin-bottom: 32px;
+}
+
+// ---- Certificate hero ----
+.pp-cert-hero {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 28px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 24px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__img {
+        width: 180px;
+        height: 130px;
+        border-radius: 8px;
+        background: #e8e8e8;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+
+        &--mat  { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); }
+        &--mil  { background: linear-gradient(135deg, #4a7c59 0%, #3d6b4a 100%); }
+        &--zhil { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 20%;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+        }
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--stroinova-dark, #1d222f);
+    }
+}
+
+// ---- Certificate subtitle ----
+.pp-cert-subtitle {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--stroinova-dark, #1d222f);
+    margin-bottom: 10px;
+}
+
+// ---- Материнский капитал amounts ----
+.pp-cert-amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0 24px;
+
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.pp-cert-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__val {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(16px, 1.8vw, 22px);
+        color: var(--stroinova-primary-2, #e18411);
+        line-height: 1.2;
+    }
+
+    &__desc {
+        font-family: var(--font-family);
+        font-size: 12px;
+        line-height: 1.55;
+        color: var(--stroinova-gray-gray-2, #6b7280);
+    }
+}
+
+// ---- Как получить / особые условия ----
+.pp-cert-how {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 20px 0;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 8px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    &__label {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--stroinova-dark, #1d222f);
+        line-height: 1.4;
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--stroinova-gray-gray-2, #4b5563);
+    }
+}
+
+// ---- Военная ипотека conditions ----
+.pp-mil-conditions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0 24px;
+
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.pp-mil-cond {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px;
+
+    &__text {
+        font-family: var(--font-family);
+        font-size: 13px;
+        line-height: 1.6;
+        color: var(--stroinova-dark, #1d222f);
+    }
+}
+
+// ---- Жилищный сертификат norms ----
+.pp-zhil-norms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 24px;
+
+    @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.pp-zhil-norm {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &__val {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(16px, 1.8vw, 20px);
+        color: var(--stroinova-primary-2, #e18411);
+    }
+
+    &__desc {
+        font-family: var(--font-family);
+        font-size: 13px;
+        color: var(--stroinova-gray-gray-2, #6b7280);
+        line-height: 1.4;
+    }
+}

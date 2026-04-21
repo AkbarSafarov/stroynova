@@ -528,7 +528,7 @@
                 </div>
                 <h2>Выберите планировку</h2>
             </div>
-            <div class="apt-filter">
+            <div class="apt-filter apt-filter__inner">
                 <div class="apt-filter__row">
 
                     <div class="apt-filter__field apt-filter__field--floors">
@@ -1353,198 +1353,9 @@
     </div>
 </section>
 
-<!-- СПОСОБЫ ПОКУПКИ -->
-<section class="section section--purchase" aria-labelledby="purchase-heading" id="purchase">
-    <div class="container">
-        <h2 id="purchase-heading" class="purchase__title">Способы покупки</h2>
-        <div class="purchase__layout">
-            <div class="purchase__layout-inner">
-                <!-- Левый сайдбар: навигация -->
-                <nav class="purchase__nav" aria-label="Программы покупки">
-                    <p class="purchase__nav-label">Программы</p>
-                    <ul class="purchase__nav-list" role="list">
-                        <li>
-                            <button class="purchase__nav-btn purchase__nav-btn--active" type="button"
-                                    data-tab="standard" aria-selected="true">Стандартная ипотека</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="family" aria-selected="false">Семейная ипотека</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="cert" aria-selected="false">Сертификаты</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="it" aria-selected="false">IT ипотека</button>
-                        </li>
-                    </ul>
-                </nav>
+{% include "blocks/purchase.njk" %}
 
-                <!-- Центр: контент вкладок -->
-                <div class="purchase__content">
-
-                <div class="purchase__tab purchase__tab--active" id="tab-standard" role="tabpanel">
-                    <h3 class="purchase__tab-title">Стандартная ипотека.</h3>
-                    <p class="purchase__tab-text">Возможность приобретения квартиры здесь и сейчас. Без ожидания покупки из-за отсутствия наличных средств или наличии минимального первоначального взноса.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-family" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">Семейная ипотека<sup>*</sup></h3>
-                    <p class="purchase__tab-text">Застройщики, где российские семьи с детьми могут получить кредит на жильё по ставке 6%. Действует до конца 2030 года.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-cert" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">Сертификаты</h3>
-                    <p class="purchase__tab-text">ЖК СтройНова работает с различными видами сертификатов: «Материнский капитал», «Жилищный сертификат». Для военнослужащих предусмотрена специальная льготная программа.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-it" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">IT ипотека</h3>
-                    <p class="purchase__tab-text">Воспользоваться могут сотрудники IT-организаций — граждане РФ в возрасте до 50 лет, оформив ипотечный кредит по ставке до 6% годовых.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-            </div>
-            </div>
-            <!-- Правая карточка: Рассрочка -->
-            <div class="purchase__promo">
-                <h3 class="purchase__promo-title">РАССРОЧКА</h3>
-                <p class="purchase__promo-text">В ГК “Стройнова” индивидуальные условия рассрочки для каждого покупателя</p>
-                <a href="/promotions/" class="btn__button btn_border border_white">Подробнее о рассрочке</a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ИПОТЕЧНЫЙ КАЛЬКУЛЯТОР -->
-<section class="section section--mortgage" aria-labelledby="mortgage-heading">
-
-    <div class="container">
-        <div class="container__inner">
-            <div class="mortgage__bg" aria-hidden="true">
-                <img src="/assets/images/bg.jpg" alt="" />
-            </div>
-            <div class="mortgage__top">
-                <h2 id="mortgage-heading" class="mortgage__title">Ипотечный калькулятор</h2>
-
-                <div class="mortgage__row">
-
-                <!-- Левая карточка: слайдеры -->
-                <div class="mortgage__inputs">
-                    <div class="mort-slider">
-                        <div class="mort-slider__top">
-                            <label class="mort-slider__label" for="mort-price">Стоимость жилья ₽</label>
-                        </div>
-                        <output class="mort-slider__val" id="mort-price-val">12 000 000</output>
-                        <input class="mort-slider__range" type="range" id="mort-price" min="1000000" max="50000000" value="12000000" step="100000" />
-                    </div>
-                    <div class="mort-slider">
-                        <label class="mort-slider__label" for="mort-term">Срок, лет</label>
-                        <output class="mort-slider__val" id="mort-term-val">15</output>
-                        <input class="mort-slider__range" type="range" id="mort-term" min="1" max="30" value="15" step="1" />
-                    </div>
-                    <div class="mort-slider">
-                        <div class="mort-slider__top">
-                            <label class="mort-slider__label" for="mort-down">Первоначальный взнос ₽</label>
-                            <output class="mort-slider__pct" id="mort-down-pct">25%</output>
-                        </div>
-                        <output class="mort-slider__val" id="mort-down-val">3 000 000</output>
-                        <input class="mort-slider__range" type="range" id="mort-down" min="10" max="90" value="25" step="1" />
-                    </div>
-                    <div class="mort-slider">
-                        <label class="mort-slider__label" for="mort-rate">Ставка %</label>
-                        <output class="mort-slider__val" id="mort-rate-val">15</output>
-                        <input class="mort-slider__range" type="range" id="mort-rate" min="1" max="30" value="15" step="0.5" />
-                    </div>
-                </div>
-
-                <!-- Правая карточка: диаграмма + результаты -->
-                <div class="mortgage__result-card">
-
-                    <div class="mortgage__donut-wrap">
-                        <div class="mortgage__donut">
-                            <svg class="donut-svg" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                                <circle class="donut-svg__track" cx="70" cy="70" r="52" />
-                                <circle class="donut-svg__credit" id="donut-credit-arc" cx="70" cy="70" r="52" transform="rotate(-90 70 70)" />
-                            </svg>
-                            <div class="donut-center" aria-hidden="true">₽</div>
-                        </div>
-                        <div class="donut-legend">
-                            <div class="donut-legend__item">
-                                <span class="donut-legend__dot donut-legend__dot--credit"></span>
-                                <div>
-                                    <p class="donut-legend__name">Кредит</p>
-                                    <p class="donut-legend__val" id="legend-credit">—</p>
-                                </div>
-                            </div>
-                            <div class="donut-legend__item">
-                                <span class="donut-legend__dot donut-legend__dot--interest"></span>
-                                <div>
-                                    <p class="donut-legend__name">Проценты</p>
-                                    <p class="donut-legend__val" id="legend-interest">—</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mortgage__summary">
-                        <div class="mortgage__payment">
-                            <p class="mortgage__payment-label">Ежемесячный платёж</p>
-                            <p class="mortgage__payment-val" id="mort-monthly">—</p>
-                        </div>
-                        <div class="mortgage__income">
-                            <p class="mortgage__income-label">Необходимый доход</p>
-                            <p class="mortgage__income-val" id="mort-income">—</p>
-                        </div>
-                        <div class="mortgage__banks">
-                            <p class="mortgage__banks-label">Банки партнёры:</p>
-                            <div class="mortgage__banks-logos">
-                                <span class="bank-name bank-name--sovkom">СовкомБанк</span>
-                                <span class="bank-name bank-name--vtb">ВТБ</span>
-                                <span class="bank-name bank-name--sber">Сбер</span>
-                                <span class="bank-name bank-name--gazprom">ГазпромБанк</span>
-                                <span class="bank-name bank-name--rshb">Россельхоз</span>
-                            </div>
-                        </div>
-                        <div class="mortgage__programs" role="group" aria-label="Программы ипотеки">
-                            <button class="mort-tab mort-tab--active" type="button" data-rate="15">Базовая <span>от 26%</span></button>
-                            <button class="mort-tab" type="button" data-rate="6">Семейная <span>от 6%</span></button>
-                            <button class="mort-tab" type="button" data-rate="6">Ипотека для IT <span>от 6%</span></button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            </div>
-
-            <!-- Низ: текст + форма -->
-            <div class="mortgage__bottom">
-            <div class="mortgage__bottom-left">
-                <p class="mortgage__bottom-text">Вы можете подать заявку на одобрение ипотеки сразу во все банки-партнёры</p>
-                <p class="mortgage__bottom-big" aria-hidden="true">ИПОТЕКА</p>
-            </div>
-            <div class="mortgage__form">
-                <label class="mortgage__phone-label" for="mortgage-phone">Ваш телефон</label>
-                <input class="mortgage__phone" type="tel" id="mortgage-phone" placeholder="+7(___)-___-__-__" autocomplete="tel" />
-                <button class="mortgage__submit" type="button">Получить предложение</button>
-                <p class="mortgage__disclaimer">
-                    Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии «Заказать звонок»
-                </p>
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
+{% include "blocks/calc.njk" %}
 
 <section class="section section--sales-office" aria-labelledby="sales-office-heading">
     <div class="container">
@@ -1656,5 +1467,8 @@
     </div>
 </section>
 
+{% include "blocks/news.njk" %}
+
+{% include "blocks/form-bottom.njk" %}
 
 {% endblock %}

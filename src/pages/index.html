@@ -210,17 +210,17 @@
                                 </article>
 
                                 <article class="project-card">
-                                <img class="project-card__img" src="/assets/images/pro4.jpg" alt="Жилой дом на ул. Голубкова, 6" loading="lazy" />
-                                <div class="project-card__overlay">
-                                    <a href="/projects/" class="btn__button btn_green">
-                                        Смотреть проект
-                                        <svg width="17" height="17" aria-hidden="true" focusable="false">
-                                            <use href="#arrow-w-right" />
-                                        </svg>
-                                    </a>
-                                    <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
-                                </div>
-                            </article>
+                                    <img class="project-card__img" src="/assets/images/pro4.jpg" alt="Жилой дом на ул. Голубкова, 6" loading="lazy" />
+                                    <div class="project-card__overlay">
+                                        <a href="/projects/" class="btn__button btn_green">
+                                            Смотреть проект
+                                            <svg width="17" height="17" aria-hidden="true" focusable="false">
+                                                <use href="#arrow-w-right" />
+                                            </svg>
+                                        </a>
+                                        <p class="project-card__title">Жилой дом на ул. Юрия Смирнова, 15а</p>
+                                    </div>
+                                </article>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -302,196 +302,107 @@
     </div>
 </section>
 
-<!-- СПОСОБЫ ПОКУПКИ -->
-<section class="section section--purchase" aria-labelledby="purchase-heading">
+{% include "blocks/purchase.njk" %}
+
+{% include "blocks/calc.njk" %}
+
+<!-- АКЦИИ / СКИДКИ-->
+<section class="section section--promos" aria-labelledby="promos-heading">
     <div class="container">
-        <h2 id="purchase-heading" class="purchase__title">Способы покупки</h2>
-        <div class="purchase__layout">
-            <div class="purchase__layout-inner">
-                <!-- Левый сайдбар: навигация -->
-                <nav class="purchase__nav" aria-label="Программы покупки">
-                    <p class="purchase__nav-label">Программы</p>
-                    <ul class="purchase__nav-list" role="list">
-                        <li>
-                            <button class="purchase__nav-btn purchase__nav-btn--active" type="button"
-                                    data-tab="standard" aria-selected="true">Стандартная ипотека</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="family" aria-selected="false">Семейная ипотека</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="cert" aria-selected="false">Сертификаты</button>
-                        </li>
-                        <li>
-                            <button class="purchase__nav-btn" type="button"
-                                    data-tab="it" aria-selected="false">IT ипотека</button>
-                        </li>
-                    </ul>
-                </nav>
 
-                <!-- Центр: контент вкладок -->
-                <div class="purchase__content">
-
-                <div class="purchase__tab purchase__tab--active" id="tab-standard" role="tabpanel">
-                    <h3 class="purchase__tab-title">Стандартная ипотека.</h3>
-                    <p class="purchase__tab-text">Возможность приобретения квартиры здесь и сейчас. Без ожидания покупки из-за отсутствия наличных средств или наличии минимального первоначального взноса.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-family" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">Семейная ипотека<sup>*</sup></h3>
-                    <p class="purchase__tab-text">Застройщики, где российские семьи с детьми могут получить кредит на жильё по ставке 6%. Действует до конца 2030 года.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-cert" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">Сертификаты</h3>
-                    <p class="purchase__tab-text">ЖК СтройНова работает с различными видами сертификатов: «Материнский капитал», «Жилищный сертификат». Для военнослужащих предусмотрена специальная льготная программа.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
-                <div class="purchase__tab" id="tab-it" role="tabpanel" hidden>
-                    <h3 class="purchase__tab-title">IT ипотека</h3>
-                    <p class="purchase__tab-text">Воспользоваться могут сотрудники IT-организаций — граждане РФ в возрасте до 50 лет, оформив ипотечный кредит по ставке до 6% годовых.</p>
-                    <p class="purchase__tab-note">Вы можете подать заявку на одобрение ипотеки по всем банкам-партнёрам</p>
-                    <a href="/purchase/" class="btn__button btn_border border_orange">Подробнее о программе</a>
-                </div>
-
+        <div class="promos__header">
+            <div class="promos__header-left">
+                <h2 id="promos-heading" class="promos__title">Акции/Скидки</h2>
+                <a href="/promotions/" class="promos__more">Смотреть еще</a>
             </div>
-            </div>
-            <!-- Правая карточка: Рассрочка -->
-            <div class="purchase__promo">
-                <h3 class="purchase__promo-title">РАССРОЧКА</h3>
-                <p class="purchase__promo-text">В ГК “Стройнова” индивидуальные условия рассрочки для каждого покупателя</p>
-                <a href="/promotions/" class="btn__button btn_border border_white">Подробнее о рассрочке</a>
-            </div>
-
+            <div class="swiper-pagination-promos" aria-hidden="true"></div>
         </div>
-    </div>
-</section>
 
-<!-- ИПОТЕЧНЫЙ КАЛЬКУЛЯТОР -->
-<section class="section section--mortgage" aria-labelledby="mortgage-heading">
+        <div class="swiper promos-slider">
+            <div class="swiper-wrapper">
 
-    <div class="container">
-        <div class="container__inner">
-            <div class="mortgage__bg" aria-hidden="true">
-                <img src="/assets/images/bg.jpg" alt="" />
-            </div>
-            <div class="mortgage__top">
-                <h2 id="mortgage-heading" class="mortgage__title">Ипотечный калькулятор</h2>
-
-                <div class="mortgage__row">
-
-                <!-- Левая карточка: слайдеры -->
-                <div class="mortgage__inputs">
-                    <div class="mort-slider">
-                        <div class="mort-slider__top">
-                            <label class="mort-slider__label" for="mort-price">Стоимость жилья ₽</label>
-                        </div>
-                        <output class="mort-slider__val" id="mort-price-val">12 000 000</output>
-                        <input class="mort-slider__range" type="range" id="mort-price" min="1000000" max="50000000" value="12000000" step="100000" />
-                    </div>
-                    <div class="mort-slider">
-                        <label class="mort-slider__label" for="mort-term">Срок, лет</label>
-                        <output class="mort-slider__val" id="mort-term-val">15</output>
-                        <input class="mort-slider__range" type="range" id="mort-term" min="1" max="30" value="15" step="1" />
-                    </div>
-                    <div class="mort-slider">
-                        <div class="mort-slider__top">
-                            <label class="mort-slider__label" for="mort-down">Первоначальный взнос ₽</label>
-                            <output class="mort-slider__pct" id="mort-down-pct">25%</output>
-                        </div>
-                        <output class="mort-slider__val" id="mort-down-val">3 000 000</output>
-                        <input class="mort-slider__range" type="range" id="mort-down" min="10" max="90" value="25" step="1" />
-                    </div>
-                    <div class="mort-slider">
-                        <label class="mort-slider__label" for="mort-rate">Ставка %</label>
-                        <output class="mort-slider__val" id="mort-rate-val">15</output>
-                        <input class="mort-slider__range" type="range" id="mort-rate" min="1" max="30" value="15" step="0.5" />
-                    </div>
-                </div>
-
-                <!-- Правая карточка: диаграмма + результаты -->
-                <div class="mortgage__result-card">
-
-                    <div class="mortgage__donut-wrap">
-                        <div class="mortgage__donut">
-                            <svg class="donut-svg" viewBox="0 0 140 140" fill="none" aria-hidden="true">
-                                <circle class="donut-svg__track" cx="70" cy="70" r="52" />
-                                <circle class="donut-svg__credit" id="donut-credit-arc" cx="70" cy="70" r="52" transform="rotate(-90 70 70)" />
-                            </svg>
-                            <div class="donut-center" aria-hidden="true">₽</div>
-                        </div>
-                        <div class="donut-legend">
-                            <div class="donut-legend__item">
-                                <span class="donut-legend__dot donut-legend__dot--credit"></span>
-                                <div>
-                                    <p class="donut-legend__name">Кредит</p>
-                                    <p class="donut-legend__val" id="legend-credit">—</p>
-                                </div>
-                            </div>
-                            <div class="donut-legend__item">
-                                <span class="donut-legend__dot donut-legend__dot--interest"></span>
-                                <div>
-                                    <p class="donut-legend__name">Проценты</p>
-                                    <p class="donut-legend__val" id="legend-interest">—</p>
-                                </div>
+                <div class="swiper-slide">
+                    <article class="promo-card">
+                        <img class="promo-card__img" src="/assets/images/actsi1.jpg"
+                             alt="Стройнова дарит пространство для жизни" loading="lazy" />
+                        <div class="promo-card__body">
+                            <span class="promo-card__badge">
+                                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                                    <use href="#calendar" />
+                                </svg>
+                                до 31.12.2025
+                            </span>
+                            <div class="promo-card__bottom">
+                                <h3 class="promo-card__title">Стройнова дарит пространство для жизни</h3>
+                                <p class="promo-card__text">Квадратный метр в подарок при покупке квартиры</p>
+                                <a href="/promotions/" class="btn__button border_orange promo-card__btn">Подробнее</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
+                </div>
 
-                    <div class="mortgage__summary">
-                        <div class="mortgage__payment">
-                            <p class="mortgage__payment-label">Ежемесячный платёж</p>
-                            <p class="mortgage__payment-val" id="mort-monthly">—</p>
-                        </div>
-                        <div class="mortgage__income">
-                            <p class="mortgage__income-label">Необходимый доход</p>
-                            <p class="mortgage__income-val" id="mort-income">—</p>
-                        </div>
-                        <div class="mortgage__banks">
-                            <p class="mortgage__banks-label">Банки партнёры:</p>
-                            <div class="mortgage__banks-logos">
-                                <span class="bank-name bank-name--sovkom">СовкомБанк</span>
-                                <span class="bank-name bank-name--vtb">ВТБ</span>
-                                <span class="bank-name bank-name--sber">Сбер</span>
-                                <span class="bank-name bank-name--gazprom">ГазпромБанк</span>
-                                <span class="bank-name bank-name--rshb">Россельхоз</span>
+                <div class="swiper-slide">
+                    <article class="promo-card promo-card--center">
+                        <img class="promo-card__img" src="/assets/images/actsi2.jpg"
+                             alt="Цена зафиксирована. Спокойствие гарантировано" loading="lazy" />
+                        <div class="promo-card__body">
+                            <span class="promo-card__badge">
+                                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                                    <use href="#calendar" />
+                                </svg>
+                                до 31.12.2025
+                            </span>
+                            <div class="promo-card__bottom">
+                                <h3 class="promo-card__title">Цена зафиксирована. Спокойствие гарантировано</h3>
+                                <p class="promo-card__text">Фиксация цены до конца строительства ...</p>
+                                <a href="/promotions/" class="btn__button border_orange promo-card__btn">Подробнее</a>
                             </div>
                         </div>
-                        <div class="mortgage__programs" role="group" aria-label="Программы ипотеки">
-                            <button class="mort-tab mort-tab--active" type="button" data-rate="15">Базовая <span>от 26%</span></button>
-                            <button class="mort-tab" type="button" data-rate="6">Семейная <span>от 6%</span></button>
-                            <button class="mort-tab" type="button" data-rate="6">Ипотека для IT <span>от 6%</span></button>
-                        </div>
-                    </div>
-
+                    </article>
                 </div>
-            </div>
-            </div>
 
-            <!-- Низ: текст + форма -->
-            <div class="mortgage__bottom">
-            <div class="mortgage__bottom-left">
-                <p class="mortgage__bottom-text">Вы можете подать заявку на одобрение ипотеки сразу во все банки-партнёры</p>
-                <p class="mortgage__bottom-big" aria-hidden="true">ИПОТЕКА</p>
-            </div>
-            <div class="mortgage__form">
-                <label class="mortgage__phone-label" for="mortgage-phone">Ваш телефон</label>
-                <input class="mortgage__phone" type="tel" id="mortgage-phone" placeholder="+7(___)-___-__-__" autocomplete="tel" />
-                <button class="mortgage__submit" type="button">Получить предложение</button>
-                <p class="mortgage__disclaimer">
-                    Я согласен условиями предоставления услуг и обработкой моих персональных данных при нажатии «Заказать звонок»
-                </p>
+                <div class="swiper-slide">
+                    <article class="promo-card">
+                        <img class="promo-card__img" src="/assets/images/actsi3.jpg"
+                             alt="Ремонт в подарок" loading="lazy" />
+                        <div class="promo-card__body">
+                            <span class="promo-card__badge">
+                                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                                    <use href="#calendar" />
+                                </svg>
+                                до 31.12.2025
+                            </span>
+                            <div class="promo-card__bottom">
+                                <h3 class="promo-card__title">Вы получаете не стены — вы получаете готовый дом</h3>
+                                <p class="promo-card__text">Ремонт под ключ — в подарок</p>
+                                <a href="/promotions/" class="btn__button border_orange promo-card__btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="promo-card">
+                        <img class="promo-card__img" src="/assets/images/actsi2.jpg"
+                             alt="Специальные условия по ипотеке" loading="lazy" />
+                        <div class="promo-card__body">
+                            <span class="promo-card__badge">
+                                <svg width="16" height="16" aria-hidden="true" focusable="false">
+                                    <use href="#calendar" />
+                                </svg>
+                                до 28.02.2026
+                            </span>
+                            <div class="promo-card__bottom">
+                                <h3 class="promo-card__title">Ипотека от 5,9% — специальные условия для наших покупателей</h3>
+                                <a href="/promotions/" class="btn__button border_orange promo-card__btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
             </div>
         </div>
-        </div>
+
     </div>
 </section>
 
@@ -513,170 +424,123 @@
 
         <!-- О компании -->
         <div class="about-tabs__panel about-tabs__panel--active" id="about-tab-company" role="tabpanel">
-            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img class="about-tabs__bg" src="/assets/images/tab1.jpg" alt="" aria-hidden="true" loading="lazy" />
             <div class="container">
                 <div class="about-tabs__content">
                     <h2 class="about-tabs__title">О компании</h2>
                     <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
                     <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
-                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                    <a href="/about/" class="btn__button btn_orange about-tabs__btn">Подробнее</a>
                 </div>
             </div>
         </div>
 
         <!-- История -->
         <div class="about-tabs__panel" id="about-tab-history" role="tabpanel" hidden>
-            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img class="about-tabs__bg" src="/assets/images/tab4.jpg" alt="" aria-hidden="true" loading="lazy" />
             <div class="container">
                 <div class="about-tabs__content">
                     <h2 class="about-tabs__title">История</h2>
                     <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
                     <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
-                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                    <a href="/about/" class="btn__button btn_orange about-tabs__btn">Подробнее</a>
                 </div>
             </div>
         </div>
 
         <!-- Награды -->
         <div class="about-tabs__panel" id="about-tab-awards" role="tabpanel" hidden>
-            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img class="about-tabs__bg" src="/assets/images/tab3.jpg" alt="" aria-hidden="true" loading="lazy" />
             <div class="container">
                 <div class="about-tabs__content">
                     <h2 class="about-tabs__title">Награды</h2>
                     <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
                     <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
-                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
+                    <a href="/about/" class="btn__button btn_orange about-tabs__btn">Подробнее</a>
                 </div>
             </div>
         </div>
 
         <!-- Рейтинги -->
         <div class="about-tabs__panel" id="about-tab-ratings" role="tabpanel" hidden>
-            <img class="about-tabs__bg" src="/assets/images/placeholder.webp" alt="" aria-hidden="true" loading="lazy" />
+            <img class="about-tabs__bg" src="/assets/images/tab2.jpg" alt="" aria-hidden="true" loading="lazy" />
             <div class="container">
                 <div class="about-tabs__content">
                     <h2 class="about-tabs__title">Рейтинги</h2>
                     <p class="about-tabs__lead">Группа компании «Стройнова» — лидер строительной отрасли России</p>
                     <p class="about-tabs__text">С гордостью представляем компанию, которая уже три года подряд – с 2022 по 2024 год – удостаивается почётного звания «Надёжный застройщик» России. Эта награда — доказательство нашего профессионализма, надёжности и бескомпромиссного подхода к качеству строительства.</p>
-                    <a href="/about/" class="about-tabs__btn">Подробнее</a>
                     <div class="about-tabs__stats">
                         <div class="about-stat">
-                            <span class="about-stat__num">3</span>
-                            <span class="about-stat__label">года успешной работы</span>
+                            <span class="about-stat__num">10 ЛЕТ</span>
+                            <span class="about-stat__label">успешной работы</span>
                         </div>
                         <div class="about-stat">
-                            <span class="about-stat__num">1 200+</span>
+                            <span class="about-stat__num">25 000</span>
                             <span class="about-stat__label">клиентов обслужено</span>
                         </div>
                         <div class="about-stat">
-                            <span class="about-stat__num">850</span>
+                            <span class="about-stat__num">500+</span>
                             <span class="about-stat__label">договоров заключено</span>
                         </div>
                         <div class="about-stat">
-                            <span class="about-stat__num">5</span>
-                            <span class="about-stat__label">объектов сдано</span>
+                            <span class="about-stat__num">4.9</span>
+                            <span class="about-stat__label">договоров заключено</span>
                         </div>
                     </div>
+                    <a href="/about/" class="btn__button btn_orange about-tabs__btn">Подробнее</a>
+
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- АКЦИИ / СКИДКИ -->
-<!--<section class="section section&#45;&#45;promos" aria-labelledby="promos-heading">-->
-<!--    <div class="container">-->
+<!-- СТАТИСТИКА -->
+<section class="section section--stats" aria-label="Достижения компании">
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-item__icon">
+                    <img src="/assets/images/stat1.svg" alt="">
+                </div>
+                <div class="stat-item__body">
+                    <span class="stat-item__num">10 ЛЕТ</span>
+                    <span class="stat-item__label">успешной работы</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__icon">
+                    <img src="/assets/images/stat2.svg" alt="">
+                </div>
+                <div class="stat-item__body">
+                    <span class="stat-item__num">25 000</span>
+                    <span class="stat-item__label">клиентов обслужено</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__icon">
+                    <img src="/assets/images/stat3.svg" alt="">
+                </div>
+                <div class="stat-item__body">
+                    <span class="stat-item__num">500+</span>
+                    <span class="stat-item__label">договоров заключено</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-item__icon">
+                    <img src="/assets/images/stat4.svg" alt="">
+                </div>
+                <div class="stat-item__body">
+                    <span class="stat-item__num">4.9</span>
+                    <span class="stat-item__label">средняя оценка работы</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!--        <div class="promos__header">-->
-<!--            <div class="promos__header-left">-->
-<!--                <h2 id="promos-heading" class="promos__title">Акции<span>/</span>Скидки</h2>-->
-<!--                <a href="/promotions/" class="promos__more">Смотреть еще</a>-->
-<!--            </div>-->
-<!--            <div class="swiper-pagination-promos" aria-hidden="true"></div>-->
-<!--        </div>-->
+{% include "blocks/news.njk" %}
 
-<!--        <div class="swiper promos-slider">-->
-<!--            <div class="swiper-wrapper">-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <article class="promo-card">-->
-<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
-<!--                             alt="Стройнова дарит пространство для жизни" loading="lazy" />-->
-<!--                        <div class="promo-card__body">-->
-<!--								<span class="promo-card__badge">-->
-<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
-<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
-<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
-<!--									</svg>-->
-<!--									до 31.12.2025-->
-<!--								</span>-->
-<!--                            <div class="promo-card__bottom">-->
-<!--                                <h3 class="promo-card__title">Стройнова дарит пространство для жизни</h3>-->
-<!--                                <p class="promo-card__text">Квадратный метр в подарок при покупке квартиры&nbsp;...</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </article>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <article class="promo-card promo-card&#45;&#45;center">-->
-<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
-<!--                             alt="Цена зафиксирована. Спокойствие гарантировано" loading="lazy" />-->
-<!--                        <div class="promo-card__body promo-card__body&#45;&#45;center">-->
-<!--                            <div class="promo-card__middle">-->
-<!--                                <h3 class="promo-card__title">Цена зафиксирована. Спокойствие гарантировано</h3>-->
-<!--                                <p class="promo-card__text">Фиксация цены до конца строительства&nbsp;...</p>-->
-<!--                                <a href="/promotions/" class="promo-card__btn">Подробнее</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </article>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <article class="promo-card">-->
-<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
-<!--                             alt="Ремонт в подарок" loading="lazy" />-->
-<!--                        <div class="promo-card__body">-->
-<!--								<span class="promo-card__badge">-->
-<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
-<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
-<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
-<!--									</svg>-->
-<!--									до 31.12.2025-->
-<!--								</span>-->
-<!--                            <div class="promo-card__bottom">-->
-<!--                                <h3 class="promo-card__title">Вы получаете не стены — вы получаете готовый дом</h3>-->
-<!--                                <p class="promo-card__text">Ремонт под ключ — в подарок&nbsp;...</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </article>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <article class="promo-card">-->
-<!--                        <img class="promo-card__img" src="/assets/images/placeholder.webp"-->
-<!--                             alt="Специальные условия по ипотеке" loading="lazy" />-->
-<!--                        <div class="promo-card__body">-->
-<!--								<span class="promo-card__badge">-->
-<!--									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">-->
-<!--										<rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>-->
-<!--										<path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>-->
-<!--									</svg>-->
-<!--									до 28.02.2026-->
-<!--								</span>-->
-<!--                            <div class="promo-card__bottom">-->
-<!--                                <h3 class="promo-card__title">Ипотека от 5,9% — специальные условия для наших покупателей</h3>-->
-<!--                                <p class="promo-card__text">Совместная программа с ведущими банками&nbsp;...</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </article>-->
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</section>-->
+{% include "blocks/form-bottom.njk" %}
 
 {% endblock %}

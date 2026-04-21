@@ -1,10 +1,10 @@
 @use "@/styles/abstracts/tokens" as *;
 // ========================================
-// Component — Sales office 
+// Component — Sales office
 // ========================================
 
 .section--sales-office {
-    padding-block: 0;
+    padding-top: 44px;
     margin-bottom: 41px;
 
     @media all and (max-width: 767px) {
@@ -35,7 +35,7 @@
             @include respond-below('sm') {
                 margin-top: -3px;
             }
-            
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;
@@ -63,7 +63,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        
+
         @include respond-below('xl') {
             gap: 18px 12px;
         }
@@ -119,12 +119,12 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        
+
         @include respond-below('xl') {
             order: -1;
             width: 100%;
         }
-        
+
         &-item {
             width: calc(47% - 4px);
 
@@ -135,7 +135,7 @@
             @include respond-below('lg') {
                 width: 100%;
             }
-            
+
             & + & {
                 width: calc(53% - 4px);
 
@@ -150,7 +150,7 @@
 
             &:last-child {
                 width: 100%;
-                
+
                 @include respond-below('xl') {
                     width: calc(41% - 20px);
                 }
@@ -210,11 +210,11 @@
             @include respond-below('sm') {
                 padding: 10px;
             }
-            
+
             .sales-office__contacts-body {
                 padding-top: 10px;
                 color: var(--stroinova-black);
-                
+
                 @include respond-below('sm') {
                     line-height: 143%;
                 }
@@ -273,7 +273,7 @@
             }
         }
     }
-    
+
     &__phones {
         display: flex;
         flex-direction: column;
