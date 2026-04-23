@@ -17,9 +17,9 @@
     grid-template-columns: repeat(3, 1fr) 36px;
     gap: 24px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1240px) {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 8px;
     }
 
     &__card {
@@ -30,8 +30,12 @@
         border-radius: 20px;
         padding: 9px 35px 9px 17px;
 
+        @media (max-width: 1400px) {
+            padding: 8px 16px;
+        }
+
         @media (max-width: 767px) {
-            padding: 16px;
+            padding: 10px 10px;
         }
     }
 
@@ -42,12 +46,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media all and (max-width: 1400px) {
+            width: 90px;
+            height: 90px;
+        }
     }
 
     &__body-row {
         display: flex;
         align-items: center;
         gap: 20px;
+
+        @media (max-width: 767px) {
+            display: block;
+        }
     }
 
     &__label {
@@ -79,8 +92,8 @@
             color: var(--stroinova-primary-2);
         }
 
-        @media (max-width: 767px) {
-            font-size: 18px;
+        @media (max-width: 1400px) {
+            font-size: 20px;
         }
     }
 
@@ -123,16 +136,18 @@
     flex-direction: column;
     gap: 5px;
 
-
+    @media all and (max-width: 1280px) {
+        display: none;
+    }
 }
 
 // ---- Карта ----
 .section--contacts-map {
     padding-top: 0;
-    padding-bottom: 16px;
+    padding-bottom: 35px;
 
     @media (max-width: 767px) {
-        padding-bottom: 12px;
+        padding-bottom: 30px;
     }
 }
 
@@ -154,27 +169,28 @@
 
     &__address {
         position: absolute;
-        bottom: 20px;
-        left: 20px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(6px);
-        border-radius: 10px;
-        padding: 8px 16px;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        align-items: start;
+        gap: 18px;
+        border-radius: 20px;
+        backdrop-filter: blur(9px);
+        background: rgba(255, 255, 255, 0.62);
+        padding: 21px 26px;
         font-family: var(--font-family);
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 143%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
         color: var(--stroinova-black);
 
+        svg  {
+            color: #e18411;
+        }
+
         @media (max-width: 560px) {
-            font-size: 12px;
-            padding: 6px 12px;
-            bottom: 12px;
-            left: 12px;
-            right: 12px;
+            padding: 8px 10px;
         }
     }
 }
@@ -182,17 +198,17 @@
 // ---- Галерея ----
 .section--contacts-gallery {
     padding-top: 0;
-    padding-bottom: 24px;
+    padding-bottom: 50px;
 
     @media (max-width: 767px) {
-        padding-bottom: 16px;
+        display: none;
     }
 }
 
 .contacts-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 20px;
 
     @media (max-width: 767px) {
         grid-template-columns: 1fr;
@@ -207,7 +223,7 @@
 
     &__img {
         width: 100%;
-        height: 240px;
+        height: 430px;
         object-fit: cover;
         display: block;
         border-radius: 20px;
@@ -226,44 +242,62 @@
 // ---- Реквизиты ----
 .section--requisites {
     padding-top: 0;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
 
     @media (max-width: 767px) {
-        padding-bottom: 0;
+        padding-bottom: 10px;
     }
 }
 
 .requisites-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 21px;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 13px;
     }
+
+
 }
 
 .requisites-card {
     background: var(--stroinova-backgroung);
     border-radius: 20px;
-    padding: 24px 28px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    &-col {
+        display: flex;
+        gap: 21px;
+        flex-direction: column;
+        @media (max-width: 900px) {
+            gap: 13px;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+    }
 
     @media (max-width: 767px) {
-        padding: 18px 20px;
+
     }
 
     &__name {
         font-family: var(--font-family);
-        font-weight: 700;
+        font-weight: 600;
         font-size: 18px;
-        line-height: 133%;
-        color: var(--stroinova-black);
-        margin: 0 0 16px;
+        line-height: 144%;
+        color: var(--stroinova-primary-2);
 
         @media (max-width: 767px) {
-            font-size: 16px;
-            margin-bottom: 12px;
+
         }
     }
 
@@ -273,28 +307,24 @@
         padding: 0;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
 
     &__item {
-        display: flex;
-        gap: 8px;
-        align-items: baseline;
     }
 
     &__key {
         font-family: var(--font-family);
         font-weight: 400;
-        font-size: 13px;
-        line-height: 154%;
-        color: var(--stroinova-gray-1);
-        flex-shrink: 0;
-        min-width: 44px;
+        font-size: 14px;
+        line-height: 171%;
+        color: var(--stroinova-black);
+
     }
 
     &__val {
         font-family: var(--font-family);
-        font-weight: 500;
+        font-weight: 600;
         font-size: 14px;
         line-height: 143%;
         color: var(--stroinova-black);

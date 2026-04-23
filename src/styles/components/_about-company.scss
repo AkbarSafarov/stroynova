@@ -17,6 +17,10 @@
     &__icon {
         flex-shrink: 0;
 
+        svg {
+            color: #8bb26b;
+        }
+
         .desktop-icon {
             @media (max-width: 767px) { display: none; }
         }
