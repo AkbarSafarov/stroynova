@@ -1,0 +1,531 @@
+// ========================================
+// Component — About Company page
+// ========================================
+
+// ---- Общий заголовок секции с иконкой ----
+.about-section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @media (max-width: 767px) {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+
+        .desktop-icon {
+            @media (max-width: 767px) { display: none; }
+        }
+
+        .mobile-icon {
+            display: none;
+            @media (max-width: 767px) { display: block; }
+        }
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(22px, 2.8vw, 36px);
+        line-height: 120%;
+        color: var(--stroinova-black);
+        margin: 0;
+    }
+}
+
+// ---- Hero (текст + фото) ----
+.section--about-hero {
+    padding-top: 0;
+    padding-bottom: 30px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 20px;
+    }
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 20px;
+    align-items: start;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__left {
+        background: var(--stroinova-backgroung);
+        border-radius: 20px;
+        padding: 30px 32px;
+
+        @media (max-width: 767px) {
+            padding: 20px;
+        }
+
+        p {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 163%;
+            color: var(--stroinova-black);
+
+            & + p {
+                margin-top: 12px;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 14px;
+                line-height: 171%;
+            }
+        }
+    }
+
+    &__list {
+        margin: 12px 0 12px 20px;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-black);
+
+        li {
+            list-style: disc;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
+    }
+
+    &__right {
+        border-radius: 20px;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 20px;
+        max-height: 430px;
+
+        @media (max-width: 900px) {
+            max-height: 300px;
+        }
+    }
+}
+
+// ---- Миссия и ценности ----
+.section--about-mission {
+    padding-top: 0;
+    padding-bottom: 40px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 28px;
+    }
+}
+
+.about-mission-text {
+    p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-black);
+
+        & + p {
+            margin-top: 16px;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
+    }
+}
+
+// ---- Принципы и преимущества ----
+.section--principles {
+    padding-top: 0;
+    padding-bottom: 40px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 28px;
+    }
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.principles-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 280px;
+
+    @media (max-width: 1024px) {
+        min-height: 220px;
+    }
+
+    @media (max-width: 767px) {
+        min-height: 160px;
+    }
+
+    // 5-й элемент занимает 2 колонки
+    &:nth-child(5) {
+        grid-column: span 2;
+
+        @media (max-width: 480px) {
+            grid-column: span 1;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    &:hover &__img {
+        transform: scale(1.04);
+    }
+
+    // Градиент снизу
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60%;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        padding: 14px 20px;
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-white);
+
+        @media (max-width: 767px) {
+            font-size: 13px;
+            padding: 10px 14px;
+        }
+    }
+
+    // Расширенная карточка с попапом
+    &--expanded &__popup {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        background: rgba(28, 40, 22, 0.82);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 22px 24px;
+        border-radius: 20px;
+    }
+
+    &__popup-title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 133%;
+        color: var(--stroinova-white);
+        margin-bottom: 10px;
+    }
+
+    &__popup p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 171%;
+        color: rgba(255, 255, 255, 0.85);
+    }
+}
+
+// ---- Галерея ----
+.section--about-gallery {
+    padding-top: 0;
+    padding-bottom: 40px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 28px;
+    }
+}
+
+.about-gallery-wrap {
+    margin-top: 0;
+}
+
+.about-gallery-slider {
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 1.375rem;
+
+    @media (max-width: 767px) {
+        margin: 0 0.75rem;
+        border-radius: 16px;
+    }
+}
+
+.about-gallery-slide {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @media (max-width: 1024px) {
+        min-height: 380px;
+    }
+
+    @media (max-width: 767px) {
+        min-height: 260px;
+    }
+
+    &__img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    // Оверлей снизу
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 55%;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.78) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__overlay {
+        position: relative;
+        z-index: 2;
+        padding: 32px 40px 40px;
+
+        @media (max-width: 767px) {
+            padding: 20px 18px 28px;
+        }
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp(16px, 2vw, 22px);
+        line-height: 140%;
+        color: var(--stroinova-white);
+        margin-bottom: 8px;
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: clamp(13px, 1.2vw, 16px);
+        line-height: 163%;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+    }
+}
+
+.about-gallery-pagination {
+    position: absolute;
+    bottom: 20px !important;
+    right: 40px !important;
+    left: auto !important;
+    width: auto !important;
+    justify-content: flex-end;
+    z-index: 3;
+
+    @media (max-width: 767px) {
+        right: 18px !important;
+        bottom: 14px !important;
+    }
+}
+
+// ---- Награды и достижения ----
+.section--awards {
+    padding-top: 0;
+    padding-bottom: 60px;
+
+    @media (max-width: 767px) {
+        padding-bottom: 40px;
+    }
+}
+
+.awards-years {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+
+    @media (max-width: 767px) {
+        gap: 6px;
+        margin-bottom: 18px;
+    }
+}
+
+.awards-year-btn {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 60px;
+    padding: 6px 20px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 163%;
+    color: var(--stroinova-black);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: var(--stroinova-primary-1);
+    }
+
+    &--active {
+        background: var(--stroinova-primary-1);
+        color: var(--stroinova-white);
+        font-weight: 600;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+        padding: 4px 16px;
+    }
+}
+
+.awards-slider-wrap {
+    position: relative;
+}
+
+.awards-slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+    padding: 0 -20px;
+
+    .arrow-btn {
+        pointer-events: all;
+        margin: 0 -20px;
+
+        @media (max-width: 767px) {
+            margin: 0 -10px;
+        }
+    }
+}
+
+.awards-slider {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.awards-card {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+    background: var(--stroinova-backgroung);
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 380px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    &__text {
+        padding: 32px 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow-y: auto;
+        max-height: 420px;
+
+        @media (max-width: 767px) {
+            padding: 20px;
+            max-height: none;
+        }
+
+        p {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 163%;
+            color: var(--stroinova-black);
+        }
+    }
+
+    &__list {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        li {
+            list-style: disc;
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 163%;
+            color: var(--stroinova-black);
+        }
+    }
+
+    &__image {
+        line-height: 0;
+
+        @media (max-width: 900px) {
+            max-height: 280px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}

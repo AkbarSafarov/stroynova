@@ -196,6 +196,10 @@
         transition: all .3s ease-in-out;
         padding: 1px 0 0 1px;
 
+        svg {
+            color: #fff;
+        }
+
         &:hover {
             opacity: .8;
         }

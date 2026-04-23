@@ -1,4 +1,3 @@
-@use "@/styles/abstracts/tokens" as *;
 // ========================================
 // Component — Purchase page (full page)
 // ========================================
@@ -7,16 +6,34 @@
     font-family: var(--font-family);
     font-weight: 700;
     font-size: clamp(28px, 3.5vw, 44px);
-    color: var(--stroinova-dark, #1d222f);
+    color: var(--stroinova-black);
     padding: 24px 0 20px;
+}
+
+// ---- Outer card wrapper ----
+.pp-card {
+    border: 1px solid var(--stroinova-gray-2);
+    border-radius: 20px;
+    padding: 32px 36px 40px;
+    margin-bottom: 40px;
+
+    @media (max-width: 900px) {
+        padding: 24px 24px 32px;
+    }
+
+    @media (max-width: 560px) {
+        padding: 20px 16px 24px;
+        border-radius: 16px;
+        margin-bottom: 24px;
+    }
 }
 
 // ---- Main tabs ----
 .pp-tabs {
     display: flex;
     gap: 0;
-    border-bottom: 2px solid #e5e7eb;
-    margin-bottom: 32px;
+    border-bottom: 2px solid var(--stroinova-gray-2);
+    margin-bottom: 28px;
 
     &__btn {
         background: none;
@@ -27,16 +44,18 @@
         font-family: var(--font-family);
         font-size: 15px;
         font-weight: 500;
-        color: var(--stroinova-gray-gray-2, #6b7280);
+        color: var(--stroinova-gray-1);
         cursor: pointer;
         white-space: nowrap;
         transition: color 0.2s, border-color 0.2s;
 
-        &:hover { color: var(--stroinova-dark, #1d222f); }
+        &:hover {
+            color: var(--stroinova-black);
+        }
 
         &--active {
-            color: var(--stroinova-green, #4a7c59);
-            border-bottom-color: var(--stroinova-green, #4a7c59);
+            color: var(--stroinova-primary-1);
+            border-bottom-color: var(--stroinova-primary-1);
             font-weight: 700;
         }
 
@@ -50,7 +69,7 @@
 // ---- Main panels ----
 .pp-panel {
     display: none;
-    padding-bottom: 60px;
+    padding-bottom: 20px;
 
     &--active { display: block; }
 }
@@ -59,11 +78,19 @@
 .pp-section-title {
     font-family: var(--font-family);
     font-weight: 700;
-    font-size: clamp(20px, 2.5vw, 28px);
-    color: var(--stroinova-dark, #1d222f);
+    font-size: clamp(18px, 2.2vw, 26px);
+    color: var(--stroinova-black);
     margin-bottom: 20px;
-    padding-left: 14px;
-    border-left: 4px solid var(--stroinova-green, #4a7c59);
+    padding-left: 16px;
+    border-left: 4px solid var(--stroinova-primary-1);
+    line-height: 130%;
+
+    @media (max-width: 560px) {
+        font-size: 18px;
+        padding-left: 12px;
+        border-left-width: 3px;
+        margin-bottom: 16px;
+    }
 }
 
 // ---- Sub tabs ----
@@ -73,28 +100,53 @@
     gap: 8px;
     margin-bottom: 28px;
 
+    @media (max-width: 560px) {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        margin-bottom: 20px;
+
+        &::-webkit-scrollbar {
+            height: 3px;
+        }
+        &::-webkit-scrollbar-track {
+            background: var(--stroinova-gray-2);
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--stroinova-primary-1);
+            border-radius: 10px;
+        }
+    }
+
     &__btn {
+        flex-shrink: 0;
         padding: 8px 20px;
         border-radius: 20px;
-        border: 1.5px solid #e5e7eb;
-        background: #fff;
+        border: 1.5px solid var(--stroinova-gray-2);
+        background: var(--stroinova-white);
         font-family: var(--font-family);
         font-size: 13px;
         font-weight: 500;
-        color: var(--stroinova-dark, #1d222f);
+        color: var(--stroinova-black);
         cursor: pointer;
-        transition: background 0.15s, color 0.15s, border-color 0.15s;
         white-space: nowrap;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
 
         &:hover {
-            border-color: var(--stroinova-green, #4a7c59);
-            color: var(--stroinova-green, #4a7c59);
+            border-color: var(--stroinova-primary-1);
+            color: var(--stroinova-primary-1);
         }
 
         &--active {
-            background: var(--stroinova-green, #4a7c59);
-            border-color: var(--stroinova-green, #4a7c59);
-            color: #fff;
+            background: var(--stroinova-primary-1);
+            border-color: var(--stroinova-primary-1);
+            color: var(--stroinova-white);
+        }
+
+        @media (max-width: 560px) {
+            font-size: 12px;
+            padding: 7px 16px;
         }
     }
 }
@@ -111,18 +163,19 @@
     font-family: var(--font-family);
     font-size: 15px;
     line-height: 1.65;
-    color: var(--stroinova-dark, #1d222f);
+    color: var(--stroinova-black);
+    margin: 0;
 
-    &--muted { color: var(--stroinova-gray-gray-2, #6b7280); }
-    &--sm    { font-size: 13px; }
+    &--muted { color: var(--stroinova-gray-1); }
+    &--sm    { font-size: 13px; margin-top: 10px; }
 }
 
 // ---- CTA button ----
 .pp-cta-btn {
     display: inline-flex;
     align-items: center;
-    background: var(--stroinova-primary-2, #e18411);
-    color: #fff;
+    background: var(--stroinova-primary-1);
+    color: var(--stroinova-white);
     border: none;
     border-radius: 8px;
     padding: 13px 28px;
@@ -130,23 +183,35 @@
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 16px;
     transition: opacity 0.2s;
+    white-space: nowrap;
 
     &:hover { opacity: 0.9; }
+
+    @media (max-width: 560px) {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+    }
 }
 
-// ---- Ипотека layout ----
+// ---- Ипотека layout (desc + stats) ----
 .pp-ipoteka-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 40px;
     align-items: start;
     margin-bottom: 32px;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
+    }
+
+    @media (max-width: 560px) {
+        margin-bottom: 24px;
+        gap: 16px;
     }
 }
 
@@ -156,63 +221,67 @@
     gap: 0;
 }
 
+// ---- Рассрочка layout ----
+.pp-rassrochka-layout {
+    max-width: 440px;
+    margin-bottom: 32px;
+
+    @media (max-width: 560px) {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
 // ---- Stats grid ----
 .pp-stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 
     &--2col { grid-template-columns: repeat(2, 1fr); }
 
-    @media (max-width: 1100px) { grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 560px)  { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
 }
 
 .pp-stat {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    background: var(--stroinova-backgroung);
+    border-radius: 12px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 6px;
 
-    &__icon {
-        width: 44px;
-        height: 44px;
+    &__img-wrap {
+        width: 100%;
+        height: 80px;
         border-radius: 8px;
-        background: #f5f5f5;
-        margin-bottom: 4px;
-        flex-shrink: 0;
-        position: relative;
         overflow: hidden;
+        flex-shrink: 0;
+        margin-bottom: 4px;
+    }
 
-        &--rate   { background: linear-gradient(135deg, #e18411 0%, #f5a623 100%); }
-        &--down   { background: linear-gradient(135deg, #4a7c59 0%, #6aaa7a 100%); }
-        &--term   { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); }
-        &--max    { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); }
-
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 25%;
-            border: 2.5px solid rgba(255,255,255,0.7);
-            border-radius: 50%;
-        }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     &__label {
         font-family: var(--font-family);
         font-size: 12px;
-        color: var(--stroinova-gray-gray-2, #6b7280);
+        color: var(--stroinova-gray-1);
         line-height: 1.4;
     }
 
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
-        font-size: clamp(16px, 2vw, 20px);
-        color: var(--stroinova-primary-2, #e18411);
+        font-size: clamp(16px, 1.8vw, 20px);
+        color: var(--stroinova-primary-1);
         line-height: 1.2;
     }
 }
@@ -225,7 +294,8 @@
 .pp-steps-label {
     font-family: var(--font-family);
     font-size: 13px;
-    color: var(--stroinova-gray-gray-2, #6b7280);
+    font-weight: 500;
+    color: var(--stroinova-gray-1);
     margin-bottom: 14px;
 }
 
@@ -235,75 +305,94 @@
     gap: 12px;
 
     @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 560px) { grid-template-columns: 1fr; }
+    @media (max-width: 460px) { grid-template-columns: 1fr; }
 }
 
 .pp-step {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 18px 16px;
+    background: var(--stroinova-backgroung);
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 
-    &__num {
-        font-family: var(--font-family);
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--stroinova-primary-2, #e18411);
-        line-height: 1;
+    &__img-wrap {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @media (max-width: 560px) {
+            height: 80px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease;
+    }
+
+    &:hover &__img {
+        transform: scale(1.05);
+    }
+
+    &__body {
+        padding: 12px 14px 14px;
+        flex: 1;
     }
 
     &__title {
         font-family: var(--font-family);
         font-size: 14px;
         font-weight: 500;
-        color: var(--stroinova-dark, #1d222f);
+        color: var(--stroinova-black);
         line-height: 1.45;
+        margin: 0;
     }
-}
-
-// ---- Рассрочка layout ----
-.pp-rassrochka-layout {
-    max-width: 480px;
-    margin-bottom: 32px;
 }
 
 // ---- Certificate hero ----
 .pp-cert-hero {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 28px;
     align-items: center;
     margin-bottom: 28px;
-    background: #f8f8f8;
-    border-radius: 12px;
-    padding: 24px;
+    background: var(--stroinova-backgroung);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
 
-    &__img {
-        width: 180px;
-        height: 130px;
-        border-radius: 8px;
-        background: #e8e8e8;
+    &__img-wrap {
+        width: 220px;
+        height: 160px;
         flex-shrink: 0;
-        position: relative;
         overflow: hidden;
 
-        &--mat  { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); }
-        &--mil  { background: linear-gradient(135deg, #4a7c59 0%, #3d6b4a 100%); }
-        &--zhil { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        @media (max-width: 768px) {
+            width: 100%;
+            height: 200px;
+        }
+    }
 
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 20%;
-            border: 2px solid rgba(255,255,255,0.4);
-            border-radius: 50%;
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    &__text {
+        padding: 20px 24px 20px 0;
+
+        @media (max-width: 768px) {
+            padding: 0 20px 20px;
         }
     }
 
@@ -312,7 +401,8 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 1.55;
-        color: var(--stroinova-dark, #1d222f);
+        color: var(--stroinova-black);
+        margin: 0;
     }
 }
 
@@ -321,8 +411,8 @@
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
-    color: var(--stroinova-dark, #1d222f);
-    margin-bottom: 10px;
+    color: var(--stroinova-black);
+    margin: 0 0 10px;
 }
 
 // ---- Материнский капитал amounts ----
@@ -332,19 +422,23 @@
     gap: 16px;
     margin: 20px 0 24px;
 
-    @media (max-width: 768px) { grid-template-columns: 1fr; }
+    @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
 }
 
 .pp-cert-amount {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    background: var(--stroinova-backgroung);
+    border-radius: 12px;
+    padding: 16px;
 
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
-        font-size: clamp(16px, 1.8vw, 22px);
-        color: var(--stroinova-primary-2, #e18411);
+        font-size: clamp(15px, 1.6vw, 20px);
+        color: var(--stroinova-primary-1);
         line-height: 1.2;
     }
 
@@ -352,18 +446,19 @@
         font-family: var(--font-family);
         font-size: 12px;
         line-height: 1.55;
-        color: var(--stroinova-gray-gray-2, #6b7280);
+        color: var(--stroinova-gray-1);
+        margin: 0;
     }
 }
 
 // ---- Как получить / особые условия ----
 .pp-cert-how {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 20px;
     align-items: start;
     padding: 20px 0;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--stroinova-gray-2);
     margin-top: 8px;
 
     @media (max-width: 768px) {
@@ -375,7 +470,7 @@
         font-family: var(--font-family);
         font-weight: 600;
         font-size: 14px;
-        color: var(--stroinova-dark, #1d222f);
+        color: var(--stroinova-black);
         line-height: 1.4;
     }
 
@@ -383,7 +478,8 @@
         font-family: var(--font-family);
         font-size: 14px;
         line-height: 1.65;
-        color: var(--stroinova-gray-gray-2, #4b5563);
+        color: var(--stroinova-gray-1);
+        margin: 0;
     }
 }
 
@@ -398,15 +494,16 @@
 }
 
 .pp-mil-cond {
-    background: #f8f8f8;
-    border-radius: 8px;
+    background: var(--stroinova-backgroung);
+    border-radius: 12px;
     padding: 16px;
 
     &__text {
         font-family: var(--font-family);
         font-size: 13px;
         line-height: 1.6;
-        color: var(--stroinova-dark, #1d222f);
+        color: var(--stroinova-black);
+        margin: 0;
     }
 }
 
@@ -424,18 +521,22 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    background: var(--stroinova-backgroung);
+    border-radius: 12px;
+    padding: 16px;
 
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
         font-size: clamp(16px, 1.8vw, 20px);
-        color: var(--stroinova-primary-2, #e18411);
+        color: var(--stroinova-primary-1);
     }
 
     &__desc {
         font-family: var(--font-family);
         font-size: 13px;
-        color: var(--stroinova-gray-gray-2, #6b7280);
+        color: var(--stroinova-gray-1);
         line-height: 1.4;
+        margin: 0;
     }
 }

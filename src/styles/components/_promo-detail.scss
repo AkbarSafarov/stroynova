@@ -103,11 +103,13 @@
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 60px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--stroinova-gray-2, #e5e7eb);
+    padding-top: 23px;
+    margin-bottom: 44px;
+    border-top: 1px solid var(--stroinova-gray-gray-3);
 
-    @media (max-width: 767px) { margin-bottom: 36px; padding-bottom: 24px; }
+    @media (max-width: 767px) {
+        margin-bottom: 25px;
+    }
 }
 
 .promo-detail-tags {
@@ -147,8 +149,10 @@
     align-items: center;
     gap: 8px;
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
+    line-height: 171%;
+    text-align: center;
     color: var(--stroinova-black);
     text-decoration: none;
     flex-shrink: 0;
@@ -160,50 +164,113 @@
 }
 
 // ---- Section: projects in promo ----
-.section--promo-projects {
+.promo-projects {
+    padding-top: 40px;
     padding-bottom: 60px;
 
-    @media (max-width: 767px) { padding-bottom: 36px; }
-
-    .section__title {
-        font-family: var(--font-family);
-        font-weight: 700;
-        font-size: clamp(20px, 3vw, 36px);
-        color: var(--stroinova-primary-1);
-        margin-bottom: 32px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        &::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 1.1em;
-            background: var(--stroinova-primary-2);
-            border-radius: 3px;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 767px) { margin-bottom: 18px; }
+    &__header {
+        margin-bottom: 34px;
     }
 
-    .proj-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        color: var(--stroinova-black);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
 
-        @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
-        @media (max-width: 640px)  { grid-template-columns: 1fr; }
+    @media (max-width: 767px) {
+        padding: 25px 0 30px;
+
+        &__header {
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        &__title {
+            gap: 9px;
+            align-items: start;
+            font-size: 18px;
+        }
+    }
+}
+
+.proj-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+
+    @media (max-width: 767px)  {
+        display: flex;
+        gap: 13px;
+        margin: 0 -0.75rem;
+        padding: 0 0.75rem;
+        overflow-x: auto;
+
+        .proj-card {
+            flex: 0 0 274px;
+        }
     }
 }
 
 // ---- Section: other promos ----
-.section--other-promos {
-    padding-block: 60px;
-    background: var(--stroinova-backgroung, #f3f4f6);
+.other-promos {
+    padding-top: 10px;
+    padding-bottom: 84px;
 
-    @media (max-width: 767px) { padding-block: 36px; }
+    &__header {
+        margin-bottom: 34px;
+    }
 
-    .promos__header { margin-bottom: 32px; }
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        color: var(--stroinova-black);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    @media (max-width: 767px) {
+        padding: 0 0 33px;
+
+        &__header {
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        &__title {
+            gap: 9px;
+            align-items: start;
+            font-size: 18px;
+        }
+    }
+}
+
+.other-promos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+
+    @media (max-width: 767px)  {
+        display: flex;
+        gap: 13px;
+        margin: 0 -0.75rem;
+        padding: 0 0.75rem;
+        overflow-x: auto;
+
+        .promo-card {
+            flex: 0 0 274px;
+        }
+    }
 }

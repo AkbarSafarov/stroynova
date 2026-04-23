@@ -5,12 +5,40 @@
 {% set canonical = "https://stroynova.ru/favorites/" %}
 
 {% block content %}
-<section class="section" aria-labelledby="favorites-heading">
-  <div class="container">
-    <div class="section__header">
-      <h1 id="favorites-heading" class="section__title">Избранное</h1>
+
+<!-- ХЛЕБНЫЕ КРОШКИ -->
+<nav class="breadcrumb" aria-label="Хлебные крошки">
+    <div class="container">
+        <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Избранное</li>
+        </ol>
     </div>
-    <!-- Контент избранного (рендерится через JS) -->
-  </div>
-</section>
+</nav>
+
+<!-- ЗАГОЛОВОК -->
+<div class="container" aria-labelledby="favorites-heading">
+    <h1 id="favorites-heading" class="h1-title">Избранное</h1>
+</div>
+
+{% include "blocks/sort.njk" %}
+
+<div class="container">
+    <div class="apt-grid">
+
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+        {% include "blocks/apartment-fav.njk" %}
+
+    </div>
+
+</div>
+
+{% include "blocks/form-bottom.njk" %}
+
 {% endblock %}

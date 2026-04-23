@@ -4,12 +4,15 @@
 {% set canonical = "https://stroynova.ru/projects/" %}
 
 {% block content %}
-<section class="section" aria-labelledby="project-heading">
-  <div class="container">
-    <h1 id="project-heading" class="section__title">Страница проекта</h1>
-    <!-- Контент страницы проекта -->
-  </div>
-</section>
+<!-- ХЛЕБНЫЕ КРОШКИ -->
+<nav class="breadcrumb" aria-label="Хлебные крошки">
+    <div class="container">
+        <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Страница проекта</li>
+        </ol>
+    </div>
+</nav>
 
 <!-- HERO -->
 <section class="section section--hero" aria-labelledby="hero-heading">
@@ -1468,6 +1471,32 @@
 </section>
 
 {% include "blocks/news.njk" %}
+
+<!-- ПРОЕКТЫ -->
+<section class="section promo-projects" aria-labelledby="similar-projects-heading">
+    <div class="container">
+        <div class="promo-projects__header">
+            <h2 id="promo-projects-heading" class="promo-projects__title">
+                <div class="project-plans__title-icon">
+                    <svg width="14" height="46" aria-hidden="true" focusable="false" class="desktop-icon">
+                        <use href="#heading-icon" />
+                    </svg>
+                    <svg width="6" height="30" aria-hidden="true" focusable="false" class="mobile-icon">
+                        <use href="#heading-icon-mobile" />
+                    </svg>
+                </div>
+                Похожие проекты
+            </h2>
+        </div>
+        <div class="proj-cards-grid">
+
+            {% include "blocks/proj-card.njk" %}
+            {% include "blocks/proj-card.njk" %}
+            {% include "blocks/proj-card.njk" %}
+
+        </div>
+    </div>
+</section>
 
 {% include "blocks/form-bottom.njk" %}
 

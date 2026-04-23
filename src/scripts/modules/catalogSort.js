@@ -1,14 +1,12 @@
-export const initCatalogSort = () => {
-    const dropdown = document.getElementById('catalog-sort-dropdown');
-    if (!dropdown) return;
+const initSortDropdown = (dropdown) => {
+    const trigger = dropdown.querySelector('.catalog-sort__trigger');
+    const current = dropdown.querySelector('.catalog-sort__current');
+    const options = dropdown.querySelectorAll('.catalog-sort__option');
 
-    const trigger  = dropdown.querySelector('.catalog-sort__trigger');
-    const current  = dropdown.querySelector('.catalog-sort__current');
-    const panel    = dropdown.querySelector('.catalog-sort__panel');
-    const options  = dropdown.querySelectorAll('.catalog-sort__option');
+    if (!trigger) return;
 
-    const open  = () => { dropdown.classList.add('is-open'); trigger.setAttribute('aria-expanded', 'true'); };
-    const close = () => { dropdown.classList.remove('is-open'); trigger.setAttribute('aria-expanded', 'false'); };
+    const open   = () => { dropdown.classList.add('is-open');    trigger.setAttribute('aria-expanded', 'true'); };
+    const close  = () => { dropdown.classList.remove('is-open'); trigger.setAttribute('aria-expanded', 'false'); };
     const toggle = () => dropdown.classList.contains('is-open') ? close() : open();
 
     trigger.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
@@ -18,7 +16,7 @@ export const initCatalogSort = () => {
             options.forEach(o => { o.classList.remove('is-active'); o.setAttribute('aria-selected', 'false'); });
             opt.classList.add('is-active');
             opt.setAttribute('aria-selected', 'true');
-            current.textContent = opt.textContent;
+            if (current) current.textContent = opt.textContent;
             close();
             dropdown.dispatchEvent(new CustomEvent('sort-change', { detail: { value: opt.dataset.value }, bubbles: true }));
         });
@@ -31,4 +29,8 @@ export const initCatalogSort = () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') close();
     });
+};
+
+export const initCatalogSort = () => {
+    document.querySelectorAll('.catalog-sort__dropdown').forEach(initSortDropdown);
 };

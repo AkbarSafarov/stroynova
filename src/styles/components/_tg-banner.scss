@@ -68,6 +68,10 @@
         flex-shrink: 0;
         transition: color 0.2s;
 
+        svg {
+            color: var(--stroinova-gray-gray-3);
+        }
+
         &:hover { color: #fff; }
     }
 }

@@ -27,6 +27,9 @@ import { initCatalogSort } from './modules/catalogSort.js';
 import { initApartmentsFilter } from './modules/apartmentsFilter.js';
 import { initAptDetail } from './modules/aptDetail.js';
 import { initPurchasePage } from './modules/purchasePage.js';
+import { initFaqTabs } from './modules/faqTabs.js';
+import { initAboutCompany } from './modules/aboutCompany.js';
+import { initDocsReadMore } from './modules/docsReadMore.js';
 import spriteUrl from '../assets/svg/sprite.svg?url';
 
 const init = () => {
@@ -55,6 +58,9 @@ const init = () => {
     initApartmentsFilter();
     initAptDetail();
     initPurchasePage();
+    initFaqTabs();
+    initAboutCompany();
+    initDocsReadMore();
 };
 
 if (document.readyState === 'loading') {

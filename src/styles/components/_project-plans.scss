@@ -1,6 +1,6 @@
 @use "@/styles/abstracts/tokens" as *;
 // ========================================
-// Component — Project plans 
+// Component — Project plans
 // ========================================
 
 .section--project-plans {
@@ -33,9 +33,9 @@
             line-height: normal;
 
             @include respond-below('sm') {
-                margin-top: -3px;
+                margin-top: -1px;
             }
-            
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;
@@ -93,7 +93,7 @@
                 padding-right: 15px;
                 max-height: 460px;
                 overflow: auto;
-                
+
                 @include respond-below('xl') {
                     padding-bottom: 24px;
                     display: flex;
@@ -104,10 +104,10 @@
                     padding-bottom: 21px;
                     gap: 9px;
                 }
-                
+
                 &::-webkit-scrollbar {
                     width: 8px;
-                    
+
                     @include respond-below('xl') {
                         height: 8px;
                     }
@@ -162,7 +162,7 @@
 
                 &.active {
                     background: var(--stroinova-white);
-                    
+
                     @include respond-below('md') {
                         background: var(--stroinova-backgroung);
                     }
@@ -208,7 +208,7 @@
             background: var(--stroinova-backgroung);
             border-radius: 20px;
             padding: 22px;
-            
+
             @include respond-below('xl') {
                 width: 100%;
                 padding: 25px;
@@ -234,7 +234,7 @@
                 @include respond-below('xl') {
                     gap: 22px;
                 }
-                
+
                 @include respond-below('lg') {
                     flex-direction: column;
                     gap: 13px;
@@ -267,7 +267,7 @@
                             line-height: normal;
                             display: block;
                             text-align: center;
-                            
+
                             img {
                                 display: inline-block;
                             }
@@ -346,7 +346,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 4px;
-                        
+
                         @include respond-below('md') {
                             flex-direction: row;
                             align-items: center;
