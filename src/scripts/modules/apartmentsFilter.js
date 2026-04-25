@@ -1,5 +1,5 @@
 export const initApartmentsFilter = () => {
-    // ---- Project dropdown ----
+
     const projectDrop = document.getElementById('apts-project-dropdown');
     if (projectDrop) {
         const trigger  = projectDrop.querySelector('.apts-filter__trigger');
@@ -28,7 +28,6 @@ export const initApartmentsFilter = () => {
         document.addEventListener('click', (e) => { if (!projectDrop.contains(e.target)) closeProject(); });
     }
 
-    // ---- Dual range (floors) ----
     const floorMin  = document.getElementById('floor-min');
     const floorMax  = document.getElementById('floor-max');
     const floorFill = document.getElementById('floor-fill');
@@ -67,7 +66,6 @@ export const initApartmentsFilter = () => {
     if (priceRange) priceRange.addEventListener('input', updatePrice);
     updatePrice();
 
-    // ---- Room type toggles ----
     const roomBtns = document.querySelectorAll('.apts-filter__room-btn');
     roomBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -75,7 +73,6 @@ export const initApartmentsFilter = () => {
         });
     });
 
-    // ---- Clear ----
     const clearBtn = document.getElementById('apts-filter-clear');
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
@@ -95,7 +92,6 @@ export const initApartmentsFilter = () => {
         });
     }
 
-    // ---- Favorites ----
     document.querySelectorAll('.apt-card__fav').forEach(btn => {
         btn.addEventListener('click', () => {
             btn.classList.toggle('apt-card__fav--saved');
@@ -104,7 +100,6 @@ export const initApartmentsFilter = () => {
         });
     });
 
-    // ---- Sort dropdown (reuses catalog-sort classes) ----
     const sortDrop = document.getElementById('apts-sort-dropdown');
     if (sortDrop) {
         const strigger = sortDrop.querySelector('.catalog-sort__trigger');

@@ -51,7 +51,6 @@ export const initNavigation = () => {
     ) {closeMenu();}
   });
 
-  // Mark current page
   document.querySelectorAll('.nav__link, .mobile-nav__link').forEach((link) => {
     if (link.href === window.location.href) {link.setAttribute('aria-current', 'page');}
   });
@@ -70,12 +69,10 @@ export const initOverflowNav = () => {
   const realItems = [...navList.querySelectorAll('.nav__item:not(.nav__item--more)')];
 
   const update = () => {
-    // Reset: show all real items, hide more button
     realItems.forEach((item) => { item.hidden = false; });
     moreItem.hidden = true;
     overflowList.innerHTML = '';
 
-    // Check against the nav container (not navList — its width changes when items are hidden)
     const navRight = nav.getBoundingClientRect().right;
     const needsMore = realItems.some(
       (item) => item.getBoundingClientRect().right > navRight + 1
@@ -83,7 +80,6 @@ export const initOverflowNav = () => {
 
     if (!needsMore) {return;}
 
-    // Show more button, then hide items from the end until the button fits in nav
     moreItem.hidden = false;
     const hiddenItems = [];
 
@@ -103,7 +99,6 @@ export const initOverflowNav = () => {
     });
   };
 
-  // Toggle dropdown
   on(moreBtn, 'click', (e) => {
     e.stopPropagation();
     const isOpen = moreBtn.getAttribute('aria-expanded') === 'true';
@@ -111,7 +106,6 @@ export const initOverflowNav = () => {
     moreBtn.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Close on click outside
   on(document, 'click', (e) => {
     if (!moreItem.contains(e.target)) {
       overflowList.hidden = true;
@@ -119,7 +113,6 @@ export const initOverflowNav = () => {
     }
   });
 
-  // Close on Escape
   on(document, 'keydown', (e) => {
     if (e.key === 'Escape' && moreBtn.getAttribute('aria-expanded') === 'true') {
       overflowList.hidden = true;
@@ -128,10 +121,8 @@ export const initOverflowNav = () => {
     }
   });
 
-  // Observe the nav container (not navList — it changes size when items hide)
   const ro = new ResizeObserver(update);
   ro.observe(nav);
 
-  // Wait for fonts before measuring
   document.fonts.ready.then(update);
 };

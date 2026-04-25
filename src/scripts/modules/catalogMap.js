@@ -19,8 +19,8 @@ const loadYmaps = () => new Promise((resolve, reject) => {
     if (window.ymaps3) { resolve(window.ymaps3); return; }
 
     const script = document.createElement('script');
-    // Ключ бесплатный: developer.tech.yandex.ru → JavaScript API и HTTP Геокодер
-    const API_KEY = '9dde5b59-f571-46b8-aae4-8cdbea01840a';
+    // Ключ
+    const API_KEY = '';
     script.src = `https://api-maps.yandex.ru/v3/?apikey=${API_KEY}&lang=ru_RU`;
     script.onload = () => window.ymaps3.ready.then(() => resolve(window.ymaps3));
     script.onerror = reject;

@@ -9,10 +9,8 @@ export const initProjectMainSlider = () => {
 
     const wrapper = el.querySelector('.swiper-wrapper');
 
-    // Сохраняем оригинальный HTML (десктоп структура)
     const originalHTML = wrapper.innerHTML;
 
-    // Собираем карточки для мобильной структуры
     const buildMobile = () => {
         const cards = [];
         wrapper.querySelectorAll('.project-card').forEach(card => {
@@ -37,7 +35,7 @@ export const initProjectMainSlider = () => {
     const init = () => {
         const mobile = window.innerWidth <= 991;
 
-        if (mobile === isMobile) return; // ничего не изменилось
+        if (mobile === isMobile) return;
         isMobile = mobile;
 
         if (swiper) {

@@ -46,7 +46,6 @@ export const initAboutCompany = () => {
             return swipers[year];
         }
 
-        // Init first visible panel immediately
         const firstPanel = awardsSection.querySelector('.awards-tab:not([hidden])');
         if (firstPanel) initAwardsSwiper(firstPanel);
 

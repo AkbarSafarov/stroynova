@@ -23,6 +23,11 @@
             fill: none;
             color: #fff;
         }
+
+        &.swiper-button-disabled {
+            opacity: .4;
+            pointer-events: none;
+        }
     }
 }
 

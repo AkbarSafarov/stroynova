@@ -94,7 +94,6 @@ export const initStepsSlider = () => {
             initSwiper(el, data);
         }
 
-        // INIT
         function initAllSliders() {
             sliders.forEach(el => {
                 restructureSlider(el);
@@ -103,7 +102,6 @@ export const initStepsSlider = () => {
 
         initAllSliders();
 
-        // RESIZE
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);

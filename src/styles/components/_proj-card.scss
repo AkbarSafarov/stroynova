@@ -41,6 +41,10 @@
     position: relative;
     border: 1px solid var(--stroinova-gray-2);
 
+    picture {
+        height: 100%;
+    }
+
     &__img-wrap {
         position: relative;
         border-radius: 20px;

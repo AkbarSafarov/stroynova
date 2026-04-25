@@ -36,7 +36,7 @@ export const projectPlansTabs = () => {
     section.querySelectorAll('.zoom-trigger').forEach(btn => {
         btn.addEventListener('click', function () {
             const imageLink = this.closest('.image').querySelector('.pswp-item');
-            imageLink.click(); // триггерим PhotoSwipe
+            imageLink.click();
         });
     });
 

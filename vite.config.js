@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import path from 'path';
+import fs from 'fs';
 import nunjucks from 'vite-plugin-nunjucks';
 import nunjucksLib from 'nunjucks';
 
@@ -24,15 +25,93 @@ function nunjucksHmrPlugin() {
 }
 
 /**
- * Убирает атрибут crossorigin из тегов скриптов и стилей в билде,
- * чтобы файлы можно было открывать напрямую через file:// протокол.
+ * Добавляет WebP-источник в <picture> и оборачивает <img .jpg/.png> в <picture>.
+ * Работает на основе уже сконвертированных файлов (npm run images).
+ */
+function webpPlugin() {
+  const processHtml = (html) => {
+    // Split by existing <picture> blocks to avoid double-processing
+    const parts = html.split(/(<picture[\s\S]*?<\/picture>)/gi);
+
+    return parts.map((part, i) => {
+      const isPictureBlock = i % 2 !== 0;
+
+      if (isPictureBlock) {
+        // Already a <picture>: inject <source type="image/webp"> if not present
+        if (/type="image\/webp"/i.test(part)) return part;
+        const m = part.match(/src(?:set)?="([^"]+\.(?:jpg|jpeg|png))"/i);
+        if (!m) return part;
+        const webp = m[1].replace(/\.(jpg|jpeg|png)$/i, '.webp');
+        return part.replace('<picture>', `<picture><source srcset="${webp}" type="image/webp">`);
+      }
+
+      // Outside <picture>: wrap standalone <img> with jpg/png src
+      return part.replace(
+        /<img(\s[^>]*?)src="([^"]+\.(?:jpg|jpeg|png))"([^>]*?)>/gi,
+        (match, before, src, after) => {
+          const webp = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+          return `<picture><source srcset="${webp}" type="image/webp">${match}</picture>`;
+        }
+      );
+    }).join('');
+  };
+
+  return {
+    name: 'webp-picture',
+    apply: 'build',
+    transformIndexHtml: processHtml,
+  };
+}
+
+/**
+ * Убирает crossorigin, type="module" и modulepreload — для работы через file://.
  */
 function removeCrossOriginPlugin() {
   return {
     name: 'remove-crossorigin',
     apply: 'build',
     transformIndexHtml(html) {
-      return html.replace(/\s+crossorigin(?:="[^"]*")?/g, '');
+      return html
+        .replace(/\s+crossorigin(?:="[^"]*")?/g, '')
+        .replace(/\s+type="module"/g, '')
+        .replace(/<link[^>]+rel="modulepreload"[^>]*>\s*/g, '');
+    },
+  };
+}
+
+/**
+ * Заменяет import.meta в собранном JS — иначе скрипт без type="module" падает с SyntaxError.
+ */
+function fixImportMetaPlugin() {
+  return {
+    name: 'fix-import-meta',
+    apply: 'build',
+    renderChunk(code) {
+      if (!code.includes('import.meta')) return null;
+      return {
+        code: code
+          .replace(/\bimport\.meta\.url\b/g, 'location.href')
+          .replace(/\bimport\.meta\b/g, '{}'),
+        map: null,
+      };
+    },
+  };
+}
+
+/**
+ * Вставляет SVG-спрайт прямо в <body>, чтобы не делать fetch() на file://.
+ */
+function inlineSvgSpritePlugin() {
+  const spritePath = path.resolve(__dirname, 'src/assets/svg/sprite.svg');
+  return {
+    name: 'inline-svg-sprite',
+    apply: 'build',
+    transformIndexHtml(html) {
+      if (!fs.existsSync(spritePath)) return html;
+      const sprite = fs.readFileSync(spritePath, 'utf8')
+        .replace(/<\?xml[^?]*\?>\s*/i, '').trim();
+      const inlined = `<div aria-hidden="true" data-svg-sprite style="position:absolute;width:0;height:0;overflow:hidden">\n${sprite}\n</div>`;
+      return html.replace('<body>', `<body>\n${inlined}`);
     },
   };
 }
@@ -50,6 +129,9 @@ export default defineConfig({
         { noCache: true }
       ),
     }),
+    webpPlugin(),
+    inlineSvgSpritePlugin(),
+    fixImportMetaPlugin(),
     removeCrossOriginPlugin(),
   ],
   css: {
@@ -63,11 +145,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@public': path.resolve(__dirname, './public'),
     },
   },
   build: {
     outDir: path.resolve(__dirname, 'dist'),
     emptyOutDir: true,
+    modulePreload: false,
+    chunkSizeWarningLimit: 700,
     minify: 'esbuild',
     cssMinify: true,
     rollupOptions: {

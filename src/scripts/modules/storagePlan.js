@@ -1,6 +1,8 @@
+import planSvgText from '@public/assets/plan-storage.svg?raw';
+
 /**
  * Storage plan — interactive floor plan for кладовые
- * Loads SVG inline via fetch, colors rooms by status, shows tooltip on hover.
+ * SVG is bundled as raw string (no fetch — works on file:// protocol too).
  */
 
 const ROOMS = [
@@ -77,12 +79,9 @@ export const initStoragePlan = () => {
 
     let activeRoom = null;
 
-    // ── Load & inject SVG inline ──────────────────────────────────────────────
-    async function loadSvg() {
-        const resp = await fetch('/assets/plan-storage.svg');
-        const text = await resp.text();
+    function loadSvg() {
         const parser = new DOMParser();
-        const doc    = parser.parseFromString(text, 'image/svg+xml');
+        const doc    = parser.parseFromString(planSvgText, 'image/svg+xml');
         const svgEl  = doc.querySelector('svg');
 
         svgEl.removeAttribute('width');
@@ -90,7 +89,6 @@ export const initStoragePlan = () => {
         svgEl.setAttribute('role', 'img');
         svgEl.setAttribute('aria-label', 'План кладовых');
 
-        // The 56 room fills are the only paths with opacity="0.2"
         const roomPaths = svgEl.querySelectorAll('path[opacity="0.2"]');
 
         roomPaths.forEach((el, i) => {
@@ -109,7 +107,6 @@ export const initStoragePlan = () => {
         mapEl.appendChild(svgEl);
     }
 
-    // ── Tooltip ──────────────────────────────────────────────────────────────
     function showTooltip(room, e) {
         tooltip.querySelector('.storage-tooltip__num').textContent   = `Кладовая №${room.number}`;
         tooltip.querySelector('.storage-tooltip__size').textContent  = `${room.size.toFixed(1)} м²`;
@@ -132,7 +129,6 @@ export const initStoragePlan = () => {
         tooltip.style.top  = y + 'px';
     }
 
-    // ── Popup ────────────────────────────────────────────────────────────────
     function openPopup(room) {
         activeRoom = room;
         popup.querySelector('.storage-popup__num').textContent     = `Кладовая №${room.number}`;
@@ -172,7 +168,6 @@ export const initStoragePlan = () => {
         }
     }
 
-    // ── Event listeners ──────────────────────────────────────────────────────
     function bindEvents() {
         // Hover → tooltip
         mapEl.addEventListener('mousemove', e => {
@@ -185,7 +180,6 @@ export const initStoragePlan = () => {
 
         mapEl.addEventListener('mouseleave', () => { tooltip.hidden = true; });
 
-        // Click → popup
         mapEl.addEventListener('click', e => {
             const el = e.target.closest('.storage-room');
             if (!el) return;
@@ -194,7 +188,6 @@ export const initStoragePlan = () => {
             if (room) openPopup(room);
         });
 
-        // Keyboard on room
         mapEl.addEventListener('keydown', e => {
             if (e.key !== 'Enter' && e.key !== ' ') return;
             const el = e.target.closest('.storage-room[tabindex]');
@@ -211,5 +204,6 @@ export const initStoragePlan = () => {
         });
     }
 
-    loadSvg().then(bindEvents);
+    loadSvg();
+    bindEvents();
 };

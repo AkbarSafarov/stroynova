@@ -1,5 +1,5 @@
 export const initAptDetail = () => {
-    // ---- Plan tabs ----
+
     const tabBtns  = document.querySelectorAll('[data-plan-tab]');
     const tabPanelMap = {
         layout: 'plan-layout',
@@ -26,7 +26,6 @@ export const initAptDetail = () => {
         });
     });
 
-    // ---- Sticky bar scroll show/hide ----
     const stickyBar = document.getElementById('apt-sticky-bar');
     if (stickyBar) {
         const heroSection = document.querySelector('.apt-hero');
@@ -41,7 +40,6 @@ export const initAptDetail = () => {
         stickyBar.style.transform  = 'translateY(100%)';
     }
 
-    // ---- Favorite button ----
     document.querySelectorAll('.apt-hero__action-btn[aria-label="В избранное"]').forEach(btn => {
         btn.addEventListener('click', () => {
             const svg = btn.querySelector('use');

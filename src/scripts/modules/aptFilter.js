@@ -7,7 +7,6 @@ export const initAptFilter = () => {
   const section = document.querySelector('.apt-filter');
   if (!section) return;
 
-  // Update range input fill and output value
   const updateRange = (input, outputEl, formatter) => {
     const min = Number(input.min);
     const max = Number(input.max);
@@ -17,7 +16,6 @@ export const initAptFilter = () => {
     if (outputEl) outputEl.value = formatter(val);
   };
 
-  // Floors slider
   const floorsInput = document.getElementById('filter-floors');
   const floorsOutput = document.getElementById('floors-min-val');
   if (floorsInput) {
@@ -25,7 +23,6 @@ export const initAptFilter = () => {
     updateRange(floorsInput, floorsOutput, v => v);
   }
 
-  // Price slider (значения в миллионах)
   const priceInput = document.getElementById('filter-price');
   const priceOutput = document.getElementById('price-output');
   if (priceInput) {
@@ -34,7 +31,6 @@ export const initAptFilter = () => {
     updateRange(priceInput, priceOutput, formatPrice);
   }
 
-  // Room-type toggle
   section.querySelectorAll('.rooms-picker__btn').forEach(btn => {
     btn.addEventListener('click', () => {
       section.querySelectorAll('.rooms-picker__btn').forEach(b => {
@@ -46,7 +42,6 @@ export const initAptFilter = () => {
     });
   });
 
-  // Reset button
   const resetBtn = section.querySelector('.apt-filter__reset');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {

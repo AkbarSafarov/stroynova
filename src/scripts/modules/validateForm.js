@@ -17,7 +17,6 @@ const RULES = {
     },
 };
 
-// ---- Phone mask ----
 export const applyPhoneMask = (input) => {
     input.addEventListener('input', () => {
         let digits = input.value.replace(/\D/g, '');
@@ -44,7 +43,6 @@ export const applyPhoneMask = (input) => {
     });
 };
 
-// ---- Error badge helpers (contact-cta classes) ----
 const showInputError = (field, wrap, message) => {
     field.classList.add('is-invalid');
     let badge = wrap.querySelector('.contact-cta__error');
@@ -79,7 +77,6 @@ const clearCheckboxError = (wrap) => {
     wrap.querySelector('.contact-cta__error')?.remove();
 };
 
-// ---- Error badge helpers (ask-field classes) ----
 const showAskError = (field, wrap, message) => {
     field.classList.add('is-invalid');
     let badge = wrap.querySelector('.ask-field__error');
@@ -114,7 +111,6 @@ const clearAskConsentError = (label) => {
     label.querySelector('.ask-field__error')?.remove();
 };
 
-// ---- contact-cta form setup (one instance) ----
 const setupCtaForm = (form) => {
     const nameInput    = form.querySelector('[name="name"]');
     const phoneInput   = form.querySelector('[name="phone"]');
@@ -151,7 +147,6 @@ const setupCtaForm = (form) => {
     });
 };
 
-// ---- FAQ ask-form setup ----
 const setupAskForm = (form) => {
     const nameInput    = form.querySelector('[name="name"]');
     const phoneInput   = form.querySelector('[name="phone"]');
@@ -188,7 +183,6 @@ const setupAskForm = (form) => {
     });
 };
 
-// ---- Mortgage bottom form (phone + consent, button type="button") ----
 export const initMortgageForm = () => {
     const formDiv = document.querySelector('.section--mortgage .mortgage__form');
     if (!formDiv) return;
@@ -228,7 +222,6 @@ export const initMortgageForm = () => {
     });
 };
 
-// ---- Public init ----
 export const initContactForm = () => {
     document.querySelectorAll('.contact-cta__form').forEach(setupCtaForm);
 };

@@ -1,10 +1,6 @@
-/**
- * Mortgage Calculator
- * Computes monthly payment, total interest, required income,
- * and updates the donut chart SVG.
- */
 
-const CIRCUMFERENCE = 2 * Math.PI * 75; // r=75 → ~471.2
+
+const CIRCUMFERENCE = 2 * Math.PI * 75;
 
 const fmt = v => Math.round(v).toLocaleString('ru-RU');
 

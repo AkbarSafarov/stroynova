@@ -353,6 +353,8 @@
 .apt-adv {
     padding-bottom: 65px;
 
+
+
     &__title {
         font-family: var(--font-family);
         font-weight: 700;
@@ -427,6 +429,10 @@
         border-radius: 20px;
         overflow: hidden;
         flex: 0 0 calc(33.33% - 14px);
+
+        picture {
+            height: 100%;
+        }
 
         &:before {
             content: '';

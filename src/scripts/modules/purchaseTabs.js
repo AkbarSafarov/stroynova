@@ -14,7 +14,6 @@ export const initPurchaseTabs = () => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
 
-      // Кнопки навигации
       buttons.forEach(b => {
         b.classList.remove('purchase__nav-btn--active');
         b.setAttribute('aria-selected', 'false');
@@ -22,7 +21,6 @@ export const initPurchaseTabs = () => {
       btn.classList.add('purchase__nav-btn--active');
       btn.setAttribute('aria-selected', 'true');
 
-      // Вкладки контента
       tabs.forEach(tab => {
         const isActive = tab.id === `tab-${target}`;
         tab.hidden = !isActive;

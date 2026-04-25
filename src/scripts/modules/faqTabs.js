@@ -2,19 +2,16 @@ export const initFaqTabs = () => {
     const page = document.querySelector('.faq-page');
     if (!page) return;
 
-    // ---- Дропдаун (мобилка) ----
     const sortDropdown = document.querySelector('.faq-sort__dropdown');
     const trigger      = sortDropdown?.querySelector('.faq-sort__trigger');
     const current      = sortDropdown?.querySelector('.faq-sort__current');
     const options      = sortDropdown ? sortDropdown.querySelectorAll('.faq-sort__option') : [];
 
-    // ---- Навигация сайдбара (десктоп) ----
     const navBtns = page.querySelectorAll('.faq-page__nav-btn');
     const groups  = page.querySelectorAll('.faq-page__group');
 
     if (!groups.length) return;
 
-    // ---- Переключение активной группы ----
     const switchTab = (tabId) => {
         navBtns.forEach(btn => {
             const active = btn.dataset.faqTab === tabId;
@@ -29,7 +26,6 @@ export const initFaqTabs = () => {
         });
     };
 
-    // ---- Дропдаун: open / close ----
     const openDrop  = () => {
         if (!sortDropdown) return;
         sortDropdown.classList.add('is-open');
@@ -43,7 +39,6 @@ export const initFaqTabs = () => {
     const toggleDrop = () =>
         sortDropdown?.classList.contains('is-open') ? closeDrop() : openDrop();
 
-    // ---- Синхронизировать дропдаун с выбранной вкладкой ----
     const syncDrop = (tabId) => {
         options.forEach(o => {
             const active = o.dataset.faqTab === tabId;
@@ -53,7 +48,6 @@ export const initFaqTabs = () => {
         });
     };
 
-    // ---- Триггер дропдауна ----
     if (trigger) {
         trigger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -61,7 +55,6 @@ export const initFaqTabs = () => {
         });
     }
 
-    // ---- Опции дропдауна ----
     options.forEach(option => {
         option.addEventListener('click', () => {
             const tabId = option.dataset.faqTab;
@@ -71,7 +64,6 @@ export const initFaqTabs = () => {
         });
     });
 
-    // ---- Кнопки сайдбара ----
     navBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.dataset.faqTab;
@@ -80,12 +72,10 @@ export const initFaqTabs = () => {
         });
     });
 
-    // ---- Закрытие по клику вне ----
     document.addEventListener('click', (e) => {
         if (sortDropdown && !sortDropdown.contains(e.target)) closeDrop();
     });
 
-    // ---- Закрытие по Escape ----
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeDrop();
     });

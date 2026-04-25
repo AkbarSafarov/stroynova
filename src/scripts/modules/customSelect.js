@@ -52,7 +52,6 @@ export const initCustomSelects = () => {
     document.querySelectorAll('.c-select').forEach(setupOne);
 };
 
-/** Reset a single c-select to its first option */
 export const resetCustomSelect = (select) => {
     if (!select) return;
     const options  = select.querySelectorAll('.c-select__option');

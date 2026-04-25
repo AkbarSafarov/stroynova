@@ -138,6 +138,7 @@
         position: relative;
         overflow: hidden;
         height: 232px;
+        display: block;
 
         .news-card__img { height: 100%; }
 
@@ -184,6 +185,11 @@
         line-height: 130%;
         color: var(--stroinova-black);
         margin: 0 0 8px;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
     }
 
     &__text {
