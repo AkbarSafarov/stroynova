@@ -3,14 +3,31 @@
 {% set description = "Каталог квартир от застройщика Строй Нова. Выберите квартиру в Костроме." %}
 {% set canonical = "https://stroynova.ru/apartments/" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stroynova.ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Наши проекты", "item": "https://stroynova.ru/catalog/" },
+    { "@type": "ListItem", "position": 3, "name": "Каталог квартир", "item": "https://stroynova.ru/apartments/" }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
-            <li class="breadcrumb__item"><a href="/catalog/" class="breadcrumb__link">Наши проекты</a></li>
+            <li class="breadcrumb__item">
+                <a href="/" class="breadcrumb__link">Главная</a>
+                <svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg>
+            </li>
+            <li class="breadcrumb__item"><a href="/catalog/" class="breadcrumb__link">Наши проекты</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Каталог квартир</li>
         </ol>
     </div>
@@ -36,17 +53,23 @@
             <div class="apt-filter__row">
 
                 <div class="apt-filter__field apt-filter__field--select">
-                    <label class="apt-filter__label" for="filter-project">Проект</label>
-                    <div class="apt-filter__select-wrap">
-                        <select class="apt-filter__select" id="filter-project" name="project">
-                            <option value="">Все</option>
-                            <option value="1">ЖК «Солнечный»</option>
-                            <option value="2">ЖК «Парковый»</option>
-                            <option value="3">ЖК «Берёзовый»</option>
-                        </select>
-                        <svg width="12" height="12" aria-hidden="true" focusable="false">
-                            <use href="#arrow-down-icon" />
-                        </svg>
+                    <div class="c-select" data-name="project">
+                        <button class="c-select__trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="c-select__inner">
+                                <span class="c-select__label">Проект</span>
+                                <span class="c-select__value">Все</span>
+                            </span>
+                            <svg class="c-select__arrow" width="12" height="8" aria-hidden="true" focusable="false">
+                                <use href="#arrow-down-icon" />
+                            </svg>
+                        </button>
+                        <ul class="c-select__dropdown" role="listbox" hidden>
+                            <li class="c-select__option" role="option" data-value="" aria-selected="true">Все</li>
+                            <li class="c-select__option" role="option" data-value="1">ЖК «Солнечный»</li>
+                            <li class="c-select__option" role="option" data-value="2">ЖК «Парковый»</li>
+                            <li class="c-select__option" role="option" data-value="3">ЖК «Берёзовый»</li>
+                        </ul>
+                        <input type="hidden" name="project" class="c-select__hidden" value="">
                     </div>
                 </div>
 

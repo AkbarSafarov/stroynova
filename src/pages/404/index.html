@@ -4,16 +4,18 @@
 {% set robots = "noindex, nofollow" %}
 
 {% block content %}
-<section class="section section--error" aria-labelledby="error-heading">
-  <div class="container">
-    <div class="error-page">
-      <p class="error-page__code" aria-hidden="true">404</p>
-      <h1 id="error-heading" class="error-page__title">Страница не найдена</h1>
-      <p class="error-page__text">
-        Возможно, она была удалена или вы перешли по неверной ссылке.
-      </p>
-      <a href="/" class="btn btn--primary btn--lg">На главную</a>
+<section class="section section-page__error" aria-labelledby="error-heading">
+    <div class="container">
+        <div class="error-page">
+            <h1 id="error-heading" class="error-page__title">что то пошло не так, <span>страница не найдена.</span></h1>
+            <div class="error-page__image">
+                <img src="/assets/images/image-404.png" alt="">
+            </div>
+            <div class="error-page__btns">
+                <a href="/" class="btn__button btn_orange">Вернуться на главную</a>
+                <a href="/" class="btn__button btn_border border_green">Перейти в проекты</a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 {% endblock %}

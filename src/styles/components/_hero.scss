@@ -179,6 +179,10 @@
                             font-size: 0;
                             line-height: normal;
 
+                            svg {
+                                color: var(--stroinova-gray-1);
+                            }
+
                             @include respond-below('md') {
                                 width: 18px;
                                 height: 18px;

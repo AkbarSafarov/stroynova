@@ -1,6 +1,6 @@
 @use "@/styles/abstracts/tokens" as *;
 // ========================================
-// Component — Project documents 
+// Component — Project documents
 // ========================================
 
 .section--documents-block {
@@ -20,7 +20,7 @@
     @include respond-below('sm') {
         padding: 20px;
     }
-    
+
     &__header {
         display: flex;
         align-items: center;
@@ -45,7 +45,7 @@
     }
 
     &__more-btn {
-        
+
         @include respond-below('sm') {
             display: none;
         }
@@ -75,14 +75,14 @@
 
             svg {
                 fill: none;
-                
+
                 path {
                     transition: all 0.3s ease;
                 }
             }
         }
     }
-    
+
     &__body {
         display: none;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -125,6 +125,10 @@
         &-icon {
             font-size: 0;
             line-height: normal;
+
+            svg {
+                color: var(--stroinova-primary-2);
+            }
         }
 
         &-body {
@@ -132,7 +136,7 @@
             flex-direction: column;
             gap: 8px;
         }
-        
+
         &-title {
             font-family: var(--font-family);
             font-weight: 700;
@@ -148,7 +152,7 @@
         }
 
         &-bottom {
-            
+
             a {
                 display: flex;
                 align-items: center;

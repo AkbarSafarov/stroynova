@@ -79,7 +79,6 @@ export default defineConfig({
         storage: path.resolve(pagesDir, 'storage/index.html'),
         purchase: path.resolve(pagesDir, 'purchase/index.html'),
         promotions: path.resolve(pagesDir, 'promotions/index.html'),
-        promotions2: path.resolve(pagesDir, 'promotions2/index.html'),
         faq: path.resolve(pagesDir, 'faq/index.html'),
         favorites: path.resolve(pagesDir, 'favorites/index.html'),
         documents: path.resolve(pagesDir, 'documents/index.html'),

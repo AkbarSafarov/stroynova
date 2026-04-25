@@ -3,12 +3,25 @@
 {% set description = "Подробная информация о жилом комплексе: планировки, инфраструктура, ход строительства." %}
 {% set canonical = "https://stroynova.ru/projects/" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stroynova.ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Страница проекта", "item": "https://stroynova.ru/projects/" }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Страница проекта</li>
         </ol>
     </div>
@@ -33,8 +46,8 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <picture>
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
                         <img
                             src="/assets/images/main-image.jpg"
                             alt="Современный жилой комплекс от Строй Нова"
@@ -63,8 +76,8 @@
                 </div>
                 <div class="swiper-slide">
                     <picture>
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
                         <img
                             src="/assets/images/main-image.jpg"
                             alt="Современный жилой комплекс от Строй Нова"
@@ -74,7 +87,7 @@
                         />
                     </picture>
                     <div class="inner">
-                        <div class="name">Title</div>
+                        <div class="name">Жилой многоквартирный дом на ул.<br>Войкова 22</div>
                         <div class="btn-wrapper">
                             <a href="#" class="btn__button btn_orange">Выбрать квартиру</a>
                         </div>
@@ -85,9 +98,9 @@
                                         <use href="#location" />
                                     </svg>
                                 </div>
-                                <div class="address-block__text">МЦД-3 Перерва 15 мин</div>
+                                <div class="address-block__text">МЦД-2 Перерва 5 мин</div>
                             </div>
-                            <div class="price-block">от 10 млн ₽</div>
+                            <div class="price-block">от 13 млн ₽</div>
                         </div>
                     </div>
                 </div>
@@ -700,7 +713,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -738,7 +751,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -776,7 +789,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -814,7 +827,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -852,7 +865,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -890,7 +903,7 @@
                                         </div>
                                     </div>
                                     <div class="tab-inner__btn">
-                                        <a href="#" class="btn__button btn_orange">Показать 2 квартиры</a>
+                                        <a href="#" class="btn__button btn_orange plans-show-btn">Показать 2 квартиры</a>
                                     </div>
                                 </div>
                             </div>
@@ -901,6 +914,8 @@
         </div>
     </div>
 </section>
+
+{% include "blocks/form-block.njk" %}
 
 <!-- PROJECT STEPS -->
 <section class="section section--project-steps" aria-labelledby="project-steps" id="project-steps">
@@ -1358,7 +1373,7 @@
 
 {% include "blocks/purchase.njk" %}
 
-{% include "blocks/calc.njk" %}
+{% include "blocks/calc-projects.njk" %}
 
 <section class="section section--sales-office" aria-labelledby="sales-office-heading">
     <div class="container">
@@ -1499,5 +1514,24 @@
 </section>
 
 {% include "blocks/form-bottom.njk" %}
+
+<!-- PLANS POPUP -->
+<div class="plans-popup" id="plans-popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="plans-popup-title">
+    <div class="plans-popup__overlay"></div>
+    <div class="plans-popup__container">
+        <div class="plans-popup__card">
+            <button class="plans-popup__close" type="button" aria-label="Закрыть">
+                <svg width="18" height="18" aria-hidden="true" focusable="false">
+                    <use href="#close" />
+                </svg>
+            </button>
+            <h3 class="plans-popup__title" id="plans-popup-title">
+                <span class="plans-popup__title-decor" aria-hidden="true"></span>
+                Планировка: <span class="plans-popup__title-text"></span>
+            </h3>
+            <div class="plans-popup__list"></div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

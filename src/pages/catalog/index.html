@@ -3,13 +3,26 @@
 {% set description = "Каталог жилых проектов от Строй Нова. Современные жилые комплексы в Костроме." %}
 {% set canonical = "https://stroynova.ru/catalog/" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stroynova.ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Наши проекты", "item": "https://stroynova.ru/catalog/" }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Подобрать квартиру</li>
         </ol>
     </div>

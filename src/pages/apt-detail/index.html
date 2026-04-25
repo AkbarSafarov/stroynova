@@ -3,14 +3,53 @@
 {% set description = "Студия 64,5 м², 6 этаж, корпус 1,2. Цена 9 200 400 ₽. Застройщик Строй Нова, Кострома." %}
 {% set canonical = "https://stroynova.ru/apartments/34/" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Квартира № 34 — Студия 64,5 м²",
+  "description": "Студия 64,5 м², 6 этаж, корпус 1,2. Застройщик Строй Нова, Кострома.",
+  "url": "https://stroynova.ru/apartments/34/",
+  "image": "https://stroynova.ru/assets/images/apart.png",
+  "brand": {
+    "@type": "Organization",
+    "name": "Строй Нова"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "9200400",
+    "priceCurrency": "RUB",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Строй Нова",
+      "url": "https://stroynova.ru/"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stroynova.ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Каталог квартир", "item": "https://stroynova.ru/apartments/" },
+    { "@type": "ListItem", "position": 3, "name": "Квартира № 34", "item": "https://stroynova.ru/apartments/34/" }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
-            <li class="breadcrumb__item"><a href="/apartments/" class="breadcrumb__link">Каталог квартир</a></li>
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
+            <li class="breadcrumb__item"><a href="/apartments/" class="breadcrumb__link">Каталог квартир</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Квартира № 34</li>
         </ol>
     </div>
@@ -132,8 +171,8 @@
 
                 <!-- Кнопки -->
                 <div class="apt-hero__btns">
-                    <button class="btn__button btn_orange apt-hero__btn--primary" type="button">Забронировать</button>
-                    <button class="btn__button btn_border border_black apt-hero__btn--secondary" type="button">Консультация</button>
+                    <button class="btn__button btn_orange apt-hero__btn--primary" type="button" data-modal-open="book">Забронировать</button>
+                    <button class="btn__button btn_border border_black apt-hero__btn--secondary" type="button" data-modal-open="consult">Консультация</button>
                 </div>
             </div>
 
@@ -240,7 +279,7 @@
                 <p class="apt-sticky-bar__price">9 200 400 ₽</p>
                 <p class="apt-sticky-bar__mortgage">в ипотеку 40 022 ₽</p>
             </div>
-            <button class="btn__button btn_orange apt-sticky-bar__btn" type="button">Получить консультацию</button>
+            <button class="btn__button btn_orange apt-sticky-bar__btn" type="button" data-modal-open="consult">Получить консультацию</button>
         </div>
     </div>
 </div>

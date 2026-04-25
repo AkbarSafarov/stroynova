@@ -152,6 +152,8 @@
     height: 32px;
     text-decoration: none;
     transition: opacity 0.2s;
+    background: #fff;
+    border-radius: 50%;
 
     &:hover { opacity: 0.8; }
 }

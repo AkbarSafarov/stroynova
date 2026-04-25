@@ -136,6 +136,18 @@
     flex-direction: column;
     gap: 5px;
 
+    .contacts__social{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        text-decoration: none;
+        transition: opacity 0.2s;
+        background: var(--stroinova-backgroung);
+        border-radius: 50%;
+    }
+
     @media all and (max-width: 1280px) {
         display: none;
     }

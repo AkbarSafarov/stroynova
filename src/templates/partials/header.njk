@@ -1,14 +1,30 @@
-<nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" inert>
+<div id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" inert>
+
     <ul class="mobile-nav__list" role="list">
-        <li><a href="/" class="mobile-nav__link">Квартиры</a></li>
-        <li><a href="/catalog/" class="mobile-nav__link">Главная</a></li>
-        <li><a href="/apartments/" class="mobile-nav__link">Проекты</a></li>
-        <li><a href="/purchase/" class="mobile-nav__link">Акции</a></li>
-        <li><a href="/promotions/" class="mobile-nav__link">Способы покупки</a></li>
-        <li><a href="/about/" class="mobile-nav__link">О компании</a></li>
-        <li><a href="/contacts/" class="mobile-nav__link">Контакты</a></li>
+        <li class="mobile-nav__item"><a href="/" class="mobile-nav__link">Квартиры</a></li>
+        <li class="mobile-nav__item"><a href="/catalog/" class="mobile-nav__link">Главная</a></li>
+        <li class="mobile-nav__item"><a href="/apartments/" class="mobile-nav__link">Проекты</a></li>
+        <li class="mobile-nav__item"><a href="/purchase/" class="mobile-nav__link">Акции</a></li>
+        <li class="mobile-nav__item">
+            <a href="/promotions/" class="mobile-nav__link mobile-nav__link--arrow">
+                Способы покупки
+                <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#arrow-right-w-icon" /></svg>
+            </a>
+        </li>
+        <li class="mobile-nav__item">
+            <a href="/about/" class="mobile-nav__link mobile-nav__link--arrow">
+                О компании
+                <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#arrow-right-w-icon" /></svg>
+            </a>
+        </li>
+        <li class="mobile-nav__item"><a href="/contacts/" class="mobile-nav__link">Контакты</a></li>
     </ul>
-</nav>
+
+    <div class="mobile-nav__footer">
+        <button class="btn__button btn_orange mobile-nav__cta" type="button" data-modal-open="consult">Оставить заявку</button>
+    </div>
+
+</div>
 <header class="header" role="banner">
     <div class="header__inner">
 
@@ -47,7 +63,7 @@
                     <nav class="nav header__nav" aria-label="Основная навигация">
                         <ul class="nav__list" role="list">
                             <li class="nav__item">
-                                <a href="/" class="nav__link">
+                                <a href="/apartments/" class="nav__link">
                                     <svg width="24" height="24" aria-hidden="true" focusable="false">
                                         <use href="#menu-icon" />
                                     </svg>
@@ -58,7 +74,7 @@
                                 <a href="/catalog/" class="nav__link">Главная</a>
                             </li>
                             <li class="nav__item">
-                                <a href="/apartments/" class="nav__link">Проекты</a>
+                                <a href="/projects/" class="nav__link">Проекты</a>
                             </li>
                             <li class="nav__item">
                                 <a href="/purchase/" class="nav__link">Акции</a>
@@ -100,8 +116,11 @@
                             aria-controls="mobile-nav"
                             aria-label="Открыть меню"
                         >
-                            <svg width="19" height="16" aria-hidden="true" focusable="false">
+                            <svg width="19" height="16" class="burger-icon" aria-hidden="true" focusable="false">
                                 <use href="#burger-icon" />
+                            </svg>
+                            <svg width="12" height="12" class="close-icon" aria-hidden="true" focusable="false">
+                                <use href="#close" />
                             </svg>
                         </button>
                     </div>

@@ -4,7 +4,7 @@
  * and updates the donut chart SVG.
  */
 
-const CIRCUMFERENCE = 2 * Math.PI * 52; // r=52 → ~326.7
+const CIRCUMFERENCE = 2 * Math.PI * 75; // r=75 → ~471.2
 
 const fmt = v => Math.round(v).toLocaleString('ru-RU');
 
@@ -21,20 +21,20 @@ export const initMortgageCalc = () => {
   if (!section) return;
 
   const el = {
-    price:    section.querySelector('#mort-price'),
-    term:     section.querySelector('#mort-term'),
-    down:     section.querySelector('#mort-down'),
-    rate:     section.querySelector('#mort-rate'),
-    priceVal: section.querySelector('#mort-price-val'),
-    termVal:  section.querySelector('#mort-term-val'),
-    downVal:  section.querySelector('#mort-down-val'),
-    downPct:  section.querySelector('#mort-down-pct'),
-    rateVal:  section.querySelector('#mort-rate-val'),
-    monthly:  section.querySelector('#mort-monthly'),
-    income:   section.querySelector('#mort-income'),
-    credit:   section.querySelector('#legend-credit'),
-    interest: section.querySelector('#legend-interest'),
-    arc:      section.querySelector('#donut-credit-arc'),
+    price:    section.querySelector('#apt-mort-price'),
+    term:     section.querySelector('#apt-mort-term'),
+    down:     section.querySelector('#apt-mort-down'),
+    rate:     section.querySelector('#apt-mort-rate'),
+    priceVal: section.querySelector('#apt-mort-price-val'),
+    termVal:  section.querySelector('#apt-mort-term-val'),
+    downVal:  section.querySelector('#apt-mort-down-val'),
+    downPct:  section.querySelector('#apt-mort-down-pct'),
+    rateVal:  section.querySelector('#apt-mort-rate-val'),
+    monthly:  section.querySelector('#apt-mort-monthly'),
+    income:   section.querySelector('#apt-mort-income'),
+    credit:   section.querySelector('#apt-legend-credit'),
+    interest: section.querySelector('#apt-legend-interest'),
+    arc:      section.querySelector('#apt-donut-credit-arc'),
   };
 
   if (!el.price || !el.arc) return;

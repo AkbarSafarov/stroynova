@@ -1,10 +1,11 @@
 @use "@/styles/abstracts/tokens" as *;
 // ========================================
-// Component — Project steps 
+// Component — Project steps
 // ========================================
 
 .section--project-steps {
     padding-block: 0;
+    margin-top: 30px;
     margin-bottom: 41px;
 
     @media all and (max-width: 767px) {
@@ -32,10 +33,14 @@
             font-size: 0;
             line-height: normal;
 
+            svg {
+                color: var(--stroinova-primary-2);
+            }
+
             @include respond-below('sm') {
                 margin-top: -3px;
             }
-            
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;
@@ -183,9 +188,9 @@
         @include respond-below('sm') {
             padding: 7.5px 26.5px;
         }
-        
+
         &.active {
-            
+
             svg {
                 transform: rotate(180deg);
             }
@@ -221,7 +226,7 @@
             padding-right: 18px;
             overflow: auto;
             max-height: 204px;
-            
+
             &::-webkit-scrollbar {
                 width: 6px;
             }

@@ -12,55 +12,82 @@
 
 // ---- Outer card wrapper ----
 .pp-card {
-    border: 1px solid var(--stroinova-gray-2);
-    border-radius: 20px;
-    padding: 32px 36px 40px;
-    margin-bottom: 40px;
+
 
     @media (max-width: 900px) {
-        padding: 24px 24px 32px;
+
     }
 
     @media (max-width: 560px) {
-        padding: 20px 16px 24px;
-        border-radius: 16px;
-        margin-bottom: 24px;
+
     }
 }
 
 // ---- Main tabs ----
+.pp-tabs-wrapper {
+    padding: 50px 0 38px;
+
+    @media (max-width: 900px) {
+        padding: 34px 0 24px;
+    }
+}
+
 .pp-tabs {
     display: flex;
-    gap: 0;
-    border-bottom: 2px solid var(--stroinova-gray-2);
-    margin-bottom: 28px;
+    padding: 12px 20px;
+    background: var(--stroinova-backgroung);
+    border-radius: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 4px;
+
+    &::-webkit-scrollbar { display: none; }
 
     &__btn {
+        flex-shrink: 0;
         background: none;
         border: none;
-        border-bottom: 2px solid transparent;
-        margin-bottom: -2px;
-        padding: 12px 28px;
+        padding: 10px 30px;
         font-family: var(--font-family);
-        font-size: 15px;
-        font-weight: 500;
-        color: var(--stroinova-gray-1);
-        cursor: pointer;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-black);
         white-space: nowrap;
-        transition: color 0.2s, border-color 0.2s;
+        cursor: pointer;
+        transition: color 0.2s;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--stroinova-primary-2);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
 
         &:hover {
-            color: var(--stroinova-black);
+            color: var(--stroinova-primary-2);
         }
 
         &--active {
-            color: var(--stroinova-primary-1);
-            border-bottom-color: var(--stroinova-primary-1);
-            font-weight: 700;
+            color: var(--stroinova-primary-2);
+            font-weight: 600;
+
+            &::after { opacity: 1; }
         }
 
-        @media (max-width: 560px) {
-            padding: 10px 16px;
+        @media (max-width: 1024px) {
+            padding: 14px 18px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 767px) {
+            padding: 12px 14px;
             font-size: 14px;
         }
     }
@@ -69,12 +96,12 @@
 // ---- Main panels ----
 .pp-panel {
     display: none;
-    padding-bottom: 20px;
+    padding-bottom: 56px;
 
     &--active { display: block; }
 }
 
-// ---- Section title ----
+// ---- Section title — two green squares ----
 .pp-section-title {
     font-family: var(--font-family);
     font-weight: 700;
@@ -82,14 +109,36 @@
     color: var(--stroinova-black);
     margin-bottom: 20px;
     padding-left: 16px;
-    border-left: 4px solid var(--stroinova-primary-1);
+    position: relative;
     line-height: 130%;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 7px;
+        height: 11px;
+        background: var(--stroinova-primary-2);
+        border-radius: 2px;
+    }
+
+    &::before { top: calc(50% - 13px); }
+    &::after  { top: calc(50% + 2px); }
 
     @media (max-width: 560px) {
         font-size: 18px;
-        padding-left: 12px;
-        border-left-width: 3px;
+        padding-left: 14px;
         margin-bottom: 16px;
+
+        &::before,
+        &::after {
+            width: 6px;
+            height: 9px;
+        }
+
+        &::before { top: calc(50% - 10px); }
+        &::after  { top: calc(50% + 1px); }
     }
 }
 
@@ -97,51 +146,44 @@
 .pp-sub-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
+    gap: 16px;
+    margin-bottom: 34px;
 
-    @media (max-width: 560px) {
+    @media (max-width: 767px) {
         flex-wrap: nowrap;
         overflow-x: auto;
-        padding-bottom: 4px;
-        margin-bottom: 20px;
+        padding: 0 0.75rem 4px;
+        margin: 0 -0.75rem 20px;
 
         &::-webkit-scrollbar {
-            height: 3px;
-        }
-        &::-webkit-scrollbar-track {
-            background: var(--stroinova-gray-2);
-            border-radius: 10px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: var(--stroinova-primary-1);
-            border-radius: 10px;
+            display: none;
         }
     }
 
     &__btn {
         flex-shrink: 0;
-        padding: 8px 20px;
-        border-radius: 20px;
-        border: 1.5px solid var(--stroinova-gray-2);
-        background: var(--stroinova-white);
+        padding: 9.5px 25px;
+        border-radius: 100px;
+        background: var(--stroinova-backgroung);
+        border: none;
         font-family: var(--font-family);
-        font-size: 13px;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 163%;
+        text-align: center;
         color: var(--stroinova-black);
         cursor: pointer;
         white-space: nowrap;
         transition: background 0.15s, color 0.15s, border-color 0.15s;
 
         &:hover {
-            border-color: var(--stroinova-primary-1);
-            color: var(--stroinova-primary-1);
+            background: var(--stroinova-primary-2);
+            color: #ffffff;
         }
 
         &--active {
-            background: var(--stroinova-primary-1);
-            border-color: var(--stroinova-primary-1);
-            color: var(--stroinova-white);
+            background: var(--stroinova-primary-2);
+            color: #ffffff;
         }
 
         @media (max-width: 560px) {
@@ -161,48 +203,23 @@
 // ---- Text helpers ----
 .pp-text {
     font-family: var(--font-family);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.65;
     color: var(--stroinova-black);
-    margin: 0;
+    margin: 0 0 20px;
 
-    &--muted { color: var(--stroinova-gray-1); }
-    &--sm    { font-size: 13px; margin-top: 10px; }
+    &--muted { color: var(--stroinova-gray-1);
+        margin-bottom: 0px; }
+    &--sm    { font-size: 13px; margin-top: 10px; color: var(--stroinova-gray-1); }
 }
 
-// ---- CTA button ----
-.pp-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    background: var(--stroinova-primary-1);
-    color: var(--stroinova-white);
-    border: none;
-    border-radius: 8px;
-    padding: 13px 28px;
-    font-family: var(--font-family);
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 16px;
-    transition: opacity 0.2s;
-    white-space: nowrap;
 
-    &:hover { opacity: 0.9; }
-
-    @media (max-width: 560px) {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-    }
-}
-
-// ---- Ипотека layout (desc + stats) ----
+// ---- Ипотека / Рассрочка layout (desc left | content right) ----
 .pp-ipoteka-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
+    grid-template-columns: 450px 1fr;
+    gap: 30px;
     align-items: start;
-    margin-bottom: 32px;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
@@ -210,7 +227,6 @@
     }
 
     @media (max-width: 560px) {
-        margin-bottom: 24px;
         gap: 16px;
     }
 }
@@ -221,22 +237,11 @@
     gap: 0;
 }
 
-// ---- Рассрочка layout ----
-.pp-rassrochka-layout {
-    max-width: 440px;
-    margin-bottom: 32px;
-
-    @media (max-width: 560px) {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
 // ---- Stats grid ----
 .pp-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 20px 17px;
 
     &--2col { grid-template-columns: repeat(2, 1fr); }
 
@@ -246,21 +251,21 @@
     }
 }
 
+// ---- Stat card — horizontal ----
 .pp-stat {
     background: var(--stroinova-backgroung);
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: 20px;
+    padding: 24px;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
 
     &__img-wrap {
-        width: 100%;
-        height: 80px;
-        border-radius: 8px;
+        flex: 0 0 121px;
+        width: 121px;
+        height: 121px;
         overflow: hidden;
-        flex-shrink: 0;
-        margin-bottom: 4px;
     }
 
     &__img {
@@ -268,142 +273,153 @@
         height: 100%;
         object-fit: cover;
         display: block;
+        background: none !important;
+    }
+
+    &__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
     }
 
     &__label {
         font-family: var(--font-family);
-        font-size: 12px;
-        color: var(--stroinova-gray-1);
-        line-height: 1.4;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-primary-1);
+        margin-bottom: 5px;
     }
 
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
-        font-size: clamp(16px, 1.8vw, 20px);
-        color: var(--stroinova-primary-1);
-        line-height: 1.2;
+        font-size: 24px;
+        line-height: 150%;
+        color: var(--stroinova-black);
+        margin-bottom: 5px;
+    }
+
+    &__desc {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 171%;
+        color: var(--stroinova-gray-gray-3);
     }
 }
 
 // ---- Steps ----
 .pp-steps-section {
-    margin-top: 8px;
+    margin-top: 45px;
 }
 
 .pp-steps-label {
     font-family: var(--font-family);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--stroinova-gray-1);
-    margin-bottom: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 163%;
+    color: var(--stroinova-black);
+    margin-bottom: 21px;
 }
 
 .pp-steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 13px;
 
     @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 460px) { grid-template-columns: 1fr; }
+    @media (max-width: 640px) { grid-template-columns: 1fr; }
 }
 
+// ---- Step card — horizontal ----
 .pp-step {
     background: var(--stroinova-backgroung);
-    border-radius: 12px;
-    overflow: hidden;
+    border-radius: 20px;
+    padding: 24px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
 
     &__img-wrap {
-        width: 100%;
-        height: 100px;
+        flex: 0 0 86px;
+        width: 86px;
+        height: 86px;
         overflow: hidden;
         flex-shrink: 0;
-
-        @media (max-width: 560px) {
-            height: 80px;
-        }
     }
 
     &__img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         display: block;
-        transition: transform 0.35s ease;
-    }
-
-    &:hover &__img {
-        transform: scale(1.05);
+        background: none !important;
     }
 
     &__body {
-        padding: 12px 14px 14px;
         flex: 1;
+    }
+
+    &__num {
+        display: block;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        color: var(--stroinova-primary-1);
+        margin-bottom: 5px;
     }
 
     &__title {
         font-family: var(--font-family);
-        font-size: 14px;
-        font-weight: 500;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 133%;
         color: var(--stroinova-black);
-        line-height: 1.45;
         margin: 0;
     }
 }
 
-// ---- Certificate hero ----
-.pp-cert-hero {
+// ---- Certificate 2-column layout ----
+.pp-cert-layout {
     display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 28px;
-    align-items: center;
-    margin-bottom: 28px;
-    background: var(--stroinova-backgroung);
-    border-radius: 16px;
-    overflow: hidden;
-    padding: 0;
+    grid-template-columns: 400px 1fr;
+    gap: 47px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 990px) {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
+}
 
-    &__img-wrap {
-        width: 220px;
-        height: 160px;
-        flex-shrink: 0;
-        overflow: hidden;
-
-        @media (max-width: 768px) {
-            width: 100%;
-            height: 200px;
-        }
-    }
+.pp-cert-media {
 
     &__img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 200px;
+        object-fit: contain;
+        border-radius: 12px;
         display: block;
-    }
-
-    &__text {
-        padding: 20px 24px 20px 0;
-
-        @media (max-width: 768px) {
-            padding: 0 20px 20px;
-        }
+        margin-bottom: 14px;
     }
 
     &__title {
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 16px;
-        line-height: 1.55;
+        font-size: 20px;
+        line-height: 130%;
         color: var(--stroinova-black);
         margin: 0;
     }
+}
+
+.pp-cert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 // ---- Certificate subtitle ----
@@ -411,16 +427,16 @@
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
+    line-height: 163%;
     color: var(--stroinova-black);
-    margin: 0 0 10px;
 }
 
 // ---- Материнский капитал amounts ----
 .pp-cert-amounts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 20px 0 24px;
+    gap: 20px;
+    margin: 15px 0 0;
 
     @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
     @media (max-width: 560px) { grid-template-columns: 1fr; }
@@ -431,35 +447,40 @@
     flex-direction: column;
     gap: 8px;
     background: var(--stroinova-backgroung);
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: 20px;
+    padding: 24px;
 
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
-        font-size: clamp(15px, 1.6vw, 20px);
+        line-height: 150%;
         color: var(--stroinova-primary-1);
-        line-height: 1.2;
+        font-size: clamp(14px, 1.4vw, 24px);
     }
 
     &__desc {
         font-family: var(--font-family);
-        font-size: 12px;
-        line-height: 1.55;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 171%;
         color: var(--stroinova-gray-1);
-        margin: 0;
     }
 }
 
 // ---- Как получить / особые условия ----
 .pp-cert-how {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 342px 1fr;
     gap: 20px;
     align-items: start;
-    padding: 20px 0;
+    padding: 16px 0;
     border-top: 1px solid var(--stroinova-gray-2);
-    margin-top: 8px;
+
+    &-top {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+    }
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
@@ -468,17 +489,18 @@
 
     &__label {
         font-family: var(--font-family);
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
         color: var(--stroinova-black);
-        line-height: 1.4;
     }
 
     &__text {
         font-family: var(--font-family);
-        font-size: 14px;
-        line-height: 1.65;
-        color: var(--stroinova-gray-1);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 144%;
+        color: var(--stroinova-black);
         margin: 0;
     }
 }
@@ -488,7 +510,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin: 16px 0 24px;
+    margin: 12px 0 0;
 
     @media (max-width: 768px) { grid-template-columns: 1fr; }
 }
@@ -511,8 +533,8 @@
 .pp-zhil-norms {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 16px 0 24px;
+    gap: 12px;
+    margin: 12px 0 0;
 
     @media (max-width: 768px) { grid-template-columns: 1fr; }
 }
@@ -528,7 +550,7 @@
     &__val {
         font-family: var(--font-family);
         font-weight: 700;
-        font-size: clamp(16px, 1.8vw, 20px);
+        font-size: clamp(15px, 1.6vw, 19px);
         color: var(--stroinova-primary-1);
     }
 

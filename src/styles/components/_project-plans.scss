@@ -36,6 +36,10 @@
                 margin-top: -1px;
             }
 
+            svg {
+                color: #8bb26b;
+            }
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;

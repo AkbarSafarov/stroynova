@@ -8,6 +8,7 @@ import { initLazyImages } from './modules/lazyImages.js';
 import { loadSvgSprite } from './modules/svgSprite.js';
 import { initHeroSlider } from './modules/heroSlider.js';
 import { initAptFilter } from './modules/aptFilter.js';
+import { initCustomSelects } from './modules/customSelect.js';
 import { initMortgageCalc } from './modules/mortgageCalc.js';
 import { initPurchaseTabs } from './modules/purchaseTabs.js';
 import { initPromosSlider } from './modules/promosSlider.js';
@@ -21,15 +22,19 @@ import {projectPlansTabs} from "@/scripts/modules/projectPlans.js";
 import {initStepsSlider} from "@/scripts/modules/projectSteps.js";
 import {projectDocs} from "@/scripts/modules/projectDocuments.js";
 import { initUiHelpers } from './modules/uiHelpers.js';
-import { initContactForm } from './modules/validateForm.js';
+import { initContactForm, initFaqForm, initMortgageForm } from './modules/validateForm.js';
+import { initModalForm } from './modules/modalForm.js';
 import { initCatalogMap } from './modules/catalogMap.js';
 import { initCatalogSort } from './modules/catalogSort.js';
 import { initApartmentsFilter } from './modules/apartmentsFilter.js';
 import { initAptDetail } from './modules/aptDetail.js';
 import { initPurchasePage } from './modules/purchasePage.js';
 import { initFaqTabs } from './modules/faqTabs.js';
+import { initPrivacyTabs } from './modules/privacyTabs.js';
 import { initAboutCompany } from './modules/aboutCompany.js';
 import { initDocsReadMore } from './modules/docsReadMore.js';
+import { initStoragePlan } from './modules/storagePlan.js';
+import { initPlansPopup } from './modules/plansPopup.js';
 import spriteUrl from '../assets/svg/sprite.svg?url';
 
 const init = () => {
@@ -39,6 +44,7 @@ const init = () => {
     initLazyImages();
     initHeroSlider();
     initAptFilter();
+    initCustomSelects();
     initMortgageCalc();
     initPurchaseTabs();
     initPromosSlider();
@@ -53,14 +59,20 @@ const init = () => {
     projectDocs();
     initUiHelpers();
     initContactForm();
+    initFaqForm();
+    initMortgageForm();
+    initModalForm();
     initCatalogMap();
     initCatalogSort();
     initApartmentsFilter();
     initAptDetail();
     initPurchasePage();
     initFaqTabs();
+    initPrivacyTabs();
     initAboutCompany();
     initDocsReadMore();
+    initStoragePlan();
+    initPlansPopup();
 };
 
 if (document.readyState === 'loading') {

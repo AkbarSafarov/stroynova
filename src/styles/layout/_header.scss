@@ -17,8 +17,13 @@
         padding-top: 23px;
         padding-bottom: 15px;
 
-        @include respond-below(md) {
+        @media all and (max-width: 959px){
             padding: 5px 12px 10px;
+
+
+            .header__contacts {
+                margin-bottom: 9px;
+            }
         }
     }
 
@@ -256,18 +261,24 @@
         align-items: center;
         justify-content: center;
         outline: none;
-        border-radius: 15px;
+        border-radius: 50%;
         transition: all .3s ease-in-out;
         cursor: pointer;
 
-        &.is-open {
+        .close-icon {
+            display: none;
+            color: #fff;
+        }
+
+        &.is-open,
+        &[aria-expanded="true"]{
             background: var(--stroinova-primary-2);
 
             svg {
                 display: none;
             }
 
-            .close-menu {
+            .close-icon {
                 display: block;
             }
         }

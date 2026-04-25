@@ -2,53 +2,100 @@
 // ========================================
 // Component — Button
 // ========================================
+.btn__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    padding: 16px 30px;
+    border: 1px solid transparent;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 163%;
+    color: var(--stroinova-white);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+    border-radius: 60px;
 
-.btn {
-  @include button-reset;
-  @include flex-center;
-  gap: $spacing-2;
-  display: inline-flex;
-  padding: $spacing-3 $spacing-6;
-  border-radius: $radius-md;
-  font-size: $font-size-base;
-  font-weight: $font-weight-medium;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-  @include transition(background-color, color, border-color, box-shadow);
+    @media all and (max-width: 1024px) {
+        padding: 11px 29px;
+    }
 
-  &:disabled,
-  &[aria-disabled='true'] {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+    &.btn_border {
 
-  &--primary {
-    background-color: $color-primary;
-    color: $color-text-inverse;
-    border: 2px solid $color-primary;
+    }
 
-    &:hover { background-color: $color-primary-dark; border-color: $color-primary-dark; }
-  }
+    &.border_orange {
+        border: 1px solid var(--stroinova-primary-1);
+        color: var(--stroinova-primary-1);
+        background: transparent;
 
-  &--secondary {
-    background-color: transparent;
-    color: $color-primary;
-    border: 2px solid $color-primary;
+        &:hover {
+            color: #ffffff;
+            background: var(--stroinova-primary-1);
+        }
+    }
 
-    &:hover { background-color: $color-primary; color: $color-text-inverse; }
-  }
+    &.border_green {
+        border: 1px solid var(--stroinova-primary-2);
+        color: var(--stroinova-primary-2);
+        background: transparent;
 
-  &--ghost {
-    background-color: transparent;
-    color: $color-text;
-    border: 2px solid transparent;
+        &:hover {
+            color: #ffffff;
+            background: var(--stroinova-primary-2);
+        }
+    }
 
-    &:hover { background-color: $color-bg-alt; }
-  }
+    &.border_white {
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        background: transparent;
 
-  &--sm { padding: $spacing-2 $spacing-4; font-size: $font-size-sm; }
-  &--lg { padding: $spacing-4 $spacing-8; font-size: $font-size-lg; }
-  &--full { width: 100%; }
+        &:hover {
+            color: var(--stroinova-primary-1);
+            background: #fff;
+        }
+    }
+
+    &.border_black {
+        border: 1px solid var(--stroinova-black);
+        color: var(--stroinova-black);
+        background: transparent;
+
+        &:hover {
+            color: #fff;
+            background: var(--stroinova-black);
+        }
+    }
+
+    &.btn_orange {
+        background: linear-gradient(139deg, #e18411 0%, #e13b11 100%);
+
+        &:hover {
+            background: linear-gradient(139deg, #e18411 0%, #e18411 100%);
+            color: #ffffff;
+        }
+    }
+
+    &.btn_green {
+        background: var(--stroinova-primary-2);
+
+        &:hover {
+            background: var(--stroinova-hover-color);
+            color: #ffffff;
+        }
+    }
+
+    &.btn_black {
+        background: var(--stroinova-black);
+
+        &:hover {
+            background: var(--stroinova-hover-color);
+            color: #ffffff;
+        }
+    }
 }

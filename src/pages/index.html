@@ -24,8 +24,8 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <picture>
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
                         <img
                             src="/assets/images/main-image.jpg"
                             alt="Современный жилой комплекс от Строй Нова"
@@ -42,8 +42,8 @@
                 </div>
                 <div class="swiper-slide">
                     <picture>
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
-                        <source srcset="/assets/images/main-image.jpg" type="image/jpg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
+                        <source srcset="/assets/images/main-image.jpg" type="image/jpeg" />
                         <img
                             src="/assets/images/main-image.jpg"
                             alt="Современный жилой комплекс от Строй Нова"
@@ -81,17 +81,23 @@
             <div class="apt-filter__row">
 
                 <div class="apt-filter__field apt-filter__field--select">
-                    <label class="apt-filter__label" for="filter-project">Проект</label>
-                    <div class="apt-filter__select-wrap">
-                        <select class="apt-filter__select" id="filter-project" name="project">
-                            <option value="">Все</option>
-                            <option value="1">ЖК «Солнечный»</option>
-                            <option value="2">ЖК «Парковый»</option>
-                            <option value="3">ЖК «Берёзовый»</option>
-                        </select>
-                        <svg width="12" height="12" aria-hidden="true" focusable="false">
-                            <use href="#arrow-down-icon" />
-                        </svg>
+                    <div class="c-select" data-name="project">
+                        <button class="c-select__trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="c-select__inner">
+                                <span class="c-select__label">Проект</span>
+                                <span class="c-select__value">Все</span>
+                            </span>
+                            <svg class="c-select__arrow" width="12" height="8" aria-hidden="true" focusable="false">
+                                <use href="#arrow-down-icon" />
+                            </svg>
+                        </button>
+                        <ul class="c-select__dropdown" role="listbox" hidden>
+                            <li class="c-select__option" role="option" data-value="" aria-selected="true">Все</li>
+                            <li class="c-select__option" role="option" data-value="1">ЖК «Солнечный»</li>
+                            <li class="c-select__option" role="option" data-value="2">ЖК «Парковый»</li>
+                            <li class="c-select__option" role="option" data-value="3">ЖК «Берёзовый»</li>
+                        </ul>
+                        <input type="hidden" name="project" class="c-select__hidden" value="">
                     </div>
                 </div>
 

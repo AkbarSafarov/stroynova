@@ -3,13 +3,76 @@
 {% set description = "Ответы на популярные вопросы о покупке квартиры, ипотеке, ходе строительства и условиях сделки." %}
 {% set canonical = "https://stroynova.ru/faq/" %}
 
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Часто задаваемые вопросы — Строй Нова",
+  "url": "https://stroynova.ru/faq/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Как купить квартиру напрямую от застройщика?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Удобство расположения и инфраструктура ЖК «Патриот» выгодно расположен в Костроме с отличной транспортной доступностью. Квартиры в ЖК представлены по конкурентным ценам от официального застройщика."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли приобрести квартиру в ипотеку или с использованием материнского капитала?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, мы работаем с ведущими банками-партнёрами и предоставляем все необходимые документы для оформления ипотеки. Материнский капитал принимается как первоначальный взнос или для погашения части долга."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "На каком этапе строительства находятся дома?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Актуальную информацию о ходе строительства вы можете найти в разделе «Ход строительства» на нашем сайте. Мы регулярно публикуем фотоотчёты и обновляем статус по каждому корпусу."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие документы получает покупатель при покупке квартиры?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "При покупке квартиры по ДДУ покупатель получает: договор ДДУ с печатью Росреестра, выписку из ЕГРН, акт приёма-передачи, технический паспорт и гарантийный паспорт от застройщика."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Входит ли отделка в стоимость квартиры?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Квартиры реализуются как с чистовой отделкой, так и без неё — в зависимости от выбранного варианта. Уточнить наличие и стоимость отделки можно у наших менеджеров."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stroynova.ru/" },
+    { "@type": "ListItem", "position": 2, "name": "Часто задаваемые вопросы", "item": "https://stroynova.ru/faq/" }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
 <!-- ХЛЕБНЫЕ КРОШКИ -->
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Часто задаваемые вопросы</li>
         </ol>
     </div>

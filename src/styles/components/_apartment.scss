@@ -223,6 +223,10 @@
         color: var(--stroinova-black);
         margin-top: auto;
         margin-bottom: 7px;
+
+        svg {
+            color: var(--stroinova-gray-gray-3);
+        }
     }
 
     &__btn {

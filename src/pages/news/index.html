@@ -9,7 +9,7 @@
 <nav class="breadcrumb" aria-label="Хлебные крошки">
     <div class="container">
         <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a></li>
+            <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Главная</a><svg width="18" height="18" aria-hidden="true"><use href="#arrow-right-w-icon"></use></svg></li>
             <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Новости</li>
         </ol>
     </div>
@@ -112,4 +112,5 @@
     </div>
 </section>
 
+{% include "blocks/form-bottom.njk" %}
 {% endblock %}

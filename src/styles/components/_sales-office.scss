@@ -32,6 +32,10 @@
             font-size: 0;
             line-height: normal;
 
+            svg {
+                color:  var(--stroinova-primary-2);
+            }
+
             @include respond-below('sm') {
                 margin-top: -3px;
             }
@@ -211,6 +215,10 @@
                 padding: 10px;
             }
 
+            svg {
+                color: var(--stroinova-gray-gray-3);
+            }
+
             .sales-office__contacts-body {
                 padding-top: 10px;
                 color: var(--stroinova-black);
@@ -266,6 +274,8 @@
                 text-decoration: none;
                 will-change: transform;
                 display: inline-block;
+                border-radius: 50%;
+                background: var(--stroinova-backgroung);
 
                 &:hover {
                     transform: scale(1.1);

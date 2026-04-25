@@ -1,5 +1,5 @@
 /**
- * Contact CTA form — validation + phone mask
+ * Form validation + phone mask — shared across all site forms
  */
 
 const RULES = {
@@ -18,7 +18,7 @@ const RULES = {
 };
 
 // ---- Phone mask ----
-const applyPhoneMask = (input) => {
+export const applyPhoneMask = (input) => {
     input.addEventListener('input', () => {
         let digits = input.value.replace(/\D/g, '');
 
@@ -44,8 +44,7 @@ const applyPhoneMask = (input) => {
     });
 };
 
-// ---- Error badge helpers ----
-// For text inputs: badge is absolute inside __input-wrap
+// ---- Error badge helpers (contact-cta classes) ----
 const showInputError = (field, wrap, message) => {
     field.classList.add('is-invalid');
     let badge = wrap.querySelector('.contact-cta__error');
@@ -63,7 +62,6 @@ const clearInputError = (field, wrap) => {
     wrap.querySelector('.contact-cta__error')?.remove();
 };
 
-// For checkbox: error appended inside checkbox-wrap
 const showCheckboxError = (wrap, message) => {
     wrap.classList.add('is-invalid');
     let err = wrap.querySelector('.contact-cta__error');
@@ -81,74 +79,160 @@ const clearCheckboxError = (wrap) => {
     wrap.querySelector('.contact-cta__error')?.remove();
 };
 
-// ---- Validate helpers ----
-const validateInput = (name, input, field, wrap) => {
-    const valid = RULES[name].validate(input.value);
-    if (valid) clearInputError(field, wrap);
-    else showInputError(field, wrap, RULES[name].message);
-    return valid;
+// ---- Error badge helpers (ask-field classes) ----
+const showAskError = (field, wrap, message) => {
+    field.classList.add('is-invalid');
+    let badge = wrap.querySelector('.ask-field__error');
+    if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'ask-field__error';
+        badge.setAttribute('role', 'alert');
+        wrap.appendChild(badge);
+    }
+    badge.textContent = message;
 };
 
-const validateConsent = (checkbox, wrap) => {
-    const valid = RULES.consent.validate(checkbox);
-    if (valid) clearCheckboxError(wrap);
-    else showCheckboxError(wrap, RULES.consent.message);
-    return valid;
+const clearAskError = (field, wrap) => {
+    field.classList.remove('is-invalid');
+    wrap.querySelector('.ask-field__error')?.remove();
 };
 
-// ---- Init ----
-export const initContactForm = () => {
-    const form = document.querySelector('.contact-cta__form');
-    if (!form) return;
+const showAskConsentError = (label, message) => {
+    label.classList.add('is-invalid');
+    let err = label.querySelector('.ask-field__error');
+    if (!err) {
+        err = document.createElement('span');
+        err.className = 'ask-field__error';
+        err.setAttribute('role', 'alert');
+        label.appendChild(err);
+    }
+    err.textContent = message;
+};
 
-    const nameInput    = form.querySelector('#cta-name');
-    const phoneInput   = form.querySelector('#cta-phone');
+const clearAskConsentError = (label) => {
+    label.classList.remove('is-invalid');
+    label.querySelector('.ask-field__error')?.remove();
+};
+
+// ---- contact-cta form setup (one instance) ----
+const setupCtaForm = (form) => {
+    const nameInput    = form.querySelector('[name="name"]');
+    const phoneInput   = form.querySelector('[name="phone"]');
     const consentInput = form.querySelector('[name="consent"]');
     if (!nameInput || !phoneInput || !consentInput) return;
 
-    const nameField    = nameInput.closest('.contact-cta__field');
-    const nameWrap     = nameInput.closest('.contact-cta__input-wrap');
-    const phoneField   = phoneInput.closest('.contact-cta__field');
-    const phoneWrap    = phoneInput.closest('.contact-cta__input-wrap');
-    const consentWrap  = consentInput.closest('.contact-cta__checkbox-wrap');
+    const nameField   = nameInput.closest('.contact-cta__field');
+    const nameWrap    = nameInput.closest('.contact-cta__input-wrap');
+    const phoneField  = phoneInput.closest('.contact-cta__field');
+    const phoneWrap   = phoneInput.closest('.contact-cta__input-wrap');
+    const consentWrap = consentInput.closest('.contact-cta__checkbox-wrap');
 
     applyPhoneMask(phoneInput);
 
-    // validate on blur
-    nameInput.addEventListener('blur',    () => validateInput('name',  nameInput,  nameField,  nameWrap));
-    phoneInput.addEventListener('blur',   () => validateInput('phone', phoneInput, phoneField, phoneWrap));
-    consentInput.addEventListener('change', () => validateConsent(consentInput, consentWrap));
+    const vName    = () => { const ok = RULES.name.validate(nameInput.value);    ok ? clearInputError(nameField, nameWrap)     : showInputError(nameField, nameWrap, RULES.name.message);      return ok; };
+    const vPhone   = () => { const ok = RULES.phone.validate(phoneInput.value);  ok ? clearInputError(phoneField, phoneWrap)   : showInputError(phoneField, phoneWrap, RULES.phone.message);    return ok; };
+    const vConsent = () => { const ok = RULES.consent.validate(consentInput);    ok ? clearCheckboxError(consentWrap)          : showCheckboxError(consentWrap, RULES.consent.message);          return ok; };
 
-    // re-validate live after first error
-    nameInput.addEventListener('input', () => {
-        if (nameField.classList.contains('is-invalid'))
-            validateInput('name', nameInput, nameField, nameWrap);
-    });
-    phoneInput.addEventListener('input', () => {
-        if (phoneField.classList.contains('is-invalid'))
-            validateInput('phone', phoneInput, phoneField, phoneWrap);
-    });
+    nameInput.addEventListener('blur',      vName);
+    phoneInput.addEventListener('blur',     vPhone);
+    consentInput.addEventListener('change', vConsent);
+    nameInput.addEventListener('input',  () => { if (nameField.classList.contains('is-invalid'))  vName(); });
+    phoneInput.addEventListener('input', () => { if (phoneField.classList.contains('is-invalid')) vPhone(); });
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        const v1 = validateInput('name',  nameInput,  nameField,  nameWrap);
-        const v2 = validateInput('phone', phoneInput, phoneField, phoneWrap);
-        const v3 = validateConsent(consentInput, consentWrap);
-
-        if (!v1 || !v2 || !v3) {
-            form.querySelector('.is-invalid input, .is-invalid')?.focus();
-            return;
-        }
+        const ok = vName() & vPhone() & vConsent();
+        if (!ok) { form.querySelector('.is-invalid input, .is-invalid')?.focus(); return; }
 
         const submit = form.querySelector('.contact-cta__submit');
         submit.disabled = true;
         submit.textContent = 'Отправлено!';
+        setTimeout(() => { form.reset(); submit.disabled = false; submit.textContent = 'Отправить'; }, 3000);
+    });
+};
 
+// ---- FAQ ask-form setup ----
+const setupAskForm = (form) => {
+    const nameInput    = form.querySelector('[name="name"]');
+    const phoneInput   = form.querySelector('[name="phone"]');
+    const consentInput = form.querySelector('[name="consent"]');
+    if (!nameInput || !phoneInput || !consentInput) return;
+
+    const nameField   = nameInput.closest('.ask-field');
+    const nameWrap    = nameInput.closest('.ask-field__wrap');
+    const phoneField  = phoneInput.closest('.ask-field');
+    const phoneWrap   = phoneInput.closest('.ask-field__wrap');
+    const consentLabel = consentInput.closest('.catalog-ask-form__consent');
+
+    applyPhoneMask(phoneInput);
+
+    const vName    = () => { const ok = RULES.name.validate(nameInput.value);   ok ? clearAskError(nameField, nameWrap)         : showAskError(nameField, nameWrap, RULES.name.message);       return ok; };
+    const vPhone   = () => { const ok = RULES.phone.validate(phoneInput.value); ok ? clearAskError(phoneField, phoneWrap)       : showAskError(phoneField, phoneWrap, RULES.phone.message);     return ok; };
+    const vConsent = () => { const ok = RULES.consent.validate(consentInput);   ok ? clearAskConsentError(consentLabel)         : showAskConsentError(consentLabel, RULES.consent.message);      return ok; };
+
+    nameInput.addEventListener('blur',      vName);
+    phoneInput.addEventListener('blur',     vPhone);
+    consentInput.addEventListener('change', vConsent);
+    nameInput.addEventListener('input',  () => { if (nameField.classList.contains('is-invalid'))  vName(); });
+    phoneInput.addEventListener('input', () => { if (phoneField.classList.contains('is-invalid')) vPhone(); });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const ok = vName() & vPhone() & vConsent();
+        if (!ok) { form.querySelector('.is-invalid input, .is-invalid')?.focus(); return; }
+
+        const submit = form.querySelector('.catalog-ask-form__submit');
+        submit.disabled = true;
+        submit.textContent = 'Отправлено!';
+        setTimeout(() => { form.reset(); submit.disabled = false; submit.textContent = 'Отправить'; }, 3000);
+    });
+};
+
+// ---- Mortgage bottom form (phone + consent, button type="button") ----
+export const initMortgageForm = () => {
+    const formDiv = document.querySelector('.section--mortgage .mortgage__form');
+    if (!formDiv) return;
+
+    const phoneInput   = formDiv.querySelector('[name="phone"]');
+    const consentInput = formDiv.querySelector('[name="consent"]');
+    if (!phoneInput || !consentInput) return;
+
+    const phoneField  = phoneInput.closest('.contact-cta__field');
+    const phoneWrap   = phoneInput.closest('.contact-cta__input-wrap');
+    const consentWrap = consentInput.closest('.contact-cta__checkbox-wrap');
+    const submitBtn   = formDiv.querySelector('.mortgage__submit');
+
+    applyPhoneMask(phoneInput);
+
+    const vPhone   = () => { const ok = RULES.phone.validate(phoneInput.value); ok ? clearInputError(phoneField, phoneWrap) : showInputError(phoneField, phoneWrap, RULES.phone.message); return ok; };
+    const vConsent = () => { const ok = RULES.consent.validate(consentInput);   ok ? clearCheckboxError(consentWrap)        : showCheckboxError(consentWrap, RULES.consent.message);         return ok; };
+
+    phoneInput.addEventListener('blur',     vPhone);
+    consentInput.addEventListener('change', vConsent);
+    phoneInput.addEventListener('input', () => { if (phoneField.classList.contains('is-invalid')) vPhone(); });
+
+    submitBtn.addEventListener('click', () => {
+        const ok = vPhone() & vConsent();
+        if (!ok) { phoneField.classList.contains('is-invalid') ? phoneInput.focus() : consentInput.focus(); return; }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправлено!';
         setTimeout(() => {
-            form.reset();
-            submit.disabled = false;
-            submit.textContent = 'Отправить';
+            phoneInput.value = '';
+            consentInput.checked = false;
+            clearInputError(phoneField, phoneWrap);
+            clearCheckboxError(consentWrap);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Получить предложение';
         }, 3000);
     });
+};
+
+// ---- Public init ----
+export const initContactForm = () => {
+    document.querySelectorAll('.contact-cta__form').forEach(setupCtaForm);
+};
+
+export const initFaqForm = () => {
+    document.querySelectorAll('.catalog-ask-form__form').forEach(setupAskForm);
 };

@@ -53,7 +53,7 @@
             gap: 9px;
             margin-bottom: 16px;
         }
-        
+
         &-icon {
             font-size: 0;
             position: absolute;
@@ -63,6 +63,10 @@
 
             @include respond-below('md') {
                 position: static;
+            }
+
+            svg {
+                color: var(--stroinova-primary-2);
             }
 
             .desktop-icon {

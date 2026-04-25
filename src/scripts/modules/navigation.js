@@ -7,6 +7,7 @@ import { trapFocus } from '../utils/a11y.js';
 export const initNavigation = () => {
   const burger = $('.header__burger');
   const mobileNav = $('.mobile-nav');
+  const closeInner = mobileNav?.querySelector('.mobile-nav__close');
 
   if (!burger || !mobileNav) {return;}
 
@@ -33,6 +34,10 @@ export const initNavigation = () => {
   on(burger, 'click', () => {
     mobileNav.classList.contains('is-open') ? closeMenu() : openMenu();
   });
+
+  if (closeInner) {
+    on(closeInner, 'click', closeMenu);
+  }
 
   on(document, 'keydown', (e) => {
     if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {closeMenu();}

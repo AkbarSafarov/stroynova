@@ -36,6 +36,10 @@
                 margin-top: -3px;
             }
 
+            svg {
+                color: var(--stroinova-primary-2);
+            }
+
             .desktop-icon {
                 @include respond-below('md') {
                     display: none;

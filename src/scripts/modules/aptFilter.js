@@ -1,6 +1,8 @@
 /**
  * Apt Filter — range sliders + room-type toggle
  */
+import { resetCustomSelect } from './customSelect.js';
+
 export const initAptFilter = () => {
   const section = document.querySelector('.apt-filter');
   if (!section) return;
@@ -48,8 +50,7 @@ export const initAptFilter = () => {
   const resetBtn = section.querySelector('.apt-filter__reset');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      const select = document.getElementById('filter-project');
-      if (select) select.value = '';
+      resetCustomSelect(section.querySelector('.c-select[data-name="project"]'));
 
       if (floorsInput) {
         floorsInput.value = floorsInput.min;
